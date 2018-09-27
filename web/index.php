@@ -6,15 +6,9 @@
 
 <link rel="stylesheet" href="mystyle.css">
 <?php
-echo "
-<html>
-    <head>
-        <title>Week11 : Problem 1</title>
-    </head>
-    <body>
-        <p>Hello World</p>
-    </body>
-</html>";
+echo $now = new DateTime();
+echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
+echo $now->getTimestamp();           // Unix Timestamp -- Since PHP 5.
 ?>
 <body>
 
