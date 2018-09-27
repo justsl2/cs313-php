@@ -5,9 +5,6 @@
 </head>
 
 <link rel="stylesheet" href="mystyle.css">
-<?php
-echo $now = new DateTime();
-?>
 <body>
 
     <!-- Sidebar -->
