@@ -9,11 +9,19 @@
 
     <!-- Sidebar -->
     <div class="sidebar"><br>
-      <div class="logo"><a href="..">Justin's<br>Site</a></div>
-      <div class="sideLinks">     
+        <div class="logo"><a href="..">Justin's<br>Site</a></div>
+        <div class="sideLinks">     
         <a href="..">Home</a> 
         <a href="assignments.html">Assignments</a> 
-      </div>
+        </div>
+        <div class="footer">
+        <?php
+        echo "Today is " . date("Y/m/d") . "<br>";
+        echo "Today is " . date("Y.m.d") . "<br>";
+        echo "Today is " . date("Y-m-d") . "<br>";
+        echo "Today is " . date("l");
+        ?>
+        </div>
     </div>
     <!-- Main Body -->
     <div class="main">
@@ -23,14 +31,8 @@
         <h1 class="about">I'm a Software Engineering student at Brigham Young University - Idaho.</h1>
         <h1 class="about">I enjoy traveling with my family, playing with technology, and biking (road, mountain, and bmx)!</h1>
         <img src="Acadia3.jpeg" alt="Family" width="500">
-        <BR>
-        <!-- PHP -->
-        <?php
-echo "Today is " . date("Y/m/d") . "<br>";
-echo "Today is " . date("Y.m.d") . "<br>";
-echo "Today is " . date("Y-m-d") . "<br>";
-echo "Today is " . date("l");
-?>
+    
+       
 
     </div>
 
