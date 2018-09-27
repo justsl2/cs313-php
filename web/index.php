@@ -6,7 +6,9 @@
 
 <link rel="stylesheet" href="mystyle.css">
 <body>
-
+<?php
+echo "My first PHP script!";
+?>
     <!-- Sidebar -->
     <div class="sidebar"><br>
       <div class="logo"><a href="..">Justin's<br>Site</a></div>
