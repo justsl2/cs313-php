@@ -6,9 +6,7 @@
 
 <link rel="stylesheet" href="mystyle.css">
 <body>
-<?php
-echo "My first PHP script!";
-?>
+
     <!-- Sidebar -->
     <div class="sidebar"><br>
       <div class="logo"><a href="..">Justin's<br>Site</a></div>
@@ -21,9 +19,14 @@ echo "My first PHP script!";
     <div class="main">
       <!-- Header -->
         <h1 class="header">About Justin</h1>
+        <!-- Body -->
         <h1 class="about">I'm a Software Engineering student at Brigham Young University - Idaho.</h1>
         <h1 class="about">I enjoy traveling with my family, playing with technology, and biking (road, mountain, and bmx)!</h1>
         <img src="Acadia3.jpeg" alt="Family" width="500">
+        <!-- PHP -->
+        <?php
+            echo "My first PHP script!";
+        ?>
 
     </div>
 
