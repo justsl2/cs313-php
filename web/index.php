@@ -15,12 +15,7 @@
         <a href="assignments.html">Assignments</a> 
         </div>
         <div class="footer">
-        <?php
-        echo "Today is " . date("Y/m/d") . "<br>";
-        echo "Today is " . date("Y.m.d") . "<br>";
-        echo "Today is " . date("Y-m-d") . "<br>";
-        echo "Today is " . date("l");
-        ?>
+            testing
         </div>
     </div>
     <!-- Main Body -->
