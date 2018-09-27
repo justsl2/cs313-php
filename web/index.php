@@ -15,7 +15,7 @@
         <a href="assignments.html">Assignments</a> 
         </div>
         <div class="footer">
-            &copy; 2010-<?php echo date("Y");?>
+            &copy; <?php echo date("Y");?>
         </div>
     </div>
     
