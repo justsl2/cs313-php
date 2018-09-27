@@ -10,9 +10,9 @@
 
     <!-- Sidebar -->
     <div class="sidebar"><br>
-      <div class="logo"><a href="index.html">Justin's<br>Site</a></div>
+      <div class="logo"><a href="..">Justin's<br>Site</a></div>
       <div class="sideLinks">     
-        <a href="index.html">Home</a> 
+        <a href="..">Home</a> 
         <a href="assignments.html">Assignments</a> 
       </div>
     </div>
