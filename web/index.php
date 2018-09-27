@@ -15,9 +15,7 @@
         <a href="assignments.html">Assignments</a> 
         </div>
         <div class="footer">
-                <?php
-echo "The time is " . date("h:i:sa");
-?>    
+            &copy; 2010-<?php echo date("Y");?>
         </div>
     </div>
     

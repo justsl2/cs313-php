@@ -28,10 +28,12 @@ a:hover{font-weight: bold;}
 
 .footer {
     position: fixed;
+    padding-left: 40px;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: left;
+    font-size: 15px;
 }
     
 
