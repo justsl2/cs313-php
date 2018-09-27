@@ -23,10 +23,14 @@
         <h1 class="about">I'm a Software Engineering student at Brigham Young University - Idaho.</h1>
         <h1 class="about">I enjoy traveling with my family, playing with technology, and biking (road, mountain, and bmx)!</h1>
         <img src="Acadia3.jpeg" alt="Family" width="500">
+        <BR>
         <!-- PHP -->
         <?php
-            echo "My first PHP script!";
-        ?>
+echo "Today is " . date("Y/m/d") . "<br>";
+echo "Today is " . date("Y.m.d") . "<br>";
+echo "Today is " . date("Y-m-d") . "<br>";
+echo "Today is " . date("l");
+?>
 
     </div>
 
