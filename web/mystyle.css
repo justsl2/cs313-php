@@ -29,6 +29,7 @@ a:hover{font-weight: bold;}
 .footer {
     position: fixed;
     padding-left: 40px;
+    padding-bottom: 20px;
     left: 0;
     bottom: 0;
     width: 100%;
