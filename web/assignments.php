@@ -16,7 +16,7 @@
         <a href="assignments.php">Assignments</a> 
         </div>
        <div class="footer">            
-            <?php echo date("m/d/Y");?>
+            <?php echo "Today's Date: " . date("mmm d, Y");?>
             <br>
             &copy; <?php echo date("Y");?>
             
