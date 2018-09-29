@@ -15,8 +15,11 @@
         <a href="..">Home</a> 
         <a href="assignments.php">Assignments</a> 
         </div>
-        <div class="footer">
+       <div class="footer">            
+            <?php echo date("m/d/Y");?>
+            <br>
             &copy; <?php echo date("Y");?>
+            
         </div>
     </div>
     
