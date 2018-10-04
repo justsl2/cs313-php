@@ -10,10 +10,11 @@
 <body>
     <h1>Your Info</h1>
     <p> Name:
-        <?php echo $_POST["name"]; ?> <br> Email: <a href="mailto:" <?php echo $_POST[ "email"]; ?>>
-        <?php echo $_POST["email"]; ?></a> <br> Major:
-        <?php echo $_POST["Major"]; ?> <br> Comments:
-        <?php echo $_POST["comments"]; ?> <br> You have visited: <br>
+        <?php echo $_POST["name"]; ?> <br> 
+        Email: <a href="mailto:" <?php $_POST[ "email"]; ?>></a> <br> 
+        Major:<?php echo $_POST["Major"]; ?> <br> 
+        Comments:<?php echo $_POST["comments"]; ?> <br> <br>
+        You have visited: <br> 
         <?php 
         $continents = $_POST["continents"];
         $count = count($continents);
