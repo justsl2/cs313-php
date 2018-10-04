@@ -10,7 +10,7 @@
 <body>
     <h1>Your Info</h1>
     <p> Name:       <?php echo $_POST["name"]; ?> <br> 
-        Email:      <?php echo "<a href='mailto:" . $_POST[ "email"] . echo "</a>"; ?>><br> 
+        Email:      <?php echo "<a href='mailto:"; ?>><br> 
         Major:      <?php echo $_POST["Major"]; ?> <br> 
         Comments:   <?php echo $_POST["comments"]; ?> <br> 
         You have visited: <br>
