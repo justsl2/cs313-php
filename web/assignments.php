@@ -27,7 +27,7 @@
     <div class="main">
       <!-- Header -->
         <h1 class="header">Assignments</h1>
-        <h1 class="about">Coming Soon!</h1>        
+        <a href="\week03\teach\ta03.php" class="about">Week 03-Teach</a>        
     </div>
 
 </body>
