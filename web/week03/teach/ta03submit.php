@@ -9,10 +9,9 @@
 
 <body>
     <h1>Your Info</h1>
-    <p> Name:
-        <?php echo $_POST["name"]; ?> <br> 
-        Email: <a href="mailto:<?php echo test@test.com; ?> <br> 
-        Major:<?php echo $_POST["Major"]; ?> <br> 
+    <p> Name: <?php echo $_POST["name"]; ?> <br> 
+        Email: <a href="mailto:<?php echo $_POST["email"]; ?><br> 
+        Major: <?php echo $_POST["Major"]; ?> <br> 
         Comments:<?php echo $_POST["comments"]; ?> <br> <br>
         You have visited: <br> 
         <?php 
