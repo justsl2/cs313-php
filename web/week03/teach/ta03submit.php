@@ -11,7 +11,7 @@
     <h1>Your Info</h1>
     <p> Name:
         <?php echo $_POST["name"]; ?> <br> 
-        Email: <?php echo "<a href='mailto:" . $email . "'>";>></a> <br> 
+        Email: <a href="mailto:<?php echo $email; ?> <br> 
         Major:<?php echo $_POST["Major"]; ?> <br> 
         Comments:<?php echo $_POST["comments"]; ?> <br> <br>
         You have visited: <br> 
