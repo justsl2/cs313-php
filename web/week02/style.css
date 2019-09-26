@@ -1,18 +1,13 @@
 /* ta02.css */
 
-.div-first {
+#div01 {
 	background-color: rgb(0, 38, 255);
 	font-size: 3em;
 }
 
-.div-later {
-	font-size: 2em;
-}
-
-
-
 #div02 {
-	background-color: rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
+    font-size: 2em;
 }
 
 #div03 {
