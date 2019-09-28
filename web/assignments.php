@@ -4,7 +4,7 @@
     <title>Justin's Assignments</title>
 </head>
     
-<link rel="stylesheet" href="mystyle.css">
+<link rel="stylesheet" href="mainstyles.css">
 
 <body>
 
@@ -14,7 +14,7 @@
         <div class="sideLinks">     
         <a href="..">Home</a> 
         <a href="assignments.php">Assignments</a> 
-        </div>
+        </div>       
        <div class="footer">            
             <?php echo "Today's Date: " . date("M d, Y");?>
             <br>
@@ -27,7 +27,7 @@
     <div class="main">
       <!-- Header -->
         <h1 class="header">Assignments</h1>
-        <a href="\week03\teach\ta03.php" class="about">Week 03-Teach</a>        
+        <p class="about">Comming Soon</p>       
     </div>
 
 </body>

@@ -4,7 +4,7 @@
     <title>CS313 Justin's Home Page</title>
 </head>
 
-<link rel="stylesheet" href="mystyle.css">
+<link rel="stylesheet" href="mainstyles.css">
 <body>
 
     <!-- Sidebar -->
