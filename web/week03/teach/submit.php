@@ -1,4 +1,6 @@
-<?php $name = $_POST["name"]; ?>
+<?php 
+    $name = $_POST["name"]; 
+?>
 <html>
 
 <head>
