@@ -1,4 +1,4 @@
 git add --all
-git commit -m "Week02 Files"
+git commit -m "Update Files"
 git push heroku master
 git push github master

@@ -2,25 +2,14 @@
 <html>
 <head>
     <title>CS313 Justin's Home Page</title>
+    <link rel="stylesheet" type="text/css" href="mainstyles.css">
 </head>
 
-<link rel="stylesheet" href="mainstyles.css">
+
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar"><br>
-        <div class="logo"><a href="..">Justin's<br>Site</a></div>
-        <div class="sideLinks">     
-        <a href="..">Home</a> 
-        <a href="assignments.php">Assignments</a> 
-        </div>
-        <div class="footer">            
-            <?php echo "Today's Date: " . date("M d, Y");?>
-            <br>
-            &copy; <?php echo date("Y");?>
-            
-        </div>
-    </div>
+    <?php include 'sidebar.php';?>
     
     <!-- Main Body -->
     <div class="main">

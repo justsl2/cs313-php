@@ -3,11 +3,12 @@
 
 <head>
     <title>Teach Activity 3</title>
-
-
+    <link rel="stylesheet" type="text/css" href="..\..\mainstyles.css">
 </head>
 
 <body>
+<?php include '..\..\sidebar.php';?>
+<div class="main">
     <h1>Your Info</h1>
     <p> Name:       <?php echo $_POST["name"]; ?> <br> 
         Email:      <?php echo "<a href=mailto:" . $_POST["email"].">".$_POST["email"]."</a>"; ?><br> 
@@ -31,7 +32,7 @@
         }
         ?></p>
 
-
+    </div>
 </body>
 
 </html>

@@ -4,13 +4,13 @@
 
 <head>
     <title>Teach Activity 3</title>
-
-
+    <link rel="stylesheet" type="text/css" href="..\..\mainstyles.css">
 </head>
 
 <body>
-
-    <form action="ta03submit.php" method="post">
+<?php include '..\..\sidebar.php';?>
+<div class="main">
+    <form action="submit.php" method="post">
         <input type="text" name="name" placeholder="Name:"><br>
         <input type="text" name="email" placeholder="Email:"><br>
         <?php 
@@ -21,8 +21,8 @@
             echo "<input type='radio' name='Major' value='$radio[$i]'> $radio[$i]<br>";
         }
         ?>
-        <textarea name="comments" placeholder="Comments"></textarea><br>
-        
+
+        <textarea name="comments" placeholder="Comments"></textarea><br>        
 
         <input type="checkbox" name="continents[]" value="na"> North America<br>
         <input type="checkbox" name="continents[]" value="sa"> South America<br>
@@ -31,10 +31,11 @@
         <input type="checkbox" name="continents[]" value="as"> Asia<br>
         <input type="checkbox" name="continents[]" value="au" > Australia<br>
         <input type="checkbox" name="continents[]" value="an" > Antarctica<br>
+        
         <input type="submit">
     </form>
 
-
+    </div>
 </body>
 
 </html>
