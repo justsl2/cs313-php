@@ -19,7 +19,6 @@
 	<div class="topnav">
 		<a href="index.php">Browse</a>
 		<a href="cart.php">View Cart</a>
-		<a class="active">Confirmation</a>
 	</div>
 
 	<h2>Confirmation Page</h2>

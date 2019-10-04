@@ -14,7 +14,6 @@
 	<div class="topnav">
 		<a href="index.php">Browse</a>
 		<a href="cart.php">View Cart</a>
-		<a class="active">Checkout</a>
 	</div>
 
 	<form id="userInfo" method="post" action="confirmation.php">
