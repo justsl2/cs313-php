@@ -1,5 +1,5 @@
 <?php 
-    $name = $_POST["name"];
+    $name = htmlentities($_POST["name"]);
 ?>
 <html>
 
