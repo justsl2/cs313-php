@@ -15,8 +15,8 @@
     <div class="main">
       <!-- Header -->
         <h1 class="header">Assignments</h1>
-        <a class="about" href="..\week03\teach\index.php">Week 03 Teach</a>      
-        <a class="about" href="..\week03\prove\index.php">Week 03 Prove</a>   
+        <a class="about" href="..\week03\teach\index.php">Week 03 Teach</a><br>      
+        <a class="about" href="..\week03\prove\index.php">Week 03 Prove</a><br>    
     </div>
 
 </body>
