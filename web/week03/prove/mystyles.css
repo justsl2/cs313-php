@@ -53,8 +53,7 @@ ul {
 }
 
 .item:hover {
-	background-color: #e0e0e0;
-	padding-left: 10px;
+	background-color: #f1eee3;
 }
 
 .item > h4 {
@@ -95,9 +94,11 @@ body {
   .itemPhoto {
 	width: 20em;
 }
+
 .item {
 	align-content: center;
 }
+
 }
 
 label{
