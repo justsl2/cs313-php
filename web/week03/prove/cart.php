@@ -65,7 +65,7 @@
 			}
 
 			$total += $price;
-			echo "<li><b>$item - $".$price."</b><br><img src='$pic' class='itemPhoto2'></li>";
+			echo "<li><b>$item - $".money_format('%i', $price)."</b><br><img src='$pic' class='itemPhoto2'></li>";
 			echo "<form method='post' action='cart.php'>
 				    <button type='submit' name='remove' class='button2' value='$item'>Remove</button>
 				 </form>";
@@ -73,7 +73,7 @@
 		}
 		echo "</ul>";
 		
-		echo "<b>Total: $".$total."</b>";
+		echo "<b>Total: $"money_format('%i', .$total)."</b>";
 		?>
 
 	<form method="post" action="">
