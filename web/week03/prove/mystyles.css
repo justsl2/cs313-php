@@ -1,18 +1,28 @@
-#itemList {
-	display: flex;
-	flex-wrap: wrap;
+.topnav {
+  background: #009dd9;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
-
-h1 {
-	font-size: 300%;
-  color:#009dd9;
-  font-family: "Bookman Old Style";
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
-
-ul {
-  list-style-type: none;
+.topnav a:hover {
+  background-color: rgb(131, 131, 131);
+  color: white;
 }
-
+.topnav a.active {
+  background-color: rgb(194, 194, 194);
+  color: white;
+}
+.topnav a.active:hover {
+  background-color: rgb(131, 131, 131);
+  color: white;
+}
 .button {
   background-color: rgb(255, 255, 255); 
   color: rgb(160, 160, 160); 
@@ -27,7 +37,6 @@ ul {
   cursor: pointer;
   border-radius: 7px;
 }
-
 .button2 {
   background-color: rgb(255, 255, 255); 
   color: rgb(160, 160, 160); 
@@ -42,65 +51,68 @@ ul {
   cursor: pointer;
   border-radius: 7px;
 }
-
+.button3 {
+  background-color: rgb(255, 255, 255); 
+  color: rgb(160, 160, 160); 
+  border: 2px solid rgb(180, 180, 180);
+  width: 150px;
+  padding: 12px 0px 12px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 7px;
+}
 .button:hover {
   background-color: rgb(128, 128, 128);
   color: white;
 }
+#itemList {
+	display: flex;
+	flex-wrap: wrap;
+}
+h1 {
+	font-size: 300%;
+  color:#009dd9;
+  font-family: "Bookman Old Style";
+}
 
+ul {
+  list-style-type: none;
+}
 .item {
 	padding: 20px;
 }
-
 .item:hover {
 	background-color: #f1eee3;
 }
-
 .item > h4 {
 	margin-bottom: 15px;
 }
-
 .item > h5 {
 	margin-bottom: 15px;
 	margin-top: 15px;
 }
-
 .itemPhoto {
 	width: 15em;
 }
-
 .itemPhoto2 {
 	width: 4em;
 }
-
 .noShow {
 	display: none;
 }
-
 body {
   font-family: Verdana;
   
 }
-
-.flex-container {
+.flex{
   display: flex;
   flex-direction: horizontal;
 }
-
-@media screen and (max-width: 630px) {
-  .flex-container {
-    display: block;
-  }
-  .itemPhoto {
-	width: 20em;
-}
-
-.item {
-	align-content: center;
-}
-
-}
-
 label{
     display: inline-block;
     float: left;
@@ -119,34 +131,4 @@ input {
     float: left;
     clear: left;
     text-align: center;
-}
-
-
-.topnav {
-  background: #009dd9;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-
-.topnav a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: rgb(131, 131, 131);
-  color: white;
-}
-
-.topnav a.active {
-  background-color: rgb(194, 194, 194);
-  color: white;
-}
-.topnav a.active:hover {
-  background-color: rgb(131, 131, 131);
-  color: white;
 }
