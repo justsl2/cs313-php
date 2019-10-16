@@ -13,8 +13,6 @@ if (empty($dbUrl)) {
 
 $dbopts = parse_url($dbUrl);
 
-print "<p>$dbUrl</p>\n\n";
-
 $dbHost = $dbopts["host"];
 $dbPort = $dbopts["port"];
 $dbUser = $dbopts["user"];
