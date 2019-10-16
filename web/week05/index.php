@@ -36,7 +36,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 ECHO 'TEST 3';
 $statement = $db->query('SELECT username, password FROM note_user');
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+ECHO $statement
 ?>
 
 <html>
