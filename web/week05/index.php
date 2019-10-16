@@ -20,20 +20,20 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-
+ECHO 'TEST 1';
 foreach ($db->query('SELECT username, password FROM note_user') as $row)
 {
   echo 'user: ' . $row['username'];
   echo ' password: ' . $row['password'];
   echo '<br/>';
 }
-
+ECHO 'TEST 2';
 $statement = $db->query('SELECT username, password FROM note_user');
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
   echo 'user: ' . $row['username'] . ' password: ' . $row['password'] . '<br/>';
 }
-
+ECHO 'TEST 3';
 $statement = $db->query('SELECT username, password FROM note_user');
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
