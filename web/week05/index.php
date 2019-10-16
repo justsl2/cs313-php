@@ -1,50 +1,53 @@
 <?php $radio = array("Computer Science", "Web Design and Development", "Computer Information Technology", "Computer Engineering"); 
+try
+{
+  $dbUrl = getenv('DATABASE_URL');
 
+  $dbOpts = parse_url($dbUrl);
 
+  $dbHost = $dbOpts["host"];
+  $dbPort = $dbOpts["port"];
+  $dbUser = $dbOpts["user"];
+  $dbPassword = $dbOpts["pass"];
+  $dbName = ltrim($dbOpts["path"],'/');
+
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $ex)
+{
+  echo 'Error!: ' . $ex->getMessage();
+  die();
+}
+TEST 1
 foreach ($db->query('SELECT username, password FROM note_user') as $row)
 {
   echo 'user: ' . $row['username'];
   echo ' password: ' . $row['password'];
   echo '<br/>';
 }
+TEST 2
+$statement = $db->query('SELECT username, password FROM note_user');
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+  echo 'user: ' . $row['username'] . ' password: ' . $row['password'] . '<br/>';
+}
+TEST 3
+$statement = $db->query('SELECT username, password FROM note_user');
+$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <html>
 
 <head>
-    <title>Teach Activity 3</title>
-    <link rel="stylesheet" type="text/css" href="..\..\mainstyles.css">
+    <title>Playing with PHP and Postgres</title>
+
 </head>
 
 <body>
-<?php include '..\sidebar.php';?>
-<div class="main">
-    <form action="submit.php" method="post">
-        <input type="text" name="name" placeholder="Name:"><br>
-        <input type="text" name="email" placeholder="Email:"><br>
-        <?php 
-        
-        $count = count($radio);
-        
-        for ($i=0; $i < $count; $i++){
-            echo "<input type='radio' name='Major' value='$radio[$i]'> $radio[$i]<br>";
-        }
-        ?>
 
-        <textarea name="comments" placeholder="Comments"></textarea><br>        
-
-        <input type="checkbox" name="continents[]" value="na"> North America<br>
-        <input type="checkbox" name="continents[]" value="sa"> South America<br>
-        <input type="checkbox" name="continents[]" value="e" > Europe<br>
-        <input type="checkbox" name="continents[]" value="af"> Africa<br>
-        <input type="checkbox" name="continents[]" value="as"> Asia<br>
-        <input type="checkbox" name="continents[]" value="au" > Australia<br>
-        <input type="checkbox" name="continents[]" value="an" > Antarctica<br>
-        
-        <input type="submit">
-    </form>
-
-    </div>
 </body>
 
 </html>
