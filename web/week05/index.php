@@ -38,7 +38,7 @@ $statement->bindValue(':bookName', $_get['bookName'], PDO::PAQRAM_STR);
 $statement->execute();
 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 // Go through each result
-while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+foreach ($row = $row)
 {
 	// The variable "row" now holds the complete record for that
 	// row, and we can access the different values based on their
@@ -52,7 +52,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 ?>
 <form>
 Book: <input type='text' name="bookName">
-<br>
+<br/>
 <input type = "submit" value="Search">
 </form>
 
