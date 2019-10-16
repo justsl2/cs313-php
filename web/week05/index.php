@@ -48,6 +48,11 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
 }
 ?>
+<form>
+Book: <input type='text' name="bookName">
+<br>
+<input type = "submit" value="Search">
+</form>
 
 
 </div>
