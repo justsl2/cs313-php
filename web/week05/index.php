@@ -33,8 +33,10 @@ $db = get_db();
 // Notice that we avoid using "SELECT *" here. This is considered
 // good practice so we don't inadvertently bring back data we don't
 // want, especially if the database changes later.
-$statement = $db->prepare("SELECT book, chapter, verse, content FROM scriptures");
+$statement = $db->prepar('select * from Scriptures Where book=:bookName');
+$statement->bindValue(':bookName', $_get['bookName'], PDO::PAQRAM_STR);
 $statement->execute();
+$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 // Go through each result
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
