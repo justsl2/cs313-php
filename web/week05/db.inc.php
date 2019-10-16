@@ -21,7 +21,7 @@ $dbUser = $dbopts["user"];
 $dbPassword = $dbopts["pass"];
 $dbName = ltrim($dbopts["path"],'/');
 
-print "<p>pgsql:host=$dbHost;port=$dbPort;dbname=$dbName;pass=$dbPassword;user=$dbUser</p>\n\n";
+print "<p>pgsql:host=$dbHost;port=$dbPort;dbname=$dbName</p>\n\n";
 
 try {
  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
