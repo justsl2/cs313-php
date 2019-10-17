@@ -23,8 +23,9 @@ $db = get_db();
 <?php
 
 // Search Scriptures from a Book
-$bookName = isset($_GET['bookName']) ? $_GET['bookName'] : '';
 
+if (isset($_GET['bookName']))
+{
 $stmt = $db->prepare('select * from Scripture WHERE book=:bookName');
 $stmt->bindValue(':bookName', $_GET['bookName'], PDO::PARAM_STR);
 $stmt->execute();
@@ -39,7 +40,7 @@ foreach ($rows as $row)
   echo '</a>';
   echo '</p>';
 }
-
+}
 ?>
 
 <form>
