@@ -18,13 +18,13 @@ $db = get_db();
 </head>
 
 <body>
-<div>
-
 <h1>Scripture Resources</h1>
 
 <?php
 
 // Search Scriptures from a Book
+$bookName = isset($_GET['bookName']) ? $_GET['bookName'] : '';
+
 $stmt = $db->prepare('select * from Scripture WHERE book=:bookName');
 $stmt->bindValue(':bookName', $_GET['bookName'], PDO::PARAM_STR);
 $stmt->execute();
@@ -47,9 +47,6 @@ Book: <input type="text" name="bookName">
 <br/>
 <input type="submit" value="Search">
 </form>
-
-
-</div>
 
 </body>
 </html>
