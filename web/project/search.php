@@ -41,7 +41,7 @@
             echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
             echo '<b>Date Occurred:</b>  ' . $row['date_occurred'].'<br>';
             echo '<b>Date Occurred:</b>  ' . $row['description_short'].'<br>';
-            echo '<b>Within Reporting Boundaries?:</b>  ' . $row['reporting_boundary']. var_export($row['reporting_boundary'], true);'<br>';
+            echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], "Yes","No");'<br>';
             echo '</p>';
         }
     }
