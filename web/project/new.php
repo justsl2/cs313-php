@@ -18,7 +18,7 @@ $db = get_db();
         <a class="active" href="new.php">Create New Record</a>
         <a class="active" href="search.php">Search</a>
     </div>
-    <h2>Home</h2>
+    <h2>New</h2>
     Coming Soon
     </body>
 </html>

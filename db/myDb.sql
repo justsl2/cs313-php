@@ -163,7 +163,10 @@ CREATE TABLE public.injuries (
 );
 
 /*CREATE USER ims_user WITH PASSWORD 'ims_pass';*/
+GRANT CONNECT ON DATABASE ims TO ims_user;
 GRANT SELECT, INSERT, UPDATE ON all tables in schema public TO ims_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ims_user;
+REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM ims_user;
 
 INSERT INTO sites (site_label, site_active) VALUES ('Budapest Office', true); 
 INSERT INTO sites (site_label, site_active) VALUES ('Chicago Office', true); 
