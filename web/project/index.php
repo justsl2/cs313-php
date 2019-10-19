@@ -40,8 +40,8 @@ if (isset($_GET['bookName']))
     foreach ($rows as $row)
     {
         echo '<p>';
-        echo '<a href="scripture-details.php?id=' . $row['id'] . '">';
-        echo '<b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b>';
+        echo '<a href="event-details.php?id=' . $row['id'] . '">';
+        echo '<b>' . $row['event_id'] . ' ' . $row['event_id'] . ':' . $row['event_id'] . '</b>';
         echo '</a>';
         echo '</p>';
     }
