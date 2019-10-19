@@ -15,7 +15,7 @@ $db = get_db();
 <?php
 
 $stmt = $db->prepare('select * from events WHERE event_id=:event_id');
-$stmt->bindValue(':eventID', $_GET['eventID'], PDO::PARAM_INT);
+$stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); //another function that get only 1
 
