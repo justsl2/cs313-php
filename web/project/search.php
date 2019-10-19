@@ -35,10 +35,13 @@
 
         foreach ($rows as $row)
         {
+            
             echo '<p>';
             echo '<b>EventID:</b>  ';
-            echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a>';
-            echo '<b>Date Occurred:</b>  ' . $row['date_occurred'].'</a>';
+            echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
+            echo '<b>Date Occurred:</b>  ' . $row['date_occurred'].'<br>';
+            echo '<b>Date Occurred:</b>  ' . $row['description_short'].'<br>';
+            echo '<b>Within Reporting Boundaries?:</b>  ' . $row['reporting_boundary'].'<br>';
             echo '</p>';
         }
     }

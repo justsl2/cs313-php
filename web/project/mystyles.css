@@ -51,3 +51,7 @@ h2 {
     cursor: pointer;
     border-radius: 7px;
   }
+  .button:hover {
+    background-color: rgb(128, 128, 128);
+    color: white;
+  }
