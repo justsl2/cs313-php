@@ -19,12 +19,6 @@
     </div>
     <h2>Event Details</h2>
  
-
-<?php
-    require "dbConnect.php";
-    $db = get_db();
-?>
-
 <?php
     $stmt = $db->prepare('select * from events WHERE event_id=:event_id');
     $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
