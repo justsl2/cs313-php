@@ -35,7 +35,7 @@
 
         foreach ($rows as $row)
         {
-            $date = date_create('2000-01-01');
+            $date = $row['date_occurred'];
             echo date_format($date, 'Y-m-d H:i:s');
             echo '<p>';
             echo '<b>EventID:</b>  ';
