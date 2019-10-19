@@ -35,12 +35,12 @@
 
         foreach ($rows as $row)
         {
-            $date = new DateTime('2000-01-01');
+            $date = date_create('2000-01-01');
+            echo date_format($date, 'Y-m-d H:i:s');
             echo '<p>';
             echo '<b>EventID:</b>  ';
             echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
-            $date = $row['date_occurred'];
-            echo '<b>Date Occurred:</b>  ' . $date->format('Y-m-d H:i:s');.'<br>';
+            echo '<b>Date Occurred:</b>  ' . $row['date_occurred'].'<br>';
             echo '<b>Date Occurred:</b>  ' . $row['description_short'].'<br>';
             echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
             echo '</p>';
