@@ -28,11 +28,17 @@
     foreach ($rows as $row)
     {
         $dateOccurred = new DateTime($row['date_occurred']);
+        $dateReported = new DateTime($row['date_reported']);
+        $dateEntered = new DateTime($row['date_entered']);       
         echo '<p>';
         echo '<b>EventID:</b>  ';
         echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
-        echo '<b>Date Occurred:</b>  ' . $row['description_short'].'<br>';
+        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
+        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
+        echo '<b>Site:</b>  ' . $row['site_id'] .'<br>';
+        echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
+        echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
         echo '</p>';
     }
