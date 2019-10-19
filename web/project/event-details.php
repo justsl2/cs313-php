@@ -27,8 +27,13 @@
 
     foreach ($rows as $row)
     {
+        $dateOccurred = new DateTime($row['date_occurred']);
         echo '<p>';
-        echo '<b>' . $row['event_id'] . ' ' . $row['description_short'] . ':' . $row['description_long'] . '</b>';
+        echo '<b>EventID:</b>  ';
+        echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
+        echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
+        echo '<b>Date Occurred:</b>  ' . $row['description_short'].'<br>';
+        echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
         echo '</p>';
     }
 ?>
