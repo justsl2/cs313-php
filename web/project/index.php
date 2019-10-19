@@ -21,7 +21,7 @@ $db = get_db();
 <h1>Incident Management System</h1>
 
 <form>
-    EVENT ID: <input type="number" name="bookName">
+    EVENT ID: <input type="number" name="eventID">
     <br/>
     <input type="submit" value="Search">
 </form>
@@ -30,10 +30,10 @@ $db = get_db();
 
 // Search Event ID from Events
 
-if (isset($_GET['bookName']))
+if (isset($_GET['eventID']))
 {
-    $stmt = $db->prepare('select * from event_table WHERE event_id=:bookName');
-    $stmt->bindValue(':bookName', $_GET['bookName'], PDO::PARAM_INT);
+    $stmt = $db->prepare('select * from events WHERE event_id=:eventID');
+    $stmt->bindValue(':eventID', $_GET['eventID'], PDO::PARAM_INT);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -41,7 +41,7 @@ if (isset($_GET['bookName']))
     {
         echo '<p>';
         echo '<a href="event-details.php?id=' . $row['id'] . '">';
-        echo '<b>' . $row['event_id'] . ' ' . $row['event_id'] . ':' . $row['event_id'] . '</b>';
+        echo '<b>' . $row['event_id'] . ' ' . $row['date_occurred'] . ' - ' . $row['description_short'] . '</b>';
         echo '</a>';
         echo '</p>';
     }
