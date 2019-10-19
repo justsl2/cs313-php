@@ -36,7 +36,7 @@
         foreach ($rows as $row)
         {
             $date = new DateTime($row['date_occurred']);
-            echo $date->format('m/d/Y');
+            echo $date->format('mmm, dd Y');
 
             echo '<p>';
             echo '<b>EventID:</b>  ';
