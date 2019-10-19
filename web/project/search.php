@@ -39,9 +39,8 @@ $db = get_db();
         foreach ($rows as $row)
         {
             echo '<p>';
-            echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">';
-            echo '<b>' . $row['event_id'] . ' ' . $row['date_occurred'] . ' - ' . $row['description_short'] . '</b>';
-            echo '</a>';
+            echo '<b>EventID:</b>  ';
+            echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a>';
             echo '</p>';
         }
     }
