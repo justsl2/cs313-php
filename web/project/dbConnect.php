@@ -16,8 +16,8 @@ function get_db() {
 		$dbUrl = getenv('DATABASE_URL');
 
 		if (!isset($dbUrl) || empty($dbUrl)) {
-			// example localhost configuration URL with user: "ta_user", password: "ta_pass"
-			// and a database called "scripture_ta"
+			// example localhost configuration URL with user: "ims_user", password: "ims_pass"
+			// and a database called "ims"
 			$dbUrl = "postgres://ims_user:ims_pass@localhost:5432/ims";
 
 			// NOTE: It is not great to put this sensitive information right
@@ -39,6 +39,7 @@ function get_db() {
 		$dbUser = $dbopts["user"];
 		$dbPassword = $dbopts["pass"];
 		$dbName = ltrim($dbopts["path"],'/');
+		
 
 		// Create the PDO connection
 		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
