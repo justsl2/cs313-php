@@ -35,8 +35,9 @@
 
         foreach ($rows as $row)
         {
-            $date = $row['date_occurred'];
-            echo date_format($date, 'Y-m-d H:i:s');
+            $date = new DateTime($row['date_occurred']);
+            echo $date->format('Y-m-d H:i:s');
+
             echo '<p>';
             echo '<b>EventID:</b>  ';
             echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
