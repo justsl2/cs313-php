@@ -139,7 +139,7 @@ CREATE TABLE public.events (
    lighting_id INT REFERENCES public.lightings(lighting_id),
    operation_type_id INT REFERENCES public.operation_types(operation_type_id),
    activity_type_id INT REFERENCES public.activity_types(activity_type_id),
-   reporting_boudnary BOOLEAN,
+   reporting_boundary BOOLEAN,
    entered_by_id INT NOT NULL REFERENCES public.users(user_id),
    reported_by_id INT REFERENCES public.users(user_id),
    qa_qc_by_id INT REFERENCES public.users(user_id),
@@ -163,10 +163,11 @@ CREATE TABLE public.injuries (
 );
 
 /*CREATE USER ims_user WITH PASSWORD 'ims_pass';*/
-GRANT CONNECT ON DATABASE ims TO ims_user;
+/*GRANT CONNECT ON DATABASE ims TO ims_user;*/
 GRANT SELECT, INSERT, UPDATE ON all tables in schema public TO ims_user;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ims_user;
-REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM ims_user;
+/*GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ims_user;*/
+/*REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM ims_user;*/
+/*GRANT SELECT, INSERT, UPDATE ON events TO ims_user;*/
 
 INSERT INTO sites (site_label, site_active) VALUES ('Budapest Office', true); 
 INSERT INTO sites (site_label, site_active) VALUES ('Chicago Office', true); 
@@ -373,23 +374,23 @@ INSERT INTO users (user_name, user_password, user_name_first, user_name_last, us
 INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('user4', 'pass4', 'First4', 'Last4', 'M4', true);
 INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('user5', 'pass5', 'First5', 'Last5', 'M5', true);
 
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('1/1/2019', '1/2/2019', '1/3/2019', 'Short Description1', 'Detailed Description1', 1, 1, 1, 1, 1, 1, 80, 1, 1, 1, 1, 1, true, 1, 1, 1, 1, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('2/1/2019', '2/2/2019', '2/3/2019', 'Short Description2', 'Detailed Description2', 2, 2, 2, 2, 2, 2, 20, 2, 2, 2, 2, 2, true, 2, 2, 2, 2, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('3/1/2019', '3/2/2019', '3/3/2019', 'Short Description3', 'Detailed Description3', 3, 3, 1, 3, 3, 3, 80, 1, 3, 1, 3, 3, true, 3, 3, 3, 3, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('4/1/2019', '4/2/2019', '4/3/2019', 'Short Description4', 'Detailed Description4', 4, 4, 1, 4, 4, 4, 80, 1, 4, 2, 4, 4, true, 4, 4, 4, 4, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('5/1/2019', '5/2/2019', '5/3/2019', 'Short Description5', 'Detailed Description5', 5, 5, 1, 1, 1, 1, 80, 1, 5, 1, 5, 5, true, 5, 5, 5, 5, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('6/1/2019', '6/2/2019', '6/3/2019', 'Short Description6', 'Detailed Description6', 6, 6, 1, 2, 2, 2, 80, 1, 1, 2, 6, 6, true, 1, 1, 1, 1, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('7/1/2019', '7/2/2019', '7/3/2019', 'Short Description7', 'Detailed Description7', 7, 7, 1, 3, 3, 3, 80, 1, 2, 1, 7, 7, true, 1, 1, 1, 1, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('8/1/2019', '8/2/2019', '8/3/2019', 'Short Description8', 'Detailed Description8', 8, 8, 1, 4, 4, 4, 80, 1, 3, 2, 8, 8, true, 1, 1, 1, 1, 1);
-INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boudnary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
+INSERT INTO events (date_occurred, date_reported, date_entered, description_short, description_long, site_id, department_id, event_type_id, severity_actual_id, severity_probable_id, event_status_id, temperature, temperature_uom_id, weather_id, lighting_id, operation_type_id, activity_type_id, reporting_boundary, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id, consequence_type_id) 
    VALUES ('9/1/2019', '9/2/2019', '9/3/2019', 'Short Description9', 'Detailed Description9', 9, 9, 1, 1, 1, 5, 80, 1, 4, 1, 1, 9, false, 1, 1, 1, 1, 1);
    
 INSERT INTO injuries (event_id, injured_ill_personnel_type_id, work_related, medical_classification_id, injury_description, injury_nature_id, injury_primary_body_part_id, injury_lost_days, injury_lost_days_start_date, company_name_id, injury_status_id) VALUES (1, 1, true, 1, 'Injury description1', 1, 1, null, null, 1, 1);
