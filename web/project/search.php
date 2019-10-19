@@ -20,15 +20,13 @@ $db = get_db();
     </div>
     <h2>Search</h2>
     <form>
-        EVENT ID: <input type="number" name="eventID">
-        <br/>
-        <input type="submit" value="Search" class="button">
+        Event ID: <input type="number" name="eventID">
+        <input type="submit" value="Search Event ID" class="button">
     </form>
 
     <?php
 
     // Search Event ID from Events
-
     if (isset($_GET['eventID']))
     {
         $stmt = $db->prepare('select * from events WHERE event_id=:eventID');
@@ -45,5 +43,32 @@ $db = get_db();
         }
     }
     ?>
+    <br>
+    <!--
+    <form>
+        Record Status: <input type="text" name="eventID">
+        <input type="submit" value="Search Record Status" class="button">
+    </form>
+
+    <?php
+    
+     
+    if (isset($_GET['eventID']))
+    {
+        $stmt = $db->prepare('select * from events WHERE event_id=:eventID');
+        $stmt->bindValue(':eventID', $_GET['eventID'], PDO::PARAM_INT);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($rows as $row)
+        {
+            echo '<p>';
+            echo '<b>EventID:</b>  ';
+            echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a>';
+            echo '</p>';
+        }
+    }
+    ?>
+    -->
     </body>
 </html>
