@@ -207,7 +207,7 @@
         }
 
         //Injuries
-        $sql = "select * from injuries right join events on injuries.event_id = events.event_id WHERE event_id=:event_id";
+        $sql = "select injury_id, injury_description from injuries right join events on injuries.event_id = events.event_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -215,7 +215,6 @@
         foreach ($injuries as $injury)
         {
             echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
-            echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
         }
 
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
