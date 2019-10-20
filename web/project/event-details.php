@@ -227,6 +227,12 @@
                 {
                     echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
                 }
+            
+            //Lost Days
+            $dateLostStart = new DateTime($injury['injury_lost_days_start_date']);
+            echo '<b>Lost Days:</b>  ' . $injury['injury_lost_days'] .'<br>';
+            echo '<b>Lost Days Start Date:</b>  ' . $injury['injury_lost_days_start_date'] .'<br>';
+
                 //Injured/Ill Personnel Type
                 $sql = "select personnel_type_label from personnel_types LEFT join injuries on personnel_types.personnel_type_id = injuries.injured_ill_personnel_type_id   WHERE injuries.injury_id=". $injury['injury_id'];
                 $stmt = $db->prepare($sql);
