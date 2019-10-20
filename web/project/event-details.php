@@ -263,6 +263,15 @@
                 {
                     echo '<b>Company Name:</b>  ' . $company_name['company_name_label'] .'<br>';
                 }
+                //Injury Status
+                $sql = "select status_label from statuses LEFT join injuries on statuses.status_id = injuries.injury_status_id WHERE injuries.injury_id=". $injury['injury_id'];
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+                foreach ($statuses as $status)
+                {
+                    echo '<b>Injury Status:</b>  ' . $status['status_label'] .'<br>';
+                }
                 
         }
         echo '</p>';
