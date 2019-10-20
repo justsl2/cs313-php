@@ -254,6 +254,15 @@
                 {
                     echo '<b>Primary Body Part Injured:</b>  ' . $injury_primary_body_part['injury_primary_body_part_label'] .'<br>';
                 }
+                //Company Name
+                $sql = "select company_name_label from company_names LEFT join injuries on company_names.company_name_id = injuries.company_name_id WHERE injuries.injury_id=". $injury['injury_id'];
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $company_names = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+                foreach ($company_names as $company_name)
+                {
+                    echo '<b>Company Name:</b>  ' . $company_name['company_name_label'] .'<br>';
+                }
                 
         }
         echo '</p>';
