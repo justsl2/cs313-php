@@ -41,8 +41,12 @@
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
         echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
         echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
-
-        echo '<b>Site:</b>  ' . $row['site_label'] .'<br>';
+        $sql = "select site_label from sites right join events on sites.site_id = events.site_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $site = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo '<b>Site:</b>  ' . $site .'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
@@ -53,7 +57,7 @@
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
     $stmt->execute();
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $site = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($rows as $row)
     {
