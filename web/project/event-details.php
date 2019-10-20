@@ -216,15 +216,6 @@
         {
             echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
             echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
-            $sql = "select * from medical_classifications right join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id  WHERE event_id=:event_id";
-            $stmt = $db->prepare($sql);
-            $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
-            $stmt->execute();
-            $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-            foreach ($medical_classifications as $medical_classification)
-            {
-                echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification'] .'<br>';
-            }
         }
 
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
