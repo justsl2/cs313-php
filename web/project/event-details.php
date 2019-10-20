@@ -36,8 +36,7 @@
         $dateEntered = new DateTime($row['date_entered']); 
 
         echo '<p>';
-        echo '<b>EventID:</b>  ';
-        echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
+        echo '<b>EventID:</b>  '. $row['event_id'].'<br>';
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
         echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
         echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
