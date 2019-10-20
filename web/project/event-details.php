@@ -236,6 +236,15 @@
                 {
                     echo '<b>Injured/Ill Personnel Type:</b>  ' . $personnel_type['personnel_type_label'] .'<br>';
                 }
+                //Nature of Injury
+                $sql = "select injury_nature_label from injury_natures LEFT join injuries on injury_natures.injury_nature_id = injuries.injury_nature_id WHERE injuries.injury_id=". $injury['injury_id'];
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $injury_natures = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+                foreach ($injury_natures as $injury_nature)
+                {
+                    echo '<b>Nature of Injury:</b>  ' . $injury_nature['injury_nature_label'] .'<br>';
+                }
                 
         }
         echo '</p>';

@@ -251,12 +251,12 @@ INSERT INTO activity_types (activity_type_label, activity_type_active) VALUES ('
 INSERT INTO activity_types (activity_type_label, activity_type_active) VALUES ('Office, Warehouse, Accommodation, Catering', true);
 INSERT INTO activity_types (activity_type_label, activity_type_active) VALUES ('Transport', true);
 
-INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('1 Not Work Related', true); 
-INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('2 First Aid', true);
-INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('3 Other Recordable', true);
-INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('4 Restricted Duty', true);
-INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('5 Days Away From Work', true);
-INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('6 Fatality', true);
+INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('Not Work Related', true); 
+INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('First Aid', true);
+INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('Other Recordable', true);
+INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('Restricted Duty', true);
+INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('Days Away From Work', true);
+INSERT INTO medical_classifications (medical_classification_label, medical_classification_active) VALUES ('Fatality', true);
 
 INSERT INTO company_names (company_name_label, company_name_active) VALUES ('Company1', true); 
 INSERT INTO company_names (company_name_label, company_name_active) VALUES ('Company2', true); 
