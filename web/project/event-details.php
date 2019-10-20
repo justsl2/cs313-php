@@ -124,7 +124,78 @@
         $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($lightings as $lighting)
         {
-            echo '<b>Probable Severity:</b>  ' . $lighting['lighting_label'] .'<br>';
+            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+        }
+
+        //Operation Type
+        $sql = "select operation_type_label from operation_types right join events on operation_types.operation_type_id = events.operation_type_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $operationtypes = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($operationtypes as $operationtype)
+        {
+            echo '<b>Type of Operation At Time of Event:</b>  ' . $operationtype['operation_type_label'] .'<br>';
+        }
+        //Activity Type
+        $sql = "select activity_type_label from activity_types right join events on activity_types.activity_type_id = events.activity_type_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $activityTypes = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($activityTypes as $activityType)
+        {
+            echo '<b>Type of Activity At Time of Event:</b>  ' . $activityType['activity_type_label'] .'<br>';
+        }
+        //Entered By
+        $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.entered_by_id  WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $enteredBys = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($enteredBys as $enteredBy)
+        {
+            echo '<b>Entered By:</b>  ' . $enteredBy['user_name_first'] . $enteredBy['user_name_last'] . '(' . $enteredBy['user_name'] .')<br>';
+        }
+        //Reported By
+        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($lightings as $lighting)
+        {
+            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+        }
+        //QA QC'd By
+        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($lightings as $lighting)
+        {
+            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+        }
+        //Equipment Type
+        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($lightings as $lighting)
+        {
+            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+        }
+        //Consequence Type
+        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($lightings as $lighting)
+        {
+            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
         }
 
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
