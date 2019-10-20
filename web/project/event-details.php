@@ -226,6 +226,15 @@
                 {
                     echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
                 }
+                //Medical Classifications
+                $sql = "select injured_ill_personnel_type_label from personnel_types LEFT join injuries on personnel_types.personnel_type_id = injuries.personnel_type_id  WHERE injuries.injury_id=". $injury['injury_id'];
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $personnel_types = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+                foreach ($personnel_types as $personnel_type)
+                {
+                    echo '<b>Injured/Ill Personnel Type:</b>  ' . $personnel_type['injured_ill_personnel_type_label'] .'<br>';
+                }
         }
         echo '</p>';
     }
