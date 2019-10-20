@@ -245,6 +245,15 @@
                 {
                     echo '<b>Nature of Injury:</b>  ' . $injury_nature['injury_nature_label'] .'<br>';
                 }
+                //Primary Body Part
+                $sql = "select injury_primary_body_part_label from injury_primary_body_parts LEFT join injuries on injury_primary_body_parts.injury_primary_body_part_id = injuries.injury_primary_body_part_id WHERE injuries.injury_id=". $injury['injury_id'];
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $injury_primary_body_parts = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+                foreach ($injury_primary_body_parts as $injury_primary_body_part)
+                {
+                    echo '<b>Primary Body Part Injured:</b>  ' . $injury_primary_body_part['injury_primary_body_part_label'] .'<br>';
+                }
                 
         }
         echo '</p>';
