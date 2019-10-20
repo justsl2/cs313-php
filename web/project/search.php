@@ -14,7 +14,7 @@
     <h1>Incident Management System</h1>
     <div class="topnav">
         <a class="active" href="index.php">Home</a>
-        <a class="active" href="new.php">Create New Record</a>
+        <a class="active" href="new.php">Create New Event</a>
         <a class="active" href="search.php">Search</a>
     </div>
     <h2>Search</h2>
