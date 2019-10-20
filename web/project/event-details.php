@@ -193,7 +193,7 @@
 
         echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
         echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
-        
+        echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
 
         //Consequence Type
         $sql = "select consequence_type_label from consequence_types right join events on consequence_types.consequence_type_id = events.consequence_type_id WHERE event_id=:event_id";
@@ -207,7 +207,7 @@
         }
 
         //Injuries
-        $sql = "select injury_id, injury_description from injuries LEFT join events on injuries.event_id = events.event_id  WHERE event_id=:event_id";
+        $sql = "select injury_id, injury_description from injuries LEFT join events on injuries.event_id = events.event_id WHERE events.event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -217,7 +217,6 @@
             echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
         }
 
-        echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
         echo '</p>';
     }
 
