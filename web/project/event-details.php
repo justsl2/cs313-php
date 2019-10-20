@@ -45,11 +45,11 @@
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $sites = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-        foreach ($rows as $row)
+        foreach ($sites as $site)
         {
-            echo '<b>Site:</b>  ' . $row['site_label'] .'<br>';
+            echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
         }
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
