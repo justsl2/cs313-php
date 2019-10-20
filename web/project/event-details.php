@@ -207,7 +207,7 @@
         }
 
         //Injuries
-        $sql = "select injury_id, injury_description from injuries right join events on injuries.event_id = events.event_id WHERE event_id=:event_id";
+        $sql = "select injury_id, injury_description from injuries LEFT join events on injuries.event_id = events.event_id  WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
