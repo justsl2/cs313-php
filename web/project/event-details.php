@@ -278,7 +278,7 @@
                 {
                     echo '<b>Injury Status:</b>  ' . $status['status_label'] .'<br>';
                 }
-                
+                echo '<br>';
         }
         echo '</p>';
     }
