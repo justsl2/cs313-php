@@ -81,6 +81,52 @@
             echo '<b>Probable Severity:</b>  ' . $probableSeverity['severity_label'] .'<br>';
         }
 
+        //event status
+        $sql = "select status_label from statuses right join events on statuses.status_id = events.event_status_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($statuses as $status)
+        {
+            echo '<b>Event Status:</b>  ' . $status['status_label'] .'<br>';
+        }
+        //Temperature
+        echo '<b>Temperature:</b>  ' . $row['temperature'].'<br>';
+
+        //Temperature UOM
+        $sql = "select temperature_uom_label from temperature_uoms right join events on temperature_uoms.temperature_uom_id = events.temperature_uom_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $temperatureUOMs = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($temperatureUOMs as $temperatureUOM)
+        {
+            echo '<b>Temperature Unit of Measure:</b>  ' . $temperatureUOM['severity_label'] .'<br>';
+        }
+
+        //weather
+        $sql = "select weather_label from weathers right join events on weathers.weather_id = events.weather_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $weathers = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($weathers as $weather)
+        {
+            echo '<b>Weather Conditions:</b>  ' . $weather['severity_label'] .'<br>';
+        }
+
+        //probable severity
+        $sql = "select severity_label from severities right join events on severities.severity_id = events.severity_probable_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $probableSeverities = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($probableSeverities as $probableSeverity)
+        {
+            echo '<b>Probable Severity:</b>  ' . $probableSeverity['severity_label'] .'<br>';
+        }
+
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
