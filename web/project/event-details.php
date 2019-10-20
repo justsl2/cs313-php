@@ -155,27 +155,27 @@
         $enteredBys = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($enteredBys as $enteredBy)
         {
-            echo '<b>Entered By:</b>  ' . $enteredBy['user_name_first'] . $enteredBy['user_name_last'] . '(' . $enteredBy['user_name'] .')<br>';
+            echo '<b>Entered By:</b>  ' . $enteredBy['user_name_first'] . ' ' . $enteredBy['user_name_last'] . '(' . $enteredBy['user_name'] .')<br>';
         }
         //Reported By
-        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.reported_by_id  WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($lightings as $lighting)
+        $reportedBys = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($reportedBys as $reportedBy)
         {
-            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+            echo '<b>Reported By:</b>  ' . $reportedBy['user_name_first'] . ' ' . $reportedBy['user_name_last'] . '(' . $reportedBy['user_name'] .')<br>';
         }
         //QA QC'd By
-        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.qa_qc_by_id  WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($lightings as $lighting)
+        $qa_qcBys = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($qa_qcBys as $qa_qcBy)
         {
-            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+            echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . '(' . $qa_qcBy['user_name'] .')<br>';
         }
         //Equipment Type
         $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
