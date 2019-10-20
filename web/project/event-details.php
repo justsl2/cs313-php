@@ -40,6 +40,7 @@
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
         echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
         echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
+        //site
         $sql = "select site_label from sites right join events on sites.site_id = events.site_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
@@ -49,6 +50,7 @@
         {
             echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
         }
+        //department
         $sql = "select department_label from departments right join events on departments.department_id = events.department_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
@@ -58,6 +60,27 @@
         {
             echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
         }
+        //actual severity
+        $sql = "select severity_label from severities right join events on severities.severity_id = events.severity_actual_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $actualSeverities = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($actualSeverities as $actualSeverity)
+        {
+            echo '<b>Actual Severity:</b>  ' . $actualSeverity['severity_label'] .'<br>';
+        }
+        //probable severity
+        $sql = "select severity_label from severities right join events on severities.severity_id = events.severity_probable_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $probableSeverities = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($probableSeverities as $probableSeverity)
+        {
+            echo '<b>Probable Severity:</b>  ' . $probableSeverity['severity_label'] .'<br>';
+        }
+
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
