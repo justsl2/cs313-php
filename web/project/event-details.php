@@ -224,7 +224,7 @@
                 $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
                 foreach ($medical_classifications as $medical_classification)
                 {
-                    echo '<b>Medical Classification:</b>  ' . $medical_classifications['medical_classification_label'] .'<br>';
+                    echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
                 }
         }
         echo '</p>';
