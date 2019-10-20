@@ -45,12 +45,8 @@
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $sites = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-        foreach ($sites as $site)
-        {
+        $sites = $stmt->fetch(PDO::FETCH_ASSOC);    
             echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
-        }
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
