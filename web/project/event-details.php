@@ -38,8 +38,10 @@
         echo '<p>';
         echo '<b>EventID:</b>  '. $row['event_id'].'<br>';
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
-        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
-        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
+        echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
+        echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
+
+
         //site
         $sql = "select site_label from sites right join events on sites.site_id = events.site_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
@@ -155,7 +157,7 @@
         $enteredBys = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($enteredBys as $enteredBy)
         {
-            echo '<b>Entered By:</b>  ' . $enteredBy['user_name_first'] . ' ' . $enteredBy['user_name_last'] . '(' . $enteredBy['user_name'] .')<br>';
+            echo '<b>Entered By:</b>  ' . $enteredBy['user_name_first'] . ' ' . $enteredBy['user_name_last'] . ' (' . $enteredBy['user_name'] .')<br>';
         }
         //Reported By
         $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.reported_by_id  WHERE event_id=:event_id";
@@ -165,7 +167,7 @@
         $reportedBys = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($reportedBys as $reportedBy)
         {
-            echo '<b>Reported By:</b>  ' . $reportedBy['user_name_first'] . ' ' . $reportedBy['user_name_last'] . '(' . $reportedBy['user_name'] .')<br>';
+            echo '<b>Reported By:</b>  ' . $reportedBy['user_name_first'] . ' ' . $reportedBy['user_name_last'] . ' (' . $reportedBy['user_name'] .')<br>';
         }
         //QA QC'd By
         $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.qa_qc_by_id  WHERE event_id=:event_id";
@@ -175,31 +177,31 @@
         $qa_qcBys = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($qa_qcBys as $qa_qcBy)
         {
-            echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . '(' . $qa_qcBy['user_name'] .')<br>';
+            echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . ' (' . $qa_qcBy['user_name'] .')<br>';
         }
         //Equipment Type
-        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $sql = "select equipment_label from equipments right join events on equipments.equipment_id = events.equipment_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($lightings as $lighting)
+        $equipment_labels = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($equipment_labels as $equipment_label)
         {
-            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+            echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
         }
         //Consequence Type
-        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $sql = "select consequence_type_label from consequence_types right join events on consequence_types.consequence_type_id = events.consequence_type_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($lightings as $lighting)
+        $consequence_types = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($consequence_types as $consequence_type)
         {
-            echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
+            echo '<b>Consequence Type:</b>  ' . $consequence_type['consequence_type_label'] .'<br>';
         }
 
-        echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
-        echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
+        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
+        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
         echo '</p>';
     }
