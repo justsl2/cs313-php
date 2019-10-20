@@ -189,6 +189,12 @@
         {
             echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
         }
+
+
+        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
+        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
+        echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
+
         //Consequence Type
         $sql = "select consequence_type_label from consequence_types right join events on consequence_types.consequence_type_id = events.consequence_type_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
@@ -200,9 +206,26 @@
             echo '<b>Consequence Type:</b>  ' . $consequence_type['consequence_type_label'] .'<br>';
         }
 
-        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
-        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
-        echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
+        //Injuries
+        $sql = "select * from injuries right join events on injuries.event_id = events.event_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($injuries as $injury)
+        {
+            echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
+            echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
+            $sql = "select * from medical_classifications right join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id  WHERE event_id=:event_id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+            foreach ($medical_classifications as $medical_classification)
+            {
+                echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification'] .'<br>';
+            }
+        }
         echo '</p>';
     }
 
