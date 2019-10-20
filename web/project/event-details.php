@@ -45,8 +45,20 @@
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $sites = $stmt->fetchColumn(PDO::FETCH_ASSOC);    
+        $sites = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($sites as $site)
+        {
             echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
+        }
+        $sql = "select department_label from departments right join events on departments.site_id = events.site_id WHERE event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $departments = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($departments as $department)
+        {
+            echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
+        }
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
