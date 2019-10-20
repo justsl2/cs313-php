@@ -102,7 +102,7 @@
         $temperatureUOMs = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($temperatureUOMs as $temperatureUOM)
         {
-            echo '<b>Temperature Unit of Measure:</b>  ' . $temperatureUOM['severity_label'] .'<br>';
+            echo '<b>Temperature Unit of Measure:</b>  ' . $temperatureUOM['temperature_uom_label'] .'<br>';
         }
 
         //weather
@@ -113,18 +113,18 @@
         $weathers = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($weathers as $weather)
         {
-            echo '<b>Weather Conditions:</b>  ' . $weather['severity_label'] .'<br>';
+            echo '<b>Weather Conditions:</b>  ' . $weather['weather_label'] .'<br>';
         }
 
-        //probable severity
-        $sql = "select severity_label from severities right join events on severities.severity_id = events.severity_probable_id WHERE event_id=:event_id";
+        //lighting
+        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $probableSeverities = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($probableSeverities as $probableSeverity)
+        $lightings = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($lightings as $lighting)
         {
-            echo '<b>Probable Severity:</b>  ' . $probableSeverity['severity_label'] .'<br>';
+            echo '<b>Probable Severity:</b>  ' . $lighting['lighting_label'] .'<br>';
         }
 
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
