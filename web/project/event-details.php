@@ -20,7 +20,8 @@
     <h2>Event Details</h2>
     <a href="search.php" class="button">Back</a>
 <?php
-    $stmt = $db->prepare('select * from events WHERE event_id=:event_id');
+    $sql = "select * from events WHERE event_id=:event_id";
+    $stmt = $db->prepare($sql);
     $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
