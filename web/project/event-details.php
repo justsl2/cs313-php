@@ -215,6 +215,21 @@
         foreach ($injuries as $injury)
         {
             echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
+            echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
+            echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
+            
+            //Medical Classifications
+            $sql = "select * from medical_classifications right join injuries on injuries.medical_classification_id = medical_classifications.medical_classification_id WHERE injuries.injury_id=:injury_id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':injury_id', $_GET['injury_id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+            foreach ($medical_classifications as $medical_classification)
+            {
+                echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
+            }
+
+
         }
 
         echo '</p>';
