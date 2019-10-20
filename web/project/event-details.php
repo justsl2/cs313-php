@@ -45,7 +45,7 @@
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
-        $sites = $stmt->fetch(PDO::FETCH_ASSOC);    
+        $sites = $stmt->fetchColumn(PDO::FETCH_ASSOC);    
             echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
