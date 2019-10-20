@@ -50,7 +50,7 @@
         {
             echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
         }
-        $sql = "select department_label from departments right join events on departments.site_id = events.site_id WHERE event_id=:event_id";
+        $sql = "select department_label from departments right join events on departments.department_id = events.department_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
