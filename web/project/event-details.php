@@ -219,7 +219,7 @@
             echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
             
             //Medical Classifications
-            $sql = "select * from medical_classifications right join injuries on injuries.medical_classification_id = medical_classifications.medical_classification_id WHERE injuries.injury_id=:injury_id";
+            $sql = "select medical_classification_label from medical_classifications right join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=6";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':injury_id', $_GET['injury_id'], PDO::PARAM_INT);
             $stmt->execute();
