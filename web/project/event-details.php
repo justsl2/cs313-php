@@ -20,14 +20,14 @@
     <h2>Event Details</h2>
     <a href="search.php" class="button">Back</a>
 <?php
-    $sql = "select * from events WHERE event_id=:event_id";
+    $sql = "select sites.site_label from sites left join events on events.site_id = sites.site_id where event_id = 7=:event_id";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($rows as $row)
-    {
+    {   
         $dateOccurred = new DateTime($row['date_occurred']);
         $dateReported = new DateTime($row['date_reported']);
         $dateEntered = new DateTime($row['date_entered']); 
