@@ -10,103 +10,103 @@ CREATE SCHEMA public;
 ******************************************************************************/
 CREATE TABLE public.sites (
    site_id SERIAL PRIMARY KEY,		
-   site_label VARCHAR(100) NOT NULL,
+   site_label VARCHAR(100) NOT NULL UNIQUE,
    site_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.departments (
    department_id SERIAL PRIMARY KEY,		
-   department_label VARCHAR(100) NOT NULL,
+   department_label VARCHAR(100) NOT NULL UNIQUE,
    department_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.consequence_types (
    consequence_type_id SERIAL PRIMARY KEY,		
-   consequence_type_label VARCHAR(20) NOT NULL,
+   consequence_type_label VARCHAR(20) NOT NULL UNIQUE,
    consequence_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.event_types (
    event_type_id SERIAL PRIMARY KEY,		
-   event_type_label VARCHAR(20) NOT NULL,
+   event_type_label VARCHAR(20) NOT NULL UNIQUE,
    event_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.severities (
    severity_id SERIAL PRIMARY KEY,		
-   severity_label VARCHAR(20) NOT NULL,
+   severity_label VARCHAR(20) NOT NULL UNIQUE,
    severity_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.statuses (
    status_id SERIAL PRIMARY KEY,		
-   status_label VARCHAR(20) NOT NULL,
+   status_label VARCHAR(20) NOT NULL UNIQUE,
    status_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.temperature_uoms (
    temperature_uom_id SERIAL PRIMARY KEY,		
-   temperature_uom_label VARCHAR(20) NOT NULL,
+   temperature_uom_label VARCHAR(20) NOT NULL UNIQUE,
    temperature_uom_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.weathers (
    weather_id SERIAL PRIMARY KEY,		
-   weather_label VARCHAR(20) NOT NULL,
+   weather_label VARCHAR(20) NOT NULL UNIQUE,
    weather_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.lightings (
    lighting_id SERIAL PRIMARY KEY,		
-   lighting_label VARCHAR(20) NOT NULL,
+   lighting_label VARCHAR(20) NOT NULL UNIQUE,
    lighting_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.operation_types (
    operation_type_id SERIAL PRIMARY KEY,		
-   operation_type_label VARCHAR(50) NOT NULL,
+   operation_type_label VARCHAR(50) NOT NULL UNIQUE,
    operation_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.activity_types (
    activity_type_id SERIAL PRIMARY KEY,		
-   activity_type_label VARCHAR(50) NOT NULL,
+   activity_type_label VARCHAR(50) NOT NULL UNIQUE,
    activity_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.medical_classifications (
    medical_classification_id SERIAL PRIMARY KEY,		
-   medical_classification_label VARCHAR(50) NOT NULL,
+   medical_classification_label VARCHAR(50) NOT NULL UNIQUE,
    medical_classification_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.company_names (
    company_name_id SERIAL PRIMARY KEY,		
-   company_name_label VARCHAR(50) NOT NULL,
+   company_name_label VARCHAR(50) NOT NULL UNIQUE,
    company_name_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.equipments (
    equipment_id SERIAL PRIMARY KEY,		
-   equipment_label VARCHAR(100) NOT NULL,
+   equipment_label VARCHAR(100) NOT NULL UNIQUE,
    equipment_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.personnel_types (
    personnel_type_id SERIAL PRIMARY KEY,		
-   personnel_type_label VARCHAR(50) NOT NULL,
+   personnel_type_label VARCHAR(50) NOT NULL UNIQUE,
    personnel_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.injury_natures (
    injury_nature_id SERIAL PRIMARY KEY,		
-   injury_nature_label VARCHAR(50) NOT NULL,
+   injury_nature_label VARCHAR(50) NOT NULL UNIQUE,
    injury_nature_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.injury_primary_body_parts (
    injury_primary_body_part_id SERIAL PRIMARY KEY,		
-   injury_primary_body_part_label VARCHAR(50) NOT NULL,
+   injury_primary_body_part_label VARCHAR(50) NOT NULL UNIQUE,
    injury_primary_body_part_active BOOLEAN NOT NULL 
 );
 

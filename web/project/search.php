@@ -35,6 +35,7 @@
 
         foreach ($rows as $row)
         {
+            
             $dateOccurred = new DateTime($row['date_occurred']);
             echo '<p>';
             echo '<b>EventID:</b>  ';
@@ -47,31 +48,5 @@
     }
     ?>
     <br>
-    <!--
-    <form>
-        Record Status: <input type="text" name="eventID">
-        <input type="submit" value="Search Record Status" class="button">
-    </form>
-
-    <?php
-    
-     
-    if (isset($_GET['eventID']))
-    {
-        $stmt = $db->prepare('select * from events WHERE event_id=:eventID');
-        $stmt->bindValue(':eventID', $_GET['eventID'], PDO::PARAM_INT);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($rows as $row)
-        {
-            echo '<p>';
-            echo '<b>EventID:</b>  ';
-            echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a>';
-            echo '</p>';
-        }
-    }
-    ?>
-    -->
     </body>
 </html>
