@@ -24,7 +24,7 @@
     </form>
     
     <?php
-    $eventID=htmlspecialchars($_POST['eventID]');
+    $eventID = htmlspecialchars($_POST['eventID']);
     // Search Event ID from Events
     if (isset($_GET['eventID']))
     {
