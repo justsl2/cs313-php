@@ -1,4 +1,5 @@
 <?php
+    
     require "dbConnect.php";
     $db = get_db();
 ?>
@@ -25,9 +26,6 @@
     $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 
     foreach ($rows as $row)
     {

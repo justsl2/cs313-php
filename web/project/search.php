@@ -22,9 +22,9 @@
         Event ID: <input type="number" name="eventID" value=1001 >
         <input type="submit" value="Search Event ID" class="button">
     </form>
-
+    
     <?php
-
+    $eventID=htmlspecialchars($_POST['eventID]');
     // Search Event ID from Events
     if (isset($_GET['eventID']))
     {

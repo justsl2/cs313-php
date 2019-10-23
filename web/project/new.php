@@ -18,6 +18,11 @@
         <a class="active" href="search.php">Search</a>
     </div>
     <h2>New</h2>
-    Coming Soon
+    <form method="post" action="new-record.php">
+        <textarea name="short_description"></textarea>
+        <br>
+        <input type="submit" class="button" value="Create Short Description">
+
+    </form>
     </body>
 </html>
