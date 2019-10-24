@@ -164,7 +164,8 @@ CREATE TABLE public.injuries (
 
 /*CREATE USER ims_user WITH PASSWORD 'ims_pass';*/
 /*GRANT CONNECT ON DATABASE ims TO ims_user;*/
-/*GRANT SELECT, INSERT, UPDATE ON all tables in schema public TO ims_user;*/
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO ims_user;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO ims_user;
 /*GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ims_user;*/
 /*REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM ims_user;*/
 /*GRANT SELECT, INSERT, UPDATE ON events TO ims_user;*/
