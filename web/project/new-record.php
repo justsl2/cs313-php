@@ -256,19 +256,13 @@ $eventID = $db->lastInsertId("events_event_id_seq");
 
 
 $injuryDescription = $_POST['injuryDescription'];
-$stmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
+$injstmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
                       VALUES ('.$eventID.', :injuryDescription)');
-$stmt->bindValue(':injuryDescription',$injuryDescription);
-$stmt->execute();
+$injstmt->bindValue(':injuryDescription',$injuryDescription);
+$injstmt->execute();
 
 $injuryID = $db->lastInsertId("injuries_injury_id_seq");
 
-        //Injury Details
-        echo '<h3>Injury Details:</h3>'; 
-        //Consequence Type
-        echo '<p>';
-        echo '<b>Injury ID:</b>  '. $injuryID .'<br>';
-        //actual severity
-        
+      
 
 ?>
