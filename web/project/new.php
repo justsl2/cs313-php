@@ -266,7 +266,7 @@
         <textarea required name="injuryDescription" rows="2" cols="70"></textarea><br/>
         <br/>
     <b>Medical Classification: </b> <br/>
-        <select required name="medClassID" style="width:300px">
+        <select required name="medClassID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from medical_classifications');
@@ -274,14 +274,83 @@
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($rows as $row)
             {
-                $medClass = $row['medical_classification_label'];
-                $medClassID = $row['medical_classification_id'];
-                echo '<option value="'.$medClassID.'">'.$medClass.'</option>';
+                $item = $row['medical_classification_label'];
+                $itemID = $row['medical_classification_id'];
+                echo '<option value="'.$itemID.'">'.$item.'</option>';
             }
         ?>
         </select>
         <br/>
-
+    <b>Work Related?: </b> <br/>
+        <select required name="workRelated" style="width:200px">
+        <option value="1" selected>Yes</option>
+        <option value="0">No</option>
+        </select>
+        <br/>
+    <b>Personnel Type: </b> <br/>
+        <select required name="personnelTypeID" style="width:200px">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from personnel_types');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $item = $row['personnel_type_label'];
+                $itemID = $row['personnel_type_id'];
+                echo '<option value="'.$itemID.'">'.$item.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    <b>Nature of Injury: </b> <br/>
+        <select required name="injuryNatureID" style="width:200px">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from injury_natures');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $item = $row['injury_nature_label'];
+                $itemID = $row['injury_nature_id'];
+                echo '<option value="'.$itemID.'">'.$item.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    <b>Primary Body Part Injured: </b> <br/>
+        <select required name="injuryPrimaryBodyPartID" style="width:200px">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from injury_primary_body_parts');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $item = $row['injury_primary_body_part_label'];
+                $itemID = $row['injury_primary_body_part_id'];
+                echo '<option value="'.$itemID.'">'.$item.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    <b>Company Name of Injured Party: </b> <br/>
+        <select required name="companyNameID" style="width:200px">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from company_names');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $item = $row['company_name_label'];
+                $itemID = $row['company_name_id'];
+                echo '<option value="'.$itemID.'">'.$item.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
 
 
     
