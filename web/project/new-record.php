@@ -244,7 +244,8 @@ $eventID = $db->lastInsertId("events_event_id_seq");
             echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . ' (' . $qa_qcBy['user_name'] .')<br>';
         }        
     }
-
+//Injury Details
+echo '<h3>Injury Details:</h3>';
     $personnelTypeID = $_POST['personnelTypeID'];
     $workRelated = $_POST['workRelated'];
     $medClassID = $_POST['medClassID'];
