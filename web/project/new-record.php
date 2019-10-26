@@ -21,10 +21,10 @@ $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	{
         echo '<p>';
-        //echo 'Event ID = ' . $row['event_id'] . '<br>';
-        //echo 'Date Event Occurred = ' . $row['date_occurred'] . '<br>';
-        //echo 'Short Description = ' . $row['description_short'] . '<br>';
-        //echo 'Equipment ID = '. $row['equipment_id'] . '<br>';
+        echo 'Event ID = ' . $row['event_id'] . '<br>';
+        echo 'Date Event Occurred = ' . $row['date_occurred'] . '<br>';
+        echo 'Short Description = ' . $row['description_short'] . '<br>';
+        echo 'Equipment ID = '. $row['equipment_id'] . '<br>';
 		echo '</p>';
 	}
 
