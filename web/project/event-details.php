@@ -41,7 +41,7 @@
 
 
         //site
-        $sql = "select site_label from sites right join events on sites.site_id = events.site_id WHERE event_id=:event_id";
+        $sql = "select site_label from sites join events on sites.site_id = events.site_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -51,7 +51,7 @@
             echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
         }
         //department
-        $sql = "select department_label from departments right join events on departments.department_id = events.department_id WHERE event_id=:event_id";
+        $sql = "select department_label from departments join events on departments.department_id = events.department_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -61,7 +61,7 @@
             echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
         }
         //actual severity
-        $sql = "select severity_label from severities right join events on severities.severity_id = events.severity_actual_id WHERE event_id=:event_id";
+        $sql = "select severity_label from severities join events on severities.severity_id = events.severity_actual_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -71,7 +71,7 @@
             echo '<b>Actual Severity:</b>  ' . $actualSeverity['severity_label'] .'<br>';
         }
         //probable severity
-        $sql = "select severity_label from severities right join events on severities.severity_id = events.severity_probable_id WHERE event_id=:event_id";
+        $sql = "select severity_label from severities join events on severities.severity_id = events.severity_probable_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -82,7 +82,7 @@
         }
 
         //event status
-        $sql = "select status_label from statuses right join events on statuses.status_id = events.event_status_id WHERE event_id=:event_id";
+        $sql = "select status_label from statuses join events on statuses.status_id = events.event_status_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -95,7 +95,7 @@
         echo '<b>Temperature:</b>  ' . $row['temperature'].'<br>';
 
         //Temperature UOM
-        $sql = "select temperature_uom_label from temperature_uoms right join events on temperature_uoms.temperature_uom_id = events.temperature_uom_id WHERE event_id=:event_id";
+        $sql = "select temperature_uom_label from temperature_uoms join events on temperature_uoms.temperature_uom_id = events.temperature_uom_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -106,7 +106,7 @@
         }
 
         //weather
-        $sql = "select weather_label from weathers right join events on weathers.weather_id = events.weather_id WHERE event_id=:event_id";
+        $sql = "select weather_label from weathers join events on weathers.weather_id = events.weather_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -117,7 +117,7 @@
         }
 
         //lighting
-        $sql = "select lighting_label from lightings right join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
+        $sql = "select lighting_label from lightings join events on lightings.lighting_id = events.lighting_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -128,7 +128,7 @@
         }
 
         //Operation Type
-        $sql = "select operation_type_label from operation_types right join events on operation_types.operation_type_id = events.operation_type_id WHERE event_id=:event_id";
+        $sql = "select operation_type_label from operation_types join events on operation_types.operation_type_id = events.operation_type_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -138,7 +138,7 @@
             echo '<b>Type of Operation At Time of Event:</b>  ' . $operationtype['operation_type_label'] .'<br>';
         }
         //Activity Type
-        $sql = "select activity_type_label from activity_types right join events on activity_types.activity_type_id = events.activity_type_id WHERE event_id=:event_id";
+        $sql = "select activity_type_label from activity_types join events on activity_types.activity_type_id = events.activity_type_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -148,7 +148,7 @@
             echo '<b>Type of Activity At Time of Event:</b>  ' . $activityType['activity_type_label'] .'<br>';
         }
         //Entered By
-        $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.entered_by_id  WHERE event_id=:event_id";
+        $sql = "select user_name, user_name_first, user_name_last from users join events on users.user_id = events.entered_by_id  WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -158,7 +158,7 @@
             echo '<b>Entered By:</b>  ' . $enteredBy['user_name_first'] . ' ' . $enteredBy['user_name_last'] . ' (' . $enteredBy['user_name'] .')<br>';
         }
         //Reported By
-        $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.reported_by_id  WHERE event_id=:event_id";
+        $sql = "select user_name, user_name_first, user_name_last from users join events on users.user_id = events.reported_by_id  WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -168,7 +168,7 @@
             echo '<b>Reported By:</b>  ' . $reportedBy['user_name_first'] . ' ' . $reportedBy['user_name_last'] . ' (' . $reportedBy['user_name'] .')<br>';
         }
         //QA QC'd By
-        $sql = "select user_name, user_name_first, user_name_last from users right join events on users.user_id = events.qa_qc_by_id  WHERE event_id=:event_id";
+        $sql = "select user_name, user_name_first, user_name_last from users join events on users.user_id = events.qa_qc_by_id  WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -178,7 +178,7 @@
             echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . ' (' . $qa_qcBy['user_name'] .')<br>';
         }
         //Equipment Type
-        $sql = "select equipment_label from equipments right join events on equipments.equipment_id = events.equipment_id WHERE event_id=:event_id";
+        $sql = "select equipment_label from equipments join events on equipments.equipment_id = events.equipment_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -195,7 +195,7 @@
         echo '<br>';
         echo '<br>';
         //Consequence Type
-        $sql = "select consequence_type_label from consequence_types right join events on consequence_types.consequence_type_id = events.consequence_type_id WHERE event_id=:event_id";
+        $sql = "select consequence_type_label from consequence_types join events on consequence_types.consequence_type_id = events.consequence_type_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();

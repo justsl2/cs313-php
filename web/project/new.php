@@ -195,7 +195,7 @@
         </select>
         <br/>
 
-    Equipment: 
+    Equipment Type: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -207,6 +207,22 @@
                 $equipment = $row['equipment_label'];
                 $equipmentID = $row['equipment_id'];
                 echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    Consequence Type: 
+        <select required name="consequenceID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from consequence_types');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $consequence = $row['consequence_type_label'];
+                $consequenceID = $row['consequence_type_id'];
+                echo '<option value="'.$consequenceID.'">'.$consequence.'</option>';
             }
         ?>
         </select>

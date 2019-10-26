@@ -35,15 +35,19 @@ $enteredID = $_POST['enteredID'];
 $reportedID = $_POST['reportedID'];
 $qaqcID = $_POST['qaqcID'];
 $equipmentID = $_POST['equipmentID'];
+$consequenceID = $_POST['consequenceID'];
 
 //echo $departmentID . '<br>'; 
 
 $stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, 
                                           severity_actual_id, severity_probable_id, temperature, temperature_uom_id, 
-                                          weather_id, lighting_id, activity_type_id, entered_by_id, reported_by_id, qa_qc_by_id, equipment_id) 
+                                          weather_id, lighting_id, activity_type_id, entered_by_id, reported_by_id, 
+                                          qa_qc_by_id, equipment_id, consequence_type_id) 
                       VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, 
                               :severityID_Act, :severityID_Prob, :temperature, :tempUOMID, 
-                              :weatherID, :lightingID, :activityID, :enteredID, :reportedID, :qaqcID, :equipmentID)');
+                              :weatherID, :lightingID, :activityID, :enteredID, :reportedID, 
+                              :qaqcID, :equipmentID, :consequenceID)');
+
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':longDescription',$longDescription); 
@@ -60,6 +64,7 @@ $stmt->bindValue(':enteredID',$enteredID);
 $stmt->bindValue(':reportedID',$reportedID);
 $stmt->bindValue(':qaqcID',$qaqcID);
 $stmt->bindValue(':equipmentID',$equipmentID); 
+$stmt->bindValue(':consequenceID',$consequenceID); 
 
 $stmt->execute();
 
