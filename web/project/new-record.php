@@ -280,7 +280,6 @@ echo '<h3>Injury Details:</h3>';
 	{
         $injuryLostDaysStartDate  = new DateTime($row['injury_lost_days_start_date']);
 
-        echo '<p>';
         echo '<b>Injury ID:</b>  '. $row['injury_id'].'<br>';        
         echo '<b>Injury Description:</b>  ' . $row['injury_description'].'<br>';
         //Medical Classifications
