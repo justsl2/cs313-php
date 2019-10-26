@@ -116,7 +116,7 @@ echo $eventID . '<br>';
             echo '<b>Event Status:</b>  ' . $status['status_label'] .'<br>';
         }
         //Temperature
-        echo '<b>Temperature:</b>  ' . $row['temperature'].'°';
+        echo '<b>Temperature:</b>  ' . $row['temperature'].'° ';
 
         //Temperature UOM
         $sql = "select temperature_uom_label from temperature_uoms join events on temperature_uoms.temperature_uom_id = events.temperature_uom_id WHERE event_id=:eventID";
