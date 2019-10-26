@@ -151,6 +151,17 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         {
             echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
         }
+        
+        //event status
+        //$sql = "select status_label from statuses join events on statuses.status_id = events.event_status_id WHERE event_id=:eventID";
+        //$stmt = $db->prepare($sql);
+        //$stmt->bindValue(':eventID',$eventID);
+        //$stmt->execute();
+        //$statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        //foreach ($statuses as $status)
+        //{
+        //    echo '<b>Event Status:</b>  ' . $status['status_label'] .'<br>';
+        //}
 
         //Weather/Lighting Details
         echo '<h3>Weather/Lighting Details:</h3>'; 
@@ -241,9 +252,19 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         foreach ($qa_qcBys as $qa_qcBy)
         {
             echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . ' (' . $qa_qcBy['user_name'] .')<br>';
-        }     
-    } 
+        }
+
+
+        $injuryDescription = $_POST['injuryDescription'];
+        $injstmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
+                            VALUES ('.$eventID.', :injuryDescription)');
+        $injstmt->bindValue(':injuryDescription',$injuryDescription);
+        $injstmt->execute();
+
+        $injuryID = $db->lastInsertId("injuries_injury_id_seq");
+
+    }
 
 ?>
-</body>
+ </body>
 </html>
