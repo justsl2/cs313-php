@@ -139,7 +139,7 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         $weathers = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($weathers as $weather)
         {
-            echo '<b>Weather Conditions:</b>  ' . $weather['weather_label'] .'<br>';
+            echo '<b>Weather Condition:</b>  ' . $weather['weather_label'] .'<br>';
         }
 
         //lighting
