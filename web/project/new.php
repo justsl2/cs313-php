@@ -8,6 +8,7 @@
     <head>
         <title>Incident Management System</title>
         <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <script type="text/javascript" src="scripts.js"></script>  
     </head>
 
     <body>
@@ -220,9 +221,10 @@
         <option value="0">No</option>
         </select>
         <br/>
-
+        <br/>
+    
     Consequence Type: 
-        <select required name="consequenceID">
+        <select required onselect="consequenceForm()" name="consequenceID">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from consequence_types');
@@ -236,6 +238,7 @@
             }
         ?>
         </select>
+        <div id="consequenceFormPlace">Consequence Form:</div>
         <br/>
     
     <input type="submit" value="Submit">

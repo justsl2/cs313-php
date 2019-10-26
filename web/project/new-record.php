@@ -24,6 +24,7 @@ $dateReported = $_POST['dateReported'];
 $shortDescription = $_POST['shortDescription'];
 $shortDescription = htmlspecialchars($shortDescription);
 $longDescription = $_POST['longDescription'];
+$longDescription = htmlspecialchars($longDescription);
 $siteID = $_POST['siteID'];
 $departmentID = $_POST['departmentID'];
 $severityID_Act = $_POST['severityID_Act'];
