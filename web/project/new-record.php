@@ -275,16 +275,3 @@ $eventID = $db->lastInsertId("events_event_id_seq");
 ?>
  </body>
 </html>
-
-"injury_id"
-"event_id"
-"injured_ill_personnel_type_id"
-"work_related"
-"medical_classification_id"
-"injury_description"
-"injury_nature_id"
-"injury_primary_body_part_id"
-"injury_lost_days"
-"injury_lost_days_start_date"
-"company_name_id"
-"injury_status_id"
