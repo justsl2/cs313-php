@@ -160,10 +160,26 @@
         ?>
         </select>
         <br/>
-    <!--Entered By Hidden-->
+    <!--Entered By Hidden, may enable login functionality, but defaulted to ID 1 for now-->
         <input type="hidden" name="enteredID" value="1">
     Reported By: 
         <select required name="reportedID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from users');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $user = $row['user_name_last'].', '. $row['user_name_first'];
+                $userID = $row['user_id'];
+                echo '<option value="'.$userID.'">'.$user.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    QA/QC By: 
+        <select required name="qaqcID">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from users');
