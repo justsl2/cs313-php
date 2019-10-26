@@ -224,7 +224,7 @@
         <br/>
     
     Consequence Type: 
-        <select required onclick="consequenceForm()" name="consequenceID">
+        <select required onchange="consequenceForm()" name="consequenceID">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from consequence_types');
