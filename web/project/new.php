@@ -151,6 +151,23 @@
         ?>
         </select>
         <br/>
+    Activity Type: 
+        <select required name="activityID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from activity_types');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $activity = $row['activity_type_label'];
+                $activityID = $row['activity_type_id'];
+                echo '<option value="'.$activityID.'">'.$activity.'</option>';
+                echo '<br>';
+            }
+        ?>
+        </select>
+        <br/>
     Equipment: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>

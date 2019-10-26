@@ -30,12 +30,13 @@ $temperature = $_POST['temperature'];
 $tempUOMID = $_POST['tempUOMID'];
 $weatherID = $_POST['weatherID'];
 $lightingID = $_POST['lightingID'];
+$lightingID = $_POST['lightingID'];
 $equipmentID = $_POST['equipmentID'];
 
 //echo $departmentID . '<br>'; 
 
-$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, severity_actual_id, severity_probable_id, temperature, temperature_uom_id, weather_id, lighting_id, equipment_id) 
-                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :severityID_Act, :severityID_Prob, :temperature, :tempUOMID, :weatherID, :lightingID, :equipmentID)');
+$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, severity_actual_id, severity_probable_id, temperature, temperature_uom_id, weather_id, lighting_id, activity_type_id, equipment_id) 
+                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :severityID_Act, :severityID_Prob, :temperature, :tempUOMID, :weatherID, :lightingID, :activityID, :equipmentID)');
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':longDescription',$longDescription); 
@@ -46,6 +47,7 @@ $stmt->bindValue(':severityID_Prob',$severityID_Prob);
 $stmt->bindValue(':temperature',$temperature);
 $stmt->bindValue(':tempUOMID',$tempUOMID);
 $stmt->bindValue(':weatherID',$weatherID);
+$stmt->bindValue(':lightingID',$lightingID);
 $stmt->bindValue(':lightingID',$lightingID);
 $stmt->bindValue(':equipmentID',$equipmentID); 
 
