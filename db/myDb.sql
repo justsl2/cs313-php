@@ -369,11 +369,11 @@ INSERT INTO injury_primary_body_parts (injury_primary_body_part_label, injury_pr
 INSERT INTO injury_primary_body_parts (injury_primary_body_part_label, injury_primary_body_part_active) VALUES ('Vertebrae', true); 
 INSERT INTO injury_primary_body_parts (injury_primary_body_part_label, injury_primary_body_part_active) VALUES ('Wrist', true); 
 
-INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('user1', 'pass1', 'First1', 'Last1', 'M1', true);
-INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('user2', 'pass2', 'First2', 'Last2', 'M2', true);
-INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('user3', 'pass3', 'First3', 'Last3', 'M3', true);
-INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('user4', 'pass4', 'First4', 'Last4', 'M4', true);
-INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('user5', 'pass5', 'First5', 'Last5', 'M5', true);
+INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('jhurst', 'pass1', 'Justin', 'Hurst', 'M1', true);
+INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('churst', 'pass2', 'Crystal', 'Hurst', 'M2', true);
+INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('rhurst', 'pass3', 'Ryan', 'Hurst', 'M3', true);
+INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('khurst', 'pass4', 'Kara', 'Hurst', 'M4', true);
+INSERT INTO users (user_name, user_password, user_name_first, user_name_last, user_name_middle, user_active) VALUES ('bhurst', 'pass5', 'Brooklyn', 'Hurst', 'M5', true);
 
 ALTER SEQUENCE events_event_id_seq RESTART WITH 1001;
 
