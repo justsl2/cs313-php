@@ -22,6 +22,7 @@
     <form method="post" action="new-record.php">
    
     <h3>Event Details:</h3>
+    <p>
     <b>Date Event Occurred: </b> 
     <input required type="date" name="dateOccurred"><br/>
     
@@ -227,10 +228,11 @@
         <option value="0">No</option>
         </select>
         <br/>
-        <br/>
 
-    
+
+    </p>
     <h3>Consequence Details:</h3>
+    <p>
     <b>Consequence Type: </b> 
         <select required name="consequenceID">
         <option value="" selected disabled hidden></option>
@@ -251,6 +253,8 @@
         <input required type="textarea" rows="2" cols="100" name="injuryDescription"><br/>
         <br/>
     
+    </p>
+
     <input type="submit" value="Submit">
     </form>
     </body>
