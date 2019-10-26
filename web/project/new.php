@@ -29,6 +29,23 @@
     Detailed Description: 
     <input required type="text" rows="4" cols="100" name="longDescription"><br/>
 
+    Site: 
+        <select required name="siteID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from sites');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $site = $row['site_label'];
+                $siteID = $row['site_id'];
+                echo '<option value="'.$siteID.'">'.$site.'</option>';
+                echo '<br>';
+            }
+        ?>
+        </select>
+
     Equipment: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
