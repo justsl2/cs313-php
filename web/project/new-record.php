@@ -30,7 +30,7 @@ $temperature = $_POST['temperature'];
 $tempUOMID = $_POST['tempUOMID'];
 $equipmentID = $_POST['equipmentID'];
 
-echo $departmentID . '<br>'; 
+//echo $departmentID . '<br>'; 
 
 $stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, severity_actual_id, severity_probable_id, temperature, temperature_uom_id, equipment_id) 
                       VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :severityID_Act, :severityID_Prob, :temperature, :tempUOMID, :equipmentID)');
@@ -48,7 +48,7 @@ $stmt->bindValue(':equipmentID',$equipmentID);
 $stmt->execute();
 
 $eventID = $db->lastInsertId("events_event_id_seq");
-echo $eventID . '<br>'; 
+//echo $eventID . '<br>'; 
 
     $stmt = $db->prepare('SELECT * FROM events WHERE event_id=:eventID');
     $stmt->bindValue(':eventID',$eventID);
