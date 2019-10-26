@@ -144,7 +144,7 @@
         ?>
         </select>
         <br/>
-    Activity Type: 
+    Type of Activity At Time of Event: 
         <select required name="activityID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -160,7 +160,22 @@
         ?>
         </select>
         <br/>
-
+    Reported By: 
+        <select required name="reportedID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from users');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $user = $row['user_name_last'].', '. $row['user_name_first'];
+                $userID = $row['user_id'];
+                echo '<option value="'.$userID.'">'.$user.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
 
     Equipment: 
         <select required name="equipmentID">
