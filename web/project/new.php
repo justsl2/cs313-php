@@ -23,7 +23,7 @@
     <br/>
     Equipment: 
         <br/>
-        <select required name="equipment">
+        <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from equipments');

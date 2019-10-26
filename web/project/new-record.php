@@ -2,8 +2,8 @@
 require "dbConnect.php";
 $db = get_db();
 $shortDescription = $_POST['shortDescription'];
-$equipmentID = $_POST['equipment'];
- echo '$equipmentID = '.$equipmentID;
+$equipmentID = $_POST['equipmentID'];
+
 
 $stmt = $db->prepare('INSERT INTO events (description_short, equipment_id) VALUES (:shortDescription, :equipmentID)');
 $stmt->bindValue(':shortDescription',$shortDescription); 
