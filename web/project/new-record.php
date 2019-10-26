@@ -43,7 +43,6 @@ $equipmentID = $_POST['equipmentID'];
 $boundaryID = $_POST['boundaryID'];
 $consequenceID = $_POST['consequenceID'];
 
-
 //echo $departmentID . '<br>'; 
 
 $stmt = $db->prepare('INSERT INTO events (date_occurred, date_reported, description_short, description_long, site_id, department_id, 
@@ -255,21 +254,21 @@ $eventID = $db->lastInsertId("events_event_id_seq");
             echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . ' (' . $qa_qcBy['user_name'] .')<br>';
         }
 
+
+$injuryDescription = $_POST['injuryDescription'];
+$stmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
+                      VALUES ('.$eventID.', :injuryDescription)');
+$stmt->bindValue(':injuryDescription',$injuryDescription);
+$stmt->execute();
+
+$injuryID = $db->lastInsertId("injuries_injury_id_seq");
+
         //Injury Details
         echo '<h3>Injury Details:</h3>'; 
         //Consequence Type
-        $sql = "select consequence_type_label from consequence_types join events on consequence_types.consequence_type_id = events.consequence_type_id WHERE event_id=:eventID";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':eventID',$eventID);
-        $stmt->execute();
-        $consequence_types = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($consequence_types as $consequence_type)
-        {
-            echo '<b>Consequence Type:</b>  ' . $consequence_type['consequence_type_label'] .'<br>';
-        }
-
+        echo '<p>';
+        echo '<b>Injury ID:</b>  '. $injuryID .'<br>';
+        //actual severity
         
-                echo '<br>';
-	}
 
 ?>
