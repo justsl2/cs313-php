@@ -22,22 +22,22 @@
     <form method="post" action="new-record.php">
    
     <h3>Event Details:</h3>
-    Date Event Occurred: 
+    <b>Date Event Occurred: </b> 
     <input required type="date" name="dateOccurred"><br/>
     
 
-    Date Event Reported: 
+    <b>Date Event Reported: </b> 
     <input required type="date" name="dateReported"><br/>
     
-    Short Description: <br/>
+    <b>Short Description: </b> <br/>
     <!--<input required type="textarea" rows="2" cols="100" name="shortDescription"><br/>-->
     ​<textarea required name="shortDescription" rows="2" cols="100"></textarea><br/>
 
-    Detailed Description: <br/>
+    <b>Detailed Description: </b> <br/>
     <!--<input required type="textarea" rows="4" cols="100" name="longDescription"><br/>-->
     <textarea required name="longDescription" rows="6" cols="100"></textarea><br/>
 
-    Site: 
+    <b>Site: </b> 
         <select required name="siteID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -53,7 +53,7 @@
         ?>
         </select>
         <br/>
-    Department: 
+    <b>Department: </b> 
         <select required name="departmentID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -69,7 +69,7 @@
         ?>
         </select>
         <br/>
-    Actual Severity of Event: 
+    <b>Actual Severity of Event: </b> 
         <select required name="severityID_Act">
         <option value="" selected disabled hidden></option>
         <?php
@@ -85,7 +85,7 @@
         ?>
         </select>
         <br/>
-    Probable Severity of Event: 
+    <b>Probable Severity of Event: </b> 
         <select required name="severityID_Prob">
         <option value="" selected disabled hidden></option>
         <?php
@@ -101,9 +101,10 @@
         ?>
         </select>
         <br/>
-    Temperature: 
+    <b>Temperature: </b> 
     <input required type="number" rows="4" cols="100" name="temperature"><br/>
-    Unit of Measure: 
+    
+    <b>Unit of Measure: </b> 
         <select required name="tempUOMID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -119,7 +120,8 @@
         ?>
         </select>
         <br/>
-    Weather Conditions: 
+
+    <b>Weather Conditions: </b> 
         <select required name="weatherID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -135,7 +137,8 @@
         ?>
         </select>
         <br/>
-    Lighting Conditions: 
+
+    <b>Lighting Conditions: </b> 
         <select required name="lightingID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -151,7 +154,7 @@
         ?>
         </select>
         <br/>
-    Type of Activity At Time of Event: 
+    <b>Type of Activity At Time of Event: </b> 
         <select required name="activityID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -169,7 +172,7 @@
         <br/>
     <!--Entered By Hidden, may enable login functionality, but defaulted to ID 1 for now-->
         <input type="hidden" name="enteredID" value="1">
-    Reported By: 
+    <b>Reported By: </b> 
         <select required name="reportedID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -185,7 +188,7 @@
         ?>
         </select>
         <br/>
-    QA/QC By: 
+    <b>QA/QC By: </b> 
         <select required name="qaqcID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -202,7 +205,7 @@
         </select>
         <br/>
 
-    Equipment Type: 
+    <b>Equipment Type: </b> 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -218,7 +221,7 @@
         ?>
         </select>
         <br/>
-    Within Reporting Boundary?: 
+    <b>Within Reporting Boundary?: </b> 
         <select required name="boundaryID">
         <option value="1" selected>Yes</option>
         <option value="0">No</option>
@@ -228,7 +231,7 @@
 
     
     <h3>Consequence Details:</h3>
-    Consequence Type: 
+    <b>Consequence Type: </b> 
         <select required name="consequenceID">
         <option value="" selected disabled hidden></option>
         <?php
@@ -244,7 +247,7 @@
         ?>
         </select>
         <br/>
-    Injury Description: 
+    <b>Injury Description: </b> 
         <input required type="textarea" rows="2" cols="100" name="injuryDescription"><br/>
         <br/>
     
