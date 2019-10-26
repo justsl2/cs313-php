@@ -19,6 +19,8 @@
     </div>
     <h2>New</h2>
     <form method="post" action="new-record.php">
+    Date Event Occurred: <input type="date" name="dateOccurred">
+    <br/>
     Short Description: <input type="text" name="shortDescription">
     <br/>
     Equipment: 
