@@ -260,31 +260,14 @@
         </select>
         <br/>
         
-    <h3>Consequence Details:</h3>
-    
-    <b>Consequence Type: </b> <br/>
-        <select required name="consequenceID" style="width:200px">
-        <option value="" selected disabled hidden></option>
-        <?php
-            $stmt = $db->prepare('select * from consequence_types');
-            $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($rows as $row)
-            {
-                $consequence = $row['consequence_type_label'];
-                $consequenceID = $row['consequence_type_id'];
-                echo '<option value="'.$consequenceID.'">'.$consequence.'</option>';
-            }
-        ?>
-        </select>
-        <br/>
+    <h3>Injury Details:</h3>
     <b>Injury Description: </b> <br/>
         <textarea required name="injuryDescription" rows="2" cols="70"></textarea><br/>
         <br/>
     
     
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit New Event" class="button">
     </form>
     </body>
 </html>
