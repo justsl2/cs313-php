@@ -1,3 +1,3 @@
-function consequenceForm() {
-    document.getElementById('consequenceFormPlace').value = 'It worked';
+function consequenceForm(consequenceID) {
+    document.getElementById('consequenceFormPlace').value = consequenceID;
 }
