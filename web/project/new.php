@@ -19,7 +19,9 @@
     </div>
     <h2>New</h2>
     <form method="post" action="new-record.php">
-        Equipment: 
+    Short Description: <input type="text" name="shortDescription">
+    <br/>
+    Equipment: 
         <br/>
         <select required name="equipment">
         <option value="" selected disabled hidden></option>

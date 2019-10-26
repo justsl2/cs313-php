@@ -9,109 +9,109 @@ CREATE SCHEMA public;
 *  management system database.
 ******************************************************************************/
 CREATE TABLE public.sites (
-   site_id SERIAL PRIMARY KEY,		
+   site_id SERIAL PRIMARY KEY NOT NULL,		
    site_label VARCHAR(100) NOT NULL UNIQUE,
    site_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.departments (
-   department_id SERIAL PRIMARY KEY,		
+   department_id SERIAL PRIMARY KEY NOT NULL,		
    department_label VARCHAR(100) NOT NULL UNIQUE,
    department_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.consequence_types (
-   consequence_type_id SERIAL PRIMARY KEY,		
+   consequence_type_id SERIAL PRIMARY KEY NOT NULL,		
    consequence_type_label VARCHAR(20) NOT NULL UNIQUE,
    consequence_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.event_types (
-   event_type_id SERIAL PRIMARY KEY,		
+   event_type_id SERIAL PRIMARY KEY NOT NULL,		
    event_type_label VARCHAR(20) NOT NULL UNIQUE,
    event_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.severities (
-   severity_id SERIAL PRIMARY KEY,		
+   severity_id SERIAL PRIMARY KEY NOT NULL,		
    severity_label VARCHAR(20) NOT NULL UNIQUE,
    severity_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.statuses (
-   status_id SERIAL PRIMARY KEY,		
+   status_id SERIAL PRIMARY KEY NOT NULL,		
    status_label VARCHAR(20) NOT NULL UNIQUE,
    status_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.temperature_uoms (
-   temperature_uom_id SERIAL PRIMARY KEY,		
+   temperature_uom_id SERIAL PRIMARY KEY NOT NULL,		
    temperature_uom_label VARCHAR(20) NOT NULL UNIQUE,
    temperature_uom_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.weathers (
-   weather_id SERIAL PRIMARY KEY,		
+   weather_id SERIAL PRIMARY KEY NOT NULL,		
    weather_label VARCHAR(20) NOT NULL UNIQUE,
    weather_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.lightings (
-   lighting_id SERIAL PRIMARY KEY,		
+   lighting_id SERIAL PRIMARY KEY NOT NULL,		
    lighting_label VARCHAR(20) NOT NULL UNIQUE,
    lighting_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.operation_types (
-   operation_type_id SERIAL PRIMARY KEY,		
+   operation_type_id SERIAL PRIMARY KEY NOT NULL,		
    operation_type_label VARCHAR(50) NOT NULL UNIQUE,
    operation_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.activity_types (
-   activity_type_id SERIAL PRIMARY KEY,		
+   activity_type_id SERIAL PRIMARY KEY NOT NULL,		
    activity_type_label VARCHAR(50) NOT NULL UNIQUE,
    activity_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.medical_classifications (
-   medical_classification_id SERIAL PRIMARY KEY,		
+   medical_classification_id SERIAL PRIMARY KEY NOT NULL,		
    medical_classification_label VARCHAR(50) NOT NULL UNIQUE,
    medical_classification_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.company_names (
-   company_name_id SERIAL PRIMARY KEY,		
+   company_name_id SERIAL PRIMARY KEY NOT NULL,		
    company_name_label VARCHAR(50) NOT NULL UNIQUE,
    company_name_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.equipments (
-   equipment_id SERIAL PRIMARY KEY,		
+   equipment_id SERIAL PRIMARY KEY NOT NULL,		
    equipment_label VARCHAR(100) NOT NULL UNIQUE,
    equipment_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.personnel_types (
-   personnel_type_id SERIAL PRIMARY KEY,		
+   personnel_type_id SERIAL PRIMARY KEY NOT NULL,		
    personnel_type_label VARCHAR(50) NOT NULL UNIQUE,
    personnel_type_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.injury_natures (
-   injury_nature_id SERIAL PRIMARY KEY,		
+   injury_nature_id SERIAL PRIMARY KEY NOT NULL,		
    injury_nature_label VARCHAR(50) NOT NULL UNIQUE,
    injury_nature_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.injury_primary_body_parts (
-   injury_primary_body_part_id SERIAL PRIMARY KEY,		
+   injury_primary_body_part_id SERIAL PRIMARY KEY NOT NULL,		
    injury_primary_body_part_label VARCHAR(50) NOT NULL UNIQUE,
    injury_primary_body_part_active BOOLEAN NOT NULL 
 );
 
 CREATE TABLE public.users (
-   user_id SERIAL PRIMARY KEY,		
+   user_id SERIAL PRIMARY KEY NOT NULL,		
    user_name VARCHAR(100) NOT NULL UNIQUE,
    user_password VARCHAR(100) NOT NULL,
    user_name_first VARCHAR(100) NOT NULL,
@@ -121,18 +121,18 @@ CREATE TABLE public.users (
 );
 
 CREATE TABLE public.events (
-   event_id SERIAL PRIMARY KEY,		
-   date_occurred DATE NOT NULL,
+   event_id SERIAL PRIMARY KEY NOT NULL,		
+   date_occurred DATE,
    date_reported DATE,
-   date_entered DATE NOT NULL,
-   description_short VARCHAR(500) NOT NULL,
-   description_long VARCHAR(4000) NOT NULL,
-   site_id INT NOT NULL REFERENCES public.sites(site_id),
-   department_id INT NOT NULL REFERENCES public.departments(department_id),
-   event_type_id INT NOT NULL REFERENCES public.event_types(event_type_id),
+   date_entered DATE,
+   description_short VARCHAR(500),
+   description_long VARCHAR(4000),
+   site_id INT REFERENCES public.sites(site_id),
+   department_id INT REFERENCES public.departments(department_id),
+   event_type_id INT REFERENCES public.event_types(event_type_id),
    severity_actual_id INT REFERENCES public.severities(severity_id),
    severity_probable_id INT REFERENCES public.severities(severity_id),
-   event_status_id INT NOT NULL REFERENCES public.statuses(status_id),
+   event_status_id INT REFERENCES public.statuses(status_id),
    temperature INT,
    temperature_uom_id INT REFERENCES public.temperature_uoms(temperature_uom_id),
    weather_id INT REFERENCES public.weathers(weather_id),
@@ -140,7 +140,7 @@ CREATE TABLE public.events (
    operation_type_id INT REFERENCES public.operation_types(operation_type_id),
    activity_type_id INT REFERENCES public.activity_types(activity_type_id),
    reporting_boundary BOOLEAN,
-   entered_by_id INT NOT NULL REFERENCES public.users(user_id),
+   entered_by_id INT REFERENCES public.users(user_id),
    reported_by_id INT REFERENCES public.users(user_id),
    qa_qc_by_id INT REFERENCES public.users(user_id),
    equipment_id INT REFERENCES public.users(user_id),  
@@ -148,7 +148,7 @@ CREATE TABLE public.events (
 );
 
 CREATE TABLE public.injuries (
-   injury_id SERIAL PRIMARY KEY,
+   injury_id SERIAL PRIMARY KEY NOT NULL,
    event_id INT NOT NULL REFERENCES public.events(event_id),
    injured_ill_personnel_type_id INT REFERENCES public.personnel_types(personnel_type_id),
    work_related BOOLEAN,
@@ -159,13 +159,13 @@ CREATE TABLE public.injuries (
    injury_lost_days INT,
    injury_lost_days_start_date DATE,
    company_name_id INT REFERENCES public.company_names(company_name_id),
-   injury_status_id INT NOT NULL REFERENCES public.statuses(status_id)
+   injury_status_id INT REFERENCES public.statuses(status_id)
 );
 
 /*CREATE USER ims_user WITH PASSWORD 'ims_pass';*/
 /*GRANT CONNECT ON DATABASE ims TO ims_user;*/
-GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO ims_user;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO ims_user;
+/*GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO ims_user;*/
+/*GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO ims_user;*/
 /*GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ims_user;*/
 /*REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM ims_user;*/
 /*GRANT SELECT, INSERT, UPDATE ON events TO ims_user;*/
