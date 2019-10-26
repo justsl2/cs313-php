@@ -160,6 +160,8 @@
         ?>
         </select>
         <br/>
+    <!--Entered By Hidden-->
+        <input type="hidden" name="enteredID" value="1">
     Reported By: 
         <select required name="reportedID">
         <option value="" selected disabled hidden></option>
