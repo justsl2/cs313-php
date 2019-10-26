@@ -26,12 +26,14 @@ $siteID = $_POST['siteID'];
 $departmentID = $_POST['departmentID'];
 $severityID_Act = $_POST['severityID_Act'];
 $severityID_Prob = $_POST['severityID_Prob'];
+$temperature = $_POST['temperature'];
+$tempUOMID = $_POST['tempUOMID'];
 $equipmentID = $_POST['equipmentID'];
 
 echo $departmentID . '<br>'; 
 
-$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, severity_actual_id, severity_probable_id, equipment_id) 
-                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :severityID_Act, :severityID_Prob, :equipmentID)');
+$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, severity_actual_id, severity_probable_id, temperature, temperature_uom_id, equipment_id) 
+                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :severityID_Act, :severityID_Prob, :temperature, :tempUOMID, :equipmentID)');
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':longDescription',$longDescription); 
@@ -39,6 +41,8 @@ $stmt->bindValue(':siteID',$siteID);
 $stmt->bindValue(':departmentID',$departmentID); 
 $stmt->bindValue(':severityID_Act',$severityID_Act);
 $stmt->bindValue(':severityID_Prob',$severityID_Prob);
+$stmt->bindValue(':temperature',$temperature);
+$stmt->bindValue(':tempUOMID',$tempUOMID);
 $stmt->bindValue(':equipmentID',$equipmentID); 
 
 $stmt->execute();
@@ -56,7 +60,7 @@ echo $eventID . '<br>';
         $dateEntered = new DateTime($row['date_entered']); 
 
         echo '<p>';
-        echo '<b>EventID:</b>  '. $row['event_id'].'<br>';
+        echo '<b>Event ID:</b>  '. $row['event_id'].'<br>';
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';

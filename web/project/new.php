@@ -99,19 +99,19 @@
         </select>
         <br/>
     Temperature: 
-    <input required type="text" rows="4" cols="100" name="longDescription"><br/>
+    <input required type="number" rows="4" cols="100" name="temperature"><br/>
     Unit of Measure: 
-        <select required name="severityID_Prob">
+        <select required name="tempUOMID">
         <option value="" selected disabled hidden></option>
         <?php
-            $stmt = $db->prepare('select * from severities');
+            $stmt = $db->prepare('select * from temperature_uoms');
             $stmt->execute();
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($rows as $row)
             {
-                $severity = $row['severity_label'];
-                $severityID = $row['severity_id'];
-                echo '<option value="'.$severityID.'">'.$severity.'</option>';
+                $temperature = $row['temperature_uom_label'];
+                $temperatureID = $row['temperature_uom_id'];
+                echo '<option value="'.$temperatureID.'">'.$temperature.'</option>';
                 echo '<br>';
             }
         ?>
