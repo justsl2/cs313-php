@@ -46,6 +46,23 @@
         ?>
         </select>
         <br/>
+    Department: 
+        <select required name="departmentID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from departments');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $department = $row['department_label'];
+                $departmentID = $row['department_id'];
+                echo '<option value="'.$departmentID.'">'.$department.'</option>';
+                echo '<br>';
+            }
+        ?>
+        </select>
+        <br/>
     Equipment: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>

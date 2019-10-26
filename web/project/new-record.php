@@ -22,22 +22,19 @@ $db = get_db();
 $dateOccurred = $_POST['dateOccurred'];
 $shortDescription = $_POST['shortDescription'];
 $longDescription = $_POST['longDescription'];
-
 $siteID = $_POST['siteID'];
+$departmentID = $_POST['departmentID'];
+
 $equipmentID = $_POST['equipmentID'];
 
 
-echo $dateOccurred . '<br>';
-echo $shortDescription . '<br>';
-echo $longDescription . '<br>';
-echo $equipmentID . '<br>';
-
-$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, equipment_id) 
-                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :equipmentID)');
+$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, equipment_id) 
+                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :equipmentID)');
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':longDescription',$longDescription); 
 $stmt->bindValue(':siteID',$siteID); 
+$stmt->bindValue(':departmentID',$departmentID); 
 $stmt->bindValue(':equipmentID',$equipmentID); 
 
 $stmt->execute();
@@ -59,18 +56,6 @@ echo $eventID . '<br>';
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
-        //Equipment Type
-        $sql = "select equipment_label from equipments join events on equipments.equipment_id = events.equipment_id WHERE event_id=:eventID";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':eventID',$eventID);
-        $stmt->execute();
-        $equipment_labels = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($equipment_labels as $equipment_label)
-        {
-            echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
-        }
-        echo '</p>';
-        
         //site
         $sql = "select site_label from sites join events on sites.site_id = events.site_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
