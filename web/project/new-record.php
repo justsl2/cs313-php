@@ -4,7 +4,9 @@ $db = get_db();
 $dateOccurred = $_POST['dateOccurred'];
 $shortDescription = $_POST['shortDescription'];
 $equipmentID = $_POST['equipmentID'];
-
+echo $dateOccurred . '<br>';
+echo $shortDescription . '<br>';
+echo $equipmentID . '<br>';
 
 $stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, equipment_id) VALUES (:dateOccurred, :shortDescription, :equipmentID)');
 $stmt->bindValue(':dateOccurred',$dateOccurred); 
