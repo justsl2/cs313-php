@@ -152,16 +152,6 @@ $eventID = $db->lastInsertId("events_event_id_seq");
             echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
         }
         
-        //event status
-        //$sql = "select status_label from statuses join events on statuses.status_id = events.event_status_id WHERE event_id=:eventID";
-        //$stmt = $db->prepare($sql);
-        //$stmt->bindValue(':eventID',$eventID);
-        //$stmt->execute();
-        //$statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        //foreach ($statuses as $status)
-        //{
-        //    echo '<b>Event Status:</b>  ' . $status['status_label'] .'<br>';
-        //}
 
         //Weather/Lighting Details
         echo '<h3>Weather/Lighting Details:</h3>'; 
@@ -255,24 +245,46 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         }        
     }
 
+    $personnelTypeID = $_POST['personnelTypeID'];
+    $workRelated = $_POST['workRelated'];
+    $medClassID = $_POST['medClassID'];
     $injuryDescription = $_POST['injuryDescription'];
-    $injstmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
-                        VALUES ('.$eventID.', :injuryDescription)');
+    $injuryNatureID = $_POST['injuryNatureID'];
+    $injuryPrimaryBodyPartID = $_POST['injuryPrimaryBodyPartID'];
+    $injuryLostDays = $_POST['injuryLostDays'];
+    $injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
+    $companyNameID = $_POST['companyNameID'];
+
+    $injstmt = $db->prepare('INSERT INTO injuries (event_id, injured_ill_personnel_type_id, work_related, medical_classification_id, injury_description, 
+                                                    injury_nature_id, injury_primary_body_part_id, injury_lost_days, injury_lost_days_start_date, company_name_id) 
+                        VALUES ('.$eventID.', :personnelTypeID, :workRelated, :medClassID, :injuryDescription, :injuryNatureID, :injuryPrimaryBodyPartID, :injuryLostDays, 
+                                                :injuryLostDaysStartDate, :companyNameID)');
+    $injstmt->bindValue(':personnelTypeID',$personnelTypeID);
+    $injstmt->bindValue(':workRelated',$workRelated);
+    $injstmt->bindValue(':medClassID',$medClassID);
     $injstmt->bindValue(':injuryDescription',$injuryDescription);
+    $injstmt->bindValue(':injuryNatureID',$injuryNatureID);
+    $injstmt->bindValue(':injuryPrimaryBodyPartID',$injuryPrimaryBodyPartID);
+    $injstmt->bindValue(':injuryLostDays',$injuryLostDays);
+    $injstmt->bindValue(':injuryLostDaysStartDate',$injuryLostDaysStartDate);
+    $injstmt->bindValue(':companyNameID',$companyNameID);
     $injstmt->execute();
 
     $injuryID = $db->lastInsertId("injuries_injury_id_seq");
-//Injuries
-        $sql = "select * from injuries join events on injuries.event_id = events.event_id WHERE events.event_id=".$EventID;
-        $injstmt = $db->prepare($sql);
-        $injstmt->execute();
-        $injuries = $injstmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($injuries as $injury)
-        {
-            echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
-            echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
-        }
 
 ?>
  </body>
 </html>
+
+"injury_id"
+"event_id"
+"injured_ill_personnel_type_id"
+"work_related"
+"medical_classification_id"
+"injury_description"
+"injury_nature_id"
+"injury_primary_body_part_id"
+"injury_lost_days"
+"injury_lost_days_start_date"
+"company_name_id"
+"injury_status_id"

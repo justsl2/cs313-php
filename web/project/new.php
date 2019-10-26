@@ -265,6 +265,25 @@
     <b>Injury Description: </b> <br/>
         <textarea required name="injuryDescription" rows="2" cols="70"></textarea><br/>
         <br/>
+    <b>Medical Classification: </b> <br/>
+        <select required name="medClassID" style="width:300px">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from medical_classifications');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $medClass = $row['medical_classification_label'];
+                $medClassID = $row['medical_classification_id'];
+                echo '<option value="'.$medClassID.'">'.$medClass.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+
+
+
     
     
 
