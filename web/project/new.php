@@ -38,38 +38,7 @@
     <!--<input required type="textarea" rows="4" cols="100" name="longDescription"><br/>-->
     <textarea required name="longDescription" rows="6" cols="100"></textarea><br/>
 
-    <b>Site: </b> 
-        <select required name="siteID">
-        <option value="" selected disabled hidden></option>
-        <?php
-            $stmt = $db->prepare('select * from sites');
-            $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($rows as $row)
-            {
-                $site = $row['site_label'];
-                $siteID = $row['site_id'];
-                echo '<option value="'.$siteID.'">'.$site.'</option>';
-            }
-        ?>
-        </select>
-        <br/>
-    <b>Department: </b> 
-        <select required name="departmentID">
-        <option value="" selected disabled hidden></option>
-        <?php
-            $stmt = $db->prepare('select * from departments');
-            $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($rows as $row)
-            {
-                $department = $row['department_label'];
-                $departmentID = $row['department_id'];
-                echo '<option value="'.$departmentID.'">'.$department.'</option>';
-            }
-        ?>
-        </select>
-        <br/>
+
     <b>Actual Severity of Event: </b> 
         <select required name="severityID_Act">
         <option value="" selected disabled hidden></option>
@@ -102,6 +71,73 @@
         ?>
         </select>
         <br/>
+
+
+
+
+    <b>Equipment Type: </b> 
+        <select required name="equipmentID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from equipments');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $equipment = $row['equipment_label'];
+                $equipmentID = $row['equipment_id'];
+                echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    <b>Within Reporting Boundary?: </b> 
+        <select required name="boundaryID">
+        <option value="1" selected>Yes</option>
+        <option value="0">No</option>
+        </select>
+        <br/>
+
+
+    </p>
+    <h3>Organization Details:</h3>
+    <p>
+    <b>Site: </b> 
+        <select required name="siteID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from sites');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $site = $row['site_label'];
+                $siteID = $row['site_id'];
+                echo '<option value="'.$siteID.'">'.$site.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    <b>Department: </b> 
+        <select required name="departmentID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from departments');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $department = $row['department_label'];
+                $departmentID = $row['department_id'];
+                echo '<option value="'.$departmentID.'">'.$department.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    </p>
+
+    <h3>Weather/Lighting Details:</h3>
+    <p>
     <b>Temperature: </b> 
     <input required type="number" rows="4" cols="100" name="temperature"><br/>
     
@@ -121,7 +157,6 @@
         ?>
         </select>
         <br/>
-
     <b>Weather Conditions: </b> 
         <select required name="weatherID">
         <option value="" selected disabled hidden></option>
@@ -138,7 +173,6 @@
         ?>
         </select>
         <br/>
-
     <b>Lighting Conditions: </b> 
         <select required name="lightingID">
         <option value="" selected disabled hidden></option>
@@ -151,6 +185,27 @@
                 $lighting = $row['lighting_label'];
                 $lightingID = $row['lighting_id'];
                 echo '<option value="'.$lightingID.'">'.$lighting.'</option>';
+            }
+        ?>
+        </select>
+        <br/>
+    </p>
+
+
+    <h3>Operation/Activity Type Details:</h3>
+    <p>
+    <b>Type of Operation At Time of Event: </b> 
+        <select required name="operationID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from operation_types');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $operation = $row['operation_type_label'];
+                $operationID = $row['operation_type_id'];
+                echo '<option value="'.$operationID.'">'.$operation.'</option>';
             }
         ?>
         </select>
@@ -171,7 +226,11 @@
         ?>
         </select>
         <br/>
-    <!--Entered By Hidden, may enable login functionality, but defaulted to ID 1 for now-->
+
+    </p>
+    <h3>Responsibility Details:</h3>
+    <p>
+        <!--Entered By Hidden, may enable login functionality, but defaulted to ID 1 for now-->
         <input type="hidden" name="enteredID" value="1">
     <b>Reported By: </b> 
         <select required name="reportedID">
@@ -205,32 +264,7 @@
         ?>
         </select>
         <br/>
-
-    <b>Equipment Type: </b> 
-        <select required name="equipmentID">
-        <option value="" selected disabled hidden></option>
-        <?php
-            $stmt = $db->prepare('select * from equipments');
-            $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($rows as $row)
-            {
-                $equipment = $row['equipment_label'];
-                $equipmentID = $row['equipment_id'];
-                echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
-            }
-        ?>
-        </select>
-        <br/>
-    <b>Within Reporting Boundary?: </b> 
-        <select required name="boundaryID">
-        <option value="1" selected>Yes</option>
-        <option value="0">No</option>
-        </select>
-        <br/>
-
-
-    </p>
+        </p>
     <h3>Consequence Details:</h3>
     <p>
     <b>Consequence Type: </b> 
