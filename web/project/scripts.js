@@ -1,4 +1,3 @@
 function consequenceForm() {
-    var elem = document.getElementById('consequenceFormPlace');
-    elem.style.animation = "mouseFrame 4s both";
+    document.getElementById('consequenceFormPlace').value = '0-9999';
 }
