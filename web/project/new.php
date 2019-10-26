@@ -39,7 +39,7 @@
 
 
     <b>Actual Severity of Event: </b> <br/>
-        <select required name="severityID_Act">
+        <select required name="severityID_Act" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from severities');
