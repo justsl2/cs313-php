@@ -33,6 +33,8 @@
                 echo '<br>';
             }
         ?>
+
+        
         Car: 
         <select>
             <option value="volvo">Volvo</option>
@@ -41,6 +43,22 @@
             <option value="audi">Audi</option>
         </select>
 
+        Equipment2: 
+        <br/>
+        <select name="equipment">
+        <?php
+            $stmt = $db->prepare('select * from equipments');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $equipment = $row['equipment_label'];
+                $equipmentID = $row['equipment_id'];
+                echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
+                echo '<br>';
+            }
+        ?>
+        </select>
     </form>
     </body>
 </html>
