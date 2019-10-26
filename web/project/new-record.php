@@ -15,7 +15,7 @@ $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	{
 		echo '<p>';
-		echo '<strong>' . $row['event_id'] . ' ' . $row['description_short'] . ':';
+		echo '<strong>Event ID = ' . $row['event_id'] . '<br> Short Description = ' . $row['description_short'] . '<br> Equipment ID = ';
 		echo $row['equipment_id'] . '</strong>';
 		echo '<br />';
 		echo '</p>';
