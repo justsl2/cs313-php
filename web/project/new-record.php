@@ -18,6 +18,7 @@ $db = get_db();
         <a class="active" href="search.php">Search</a>
     </div>
     <h2>Record Entered Successfully</h2>
+    <h3>Event Details:</h3>
 <?php
 $dateOccurred = $_POST['dateOccurred'];
 $dateReported = $_POST['dateReported'];
@@ -96,26 +97,6 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         echo '<b>Date Event Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
-        //site
-        $sql = "select site_label from sites join events on sites.site_id = events.site_id WHERE event_id=:eventID";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':eventID',$eventID);
-        $stmt->execute();
-        $sites = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($sites as $site)
-        {
-            echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
-        }
-        //department
-        $sql = "select department_label from departments join events on departments.department_id = events.department_id WHERE event_id=:eventID";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':eventID',$eventID);
-        $stmt->execute();
-        $departments = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($departments as $department)
-        {
-            echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
-        }
         //actual severity
         $sql = "select severity_label from severities join events on severities.severity_id = events.severity_actual_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
@@ -136,20 +117,57 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         {
             echo '<b>Probable Severity:</b>  ' . $probableSeverity['severity_label'] .'<br>';
         }
-
-        //event status
-        $sql = "select status_label from statuses join events on statuses.status_id = events.event_status_id WHERE event_id=:eventID";
+        //Equipment Type
+        $sql = "select equipment_label from equipments join events on equipments.equipment_id = events.equipment_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':eventID',$eventID);
         $stmt->execute();
-        $statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($statuses as $status)
+        $equipment_labels = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($equipment_labels as $equipment_label)
         {
-            echo '<b>Event Status:</b>  ' . $status['status_label'] .'<br>';
+            echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
         }
+        //Reporting Boundary
+        echo '<b>Within Reporting Boundary?:</b>  ' . var_export($row['reporting_boundary'], True) . '<br>';
+        
+        //Organizational Details
+        echo '<h3>Organization Details:</h3>';         
+        //site
+        $sql = "select site_label from sites join events on sites.site_id = events.site_id WHERE event_id=:eventID";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':eventID',$eventID);
+        $stmt->execute();
+        $sites = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($sites as $site)
+        {
+            echo '<b>Site:</b>  ' . $site['site_label'] .'<br>';
+        }
+        //department
+        $sql = "select department_label from departments join events on departments.department_id = events.department_id WHERE event_id=:eventID";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':eventID',$eventID);
+        $stmt->execute();
+        $departments = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($departments as $department)
+        {
+            echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
+        }
+        
+        //event status
+        //$sql = "select status_label from statuses join events on statuses.status_id = events.event_status_id WHERE event_id=:eventID";
+        //$stmt = $db->prepare($sql);
+        //$stmt->bindValue(':eventID',$eventID);
+        //$stmt->execute();
+        //$statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        //foreach ($statuses as $status)
+        //{
+        //    echo '<b>Event Status:</b>  ' . $status['status_label'] .'<br>';
+        //}
+
+        //Weather/Lighting Details
+        echo '<h3>Weather/Lighting Details:</h3>'; 
         //Temperature
         echo '<b>Temperature:</b>  ' . $row['temperature'].'° ';
-
         //Temperature UOM
         $sql = "select temperature_uom_label from temperature_uoms join events on temperature_uoms.temperature_uom_id = events.temperature_uom_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
@@ -160,7 +178,6 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         {
             echo $temperatureUOM['temperature_uom_label'] .'<br>';
         }
-
         //weather
         $sql = "select weather_label from weathers join events on weathers.weather_id = events.weather_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
@@ -171,7 +188,6 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         {
             echo '<b>Weather Conditions:</b>  ' . $weather['weather_label'] .'<br>';
         }
-
         //lighting
         $sql = "select lighting_label from lightings join events on lightings.lighting_id = events.lighting_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
@@ -183,6 +199,8 @@ $eventID = $db->lastInsertId("events_event_id_seq");
             echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
         }
 
+        //Operation/Activity Type Details
+        echo '<h3>Operation/Activity Type Details:</h3>'; 
         //Operation Type
         $sql = "select operation_type_label from operation_types join events on operation_types.operation_type_id = events.operation_type_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
@@ -203,6 +221,9 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         {
             echo '<b>Type of Activity At Time of Event:</b>  ' . $activityType['activity_type_label'] .'<br>';
         }
+
+        //Responsibility Details
+        echo '<h3>Responsibility Details:</h3>'; 
         //Entered By
         $sql = "select user_name, user_name_first, user_name_last from users join events on users.user_id = events.entered_by_id  WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
@@ -233,20 +254,9 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         {
             echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . ' (' . $qa_qcBy['user_name'] .')<br>';
         }
-        //Equipment Type
-        $sql = "select equipment_label from equipments join events on equipments.equipment_id = events.equipment_id WHERE event_id=:eventID";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':eventID',$eventID);
-        $stmt->execute();
-        $equipment_labels = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($equipment_labels as $equipment_label)
-        {
-            echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
-        }
 
-        echo '<b>Within Reporting Boundary?:</b>  ' . var_export($row['reporting_boundary'], True) . '<br>';
-        echo '<br>';
-        echo '<br>';
+        //Injury Details
+        echo '<h3>Injury Details:</h3>'; 
         //Consequence Type
         $sql = "select consequence_type_label from consequence_types join events on consequence_types.consequence_type_id = events.consequence_type_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
