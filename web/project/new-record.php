@@ -23,6 +23,9 @@ $dateOccurred = $_POST['dateOccurred'];
 $shortDescription = $_POST['shortDescription'];
 $longDescription = $_POST['longDescription'];
 $equipmentID = $_POST['equipmentID'];
+$site = $_POST['site'];
+
+
 echo $dateOccurred . '<br>';
 echo $shortDescription . '<br>';
 echo $longDescription . '<br>';
@@ -231,77 +234,7 @@ echo $eventID . '<br>';
             echo '<b>Consequence Type:</b>  ' . $consequence_type['consequence_type_label'] .'<br>';
         }
 
-        //Injuries
-        $sql = "select * from injuries LEFT join events on injuries.event_id = events.event_id WHERE events.event_id=:eventID";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':eventID',$eventID);
-        $stmt->execute();
-        $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($injuries as $injury)
-        {
-            echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
-            echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
-            echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
-                //Medical Classifications
-                $sql = "select medical_classification_label from medical_classifications LEFT join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=". $injury['injury_id'];
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-                foreach ($medical_classifications as $medical_classification)
-                {
-                    echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
-                }
-            
-            //Lost Days
-            $dateLostStart = new DateTime($injury['injury_lost_days_start_date']);
-            echo '<b>Lost Days:</b>  ' . $injury['injury_lost_days'] .'<br>';
-            echo '<b>Lost Days Start Date:</b>  ' . $injury['injury_lost_days_start_date'] .'<br>';
-
-                //Injured/Ill Personnel Type
-                $sql = "select personnel_type_label from personnel_types LEFT join injuries on personnel_types.personnel_type_id = injuries.injured_ill_personnel_type_id   WHERE injuries.injury_id=". $injury['injury_id'];
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $personnel_types = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-                foreach ($personnel_types as $personnel_type)
-                {
-                    echo '<b>Injured/Ill Personnel Type:</b>  ' . $personnel_type['personnel_type_label'] .'<br>';
-                }
-                //Nature of Injury
-                $sql = "select injury_nature_label from injury_natures LEFT join injuries on injury_natures.injury_nature_id = injuries.injury_nature_id WHERE injuries.injury_id=". $injury['injury_id'];
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $injury_natures = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-                foreach ($injury_natures as $injury_nature)
-                {
-                    echo '<b>Nature of Injury:</b>  ' . $injury_nature['injury_nature_label'] .'<br>';
-                }
-                //Primary Body Part
-                $sql = "select injury_primary_body_part_label from injury_primary_body_parts LEFT join injuries on injury_primary_body_parts.injury_primary_body_part_id = injuries.injury_primary_body_part_id WHERE injuries.injury_id=". $injury['injury_id'];
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $injury_primary_body_parts = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-                foreach ($injury_primary_body_parts as $injury_primary_body_part)
-                {
-                    echo '<b>Primary Body Part Injured:</b>  ' . $injury_primary_body_part['injury_primary_body_part_label'] .'<br>';
-                }
-                //Company Name
-                $sql = "select company_name_label from company_names LEFT join injuries on company_names.company_name_id = injuries.company_name_id WHERE injuries.injury_id=". $injury['injury_id'];
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $company_names = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-                foreach ($company_names as $company_name)
-                {
-                    echo '<b>Company Name:</b>  ' . $company_name['company_name_label'] .'<br>';
-                }
-                //Injury Status
-                $sql = "select status_label from statuses LEFT join injuries on statuses.status_id = injuries.injury_status_id WHERE injuries.injury_id=". $injury['injury_id'];
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-                foreach ($statuses as $status)
-                {
-                    echo '<b>Injury Status:</b>  ' . $status['status_label'] .'<br>';
-                }
+        
                 echo '<br>';
 	}
 
