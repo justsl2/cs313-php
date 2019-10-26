@@ -31,14 +31,21 @@
             }
             ?>
         </select>
+        Equipment2: 
+        <br/>
+        <?php
+            $stmt = $db->prepare('select * from equipments');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $equipment = $row['equipment_label'];
+                $equipmentID = $row['equipment_id'];
+                echo '<input type="checkbox" name="equipments[]" value="'.$equipmentID.'">'.$equipment;
+                echo '<br>';
+            }
+        ?>
 
-        Car:
-        <select>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
-        </select>
     </form>
     </body>
 </html>
