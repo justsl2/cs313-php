@@ -19,18 +19,6 @@
     </div>
     <h2>New</h2>
     <form method="post" action="new-record.php">
-        <textarea name="short_description"></textarea>
-        <br>
-        <input type="submit" class="button" value="Create Short Description">
-    Equipment:
-        <select name="equipment">
-            <?php 
-            $sql = mysqli_query($connection, "SELECT equipment_label FROM equipments");
-            while ($row = $sql->fetch_assoc()){
-            echo "<option value=".$row['equipment_label'].">" . $row['equipment_label'] . "</option>";
-            }
-            ?>
-        </select>
         Equipment2: 
         <br/>
         <?php
