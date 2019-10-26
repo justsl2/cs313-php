@@ -261,6 +261,7 @@
         <br/>
         
     <h3>Injury Details:</h3>
+    <input type="hidden" name="consequenceID" value="1">
     <b>Injury Description: </b> <br/>
         <textarea required name="injuryDescription" rows="2" cols="70"></textarea><br/>
         <br/>
