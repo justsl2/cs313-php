@@ -252,18 +252,37 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         foreach ($qa_qcBys as $qa_qcBy)
         {
             echo '<b>QA/QC By:</b>  ' . $qa_qcBy['user_name_first'] . ' ' . $qa_qcBy['user_name_last'] . ' (' . $qa_qcBy['user_name'] .')<br>';
-        }
-
-
-        $injuryDescription = $_POST['injuryDescription'];
-        $injstmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
-                            VALUES ('.$eventID.', :injuryDescription)');
-        $injstmt->bindValue(':injuryDescription',$injuryDescription);
-        $injstmt->execute();
-
-        $injuryID = $db->lastInsertId("injuries_injury_id_seq");
-
+        }        
     }
+
+    $injuryDescription = $_POST['injuryDescription'];
+    $injstmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
+                        VALUES ('.$eventID.', :injuryDescription)');
+    $injstmt->bindValue(':injuryDescription',$injuryDescription);
+    $injstmt->execute();
+
+    $injuryID = $db->lastInsertId("injuries_injury_id_seq");
+//Injuries
+        $sql = "select * from injuries LEFT join events on injuries.event_id = events.event_id WHERE events.event_id=:event_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($injuries as $injury)
+        {
+            echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
+            echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
+            echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
+                //Medical Classifications
+                $sql = "select medical_classification_label from medical_classifications LEFT join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=". $injury['injury_id'];
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+                foreach ($medical_classifications as $medical_classification)
+                {
+                    echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
+                }
+        }
 
 ?>
  </body>
