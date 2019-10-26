@@ -22,7 +22,23 @@
         <textarea name="short_description"></textarea>
         <br>
         <input type="submit" class="button" value="Create Short Description">
+    Equipment:
+        <select name="equipment">
+            <?php 
+            $sql = mysqli_query($connection, "SELECT equipment_label FROM equipments");
+            while ($row = $sql->fetch_assoc()){
+            echo "<option value=".$row['equipment_label'].">" . $row['equipment_label'] . "</option>";
+            }
+            ?>
+        </select>
 
+        Car:
+        <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+        </select>
     </form>
     </body>
 </html>
