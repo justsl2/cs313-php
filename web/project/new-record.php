@@ -9,8 +9,8 @@ echo $shortDescription . '<br>';
 echo $equipmentID . '<br>';
 
 $stmt = $db->prepare('INSERT INTO events (description_short, equipment_id) VALUES (:shortDescription, :equipmentID)');
-echo $stmt . '<br>';
-$stmt->bindValue(':dateOccurred',$dateOccurred); 
+//echo $stmt . '<br>';
+//$stmt->bindValue(':dateOccurred',$dateOccurred); 
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':equipmentID',$equipmentID); 
 
