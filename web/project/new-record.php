@@ -2,7 +2,7 @@
 require "dbConnect.php";
 $db = get_db();
 $shortDescription = $_POST['shortDescription'];
-$equipmentID = $_POST['equipmentID'];
+$equipmentID = $_POST['equipment'];
  echo '$equipmentID = '.$equipmentID;
 
 $stmt = $db->prepare('INSERT INTO events (description_short, equipment_id) VALUES (:shortDescription, :equipmentID)');
