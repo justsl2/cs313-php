@@ -23,7 +23,7 @@
     <h3>Event Details:</h3>
     Date Event Occurred: 
     <input required type="date" name="dateOccurred"><br/>
-    
+
     Date Event Reported: 
     <input required type="date" name="dateReported"><br/>
     
@@ -214,7 +214,7 @@
         ?>
         </select>
         <br/>
-    Within Reporting Boundaries?: 
+    Within Reporting Boundary?: 
         <select required name="boundaryID">
         <option value="1" selected>Yes</option>
         <option value="0">No</option>

@@ -22,6 +22,7 @@ $db = get_db();
 $dateOccurred = $_POST['dateOccurred'];
 $dateReported = $_POST['dateReported'];
 $shortDescription = $_POST['shortDescription'];
+$shortDescription = htmlspecialchars($shortDescription);
 $longDescription = $_POST['longDescription'];
 $siteID = $_POST['siteID'];
 $departmentID = $_POST['departmentID'];
@@ -240,7 +241,7 @@ $eventID = $db->lastInsertId("events_event_id_seq");
             echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
         }
 
-        echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True) . '<br>';
+        echo '<b>Within Reporting Boundary?:</b>  ' . var_export($row['reporting_boundary'], True) . '<br>';
         echo '<br>';
         echo '<br>';
         //Consequence Type
