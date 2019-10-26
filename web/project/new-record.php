@@ -87,9 +87,9 @@ $eventID = $db->lastInsertId("events_event_id_seq");
 
         echo '<p>';
         echo '<b>Event ID:</b>  '. $row['event_id'].'<br>';
-        echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
-        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
-        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
+        echo '<b>Date Event Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
+        echo '<b>Date Event Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
+        echo '<b>Date Event Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         //site
