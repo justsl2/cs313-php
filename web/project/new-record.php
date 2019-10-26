@@ -16,6 +16,9 @@ $stmt->bindValue(':equipmentID',$equipmentID);
 
 $stmt->execute();
 
+$eventID = $db->lastInsertId("events_event_id_seq");
+echo $eventID . '<br>'; 
+
     $stmt = $db->prepare('SELECT * from events');
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
