@@ -21,7 +21,8 @@
     <form method="post" action="new-record.php">
         Equipment: 
         <br/>
-        <select name="equipment">
+        <select required name="equipment">
+        <option value="" selected disabled hidden>Choose here</option>
         <?php
             $stmt = $db->prepare('select * from equipments');
             $stmt->execute();
@@ -36,7 +37,7 @@
         ?>
         </select>
 
-        
+
     <input type="submit" value="Submit">
     </form>
     </body>
