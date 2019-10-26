@@ -33,9 +33,9 @@ echo $eventID . '<br>';
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
-        $sql = "select equipment_label from equipments right join events on equipments.equipment_id = events.equipment_id WHERE event_id=:event_id";
+        $sql = "select equipment_label from equipments right join events on equipments.equipment_id = events.equipment_id WHERE event_id=:eventID";
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':eventID',$eventID);
         $stmt->execute();
         $equipment_labels = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($equipment_labels as $equipment_label)
