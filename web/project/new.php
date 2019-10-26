@@ -19,14 +19,16 @@
     </div>
     <h2>New</h2>
     <form method="post" action="new-record.php">
-    Date Event Occurred: <input type="date" name="dateOccurred">
-    <br/>
-    Short Description: <input type="text" rows="2" cols="100" name="shortDescription">
-    <br/>
-    Detailed Description: <input type="text" rows="4" cols="100" name="longDescription">
-    <br/>
+    Date Event Occurred: 
+    <input type="date" name="dateOccurred"><br/>
+    
+    Short Description: 
+    <input type="text" rows="2" cols="100" name="shortDescription"><br/>
+
+    Detailed Description: 
+    <input type="text" rows="4" cols="100" name="longDescription"><br/>
+
     Equipment: 
-        <br/>
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
         <?php
