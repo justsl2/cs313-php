@@ -22,7 +22,7 @@
         Equipment: 
         <br/>
         <select required name="equipment">
-        <option value="" selected disabled hidden>Choose here</option>
+        <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from equipments');
             $stmt->execute();
