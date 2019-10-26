@@ -45,7 +45,7 @@
             }
         ?>
         </select>
-
+        <br/>
     Equipment: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
@@ -62,8 +62,8 @@
             }
         ?>
         </select>
-
-    <br/>
+        <br/>
+    
     <input type="submit" value="Submit">
     </form>
     </body>
