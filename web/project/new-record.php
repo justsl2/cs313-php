@@ -25,6 +25,7 @@ $longDescription = $_POST['longDescription'];
 $equipmentID = $_POST['equipmentID'];
 echo $dateOccurred . '<br>';
 echo $shortDescription . '<br>';
+echo $longDescription . '<br>';
 echo $equipmentID . '<br>';
 
 $stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, equipment_id) 
