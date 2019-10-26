@@ -30,7 +30,7 @@ $temperature = $_POST['temperature'];
 $tempUOMID = $_POST['tempUOMID'];
 $weatherID = $_POST['weatherID'];
 $lightingID = $_POST['lightingID'];
-$lightingID = $_POST['lightingID'];
+$activityID = $_POST['activityID'];
 $equipmentID = $_POST['equipmentID'];
 
 //echo $departmentID . '<br>'; 
@@ -48,7 +48,7 @@ $stmt->bindValue(':temperature',$temperature);
 $stmt->bindValue(':tempUOMID',$tempUOMID);
 $stmt->bindValue(':weatherID',$weatherID);
 $stmt->bindValue(':lightingID',$lightingID);
-$stmt->bindValue(':lightingID',$lightingID);
+$stmt->bindValue(':activityID',$activityID);
 $stmt->bindValue(':equipmentID',$equipmentID); 
 
 $stmt->execute();

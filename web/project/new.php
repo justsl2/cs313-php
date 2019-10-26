@@ -42,7 +42,6 @@
                 $site = $row['site_label'];
                 $siteID = $row['site_id'];
                 echo '<option value="'.$siteID.'">'.$site.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
@@ -59,7 +58,6 @@
                 $department = $row['department_label'];
                 $departmentID = $row['department_id'];
                 echo '<option value="'.$departmentID.'">'.$department.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
@@ -76,7 +74,6 @@
                 $severity = $row['severity_label'];
                 $severityID = $row['severity_id'];
                 echo '<option value="'.$severityID.'">'.$severity.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
@@ -93,7 +90,6 @@
                 $severity = $row['severity_label'];
                 $severityID = $row['severity_id'];
                 echo '<option value="'.$severityID.'">'.$severity.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
@@ -112,7 +108,6 @@
                 $temperature = $row['temperature_uom_label'];
                 $temperatureID = $row['temperature_uom_id'];
                 echo '<option value="'.$temperatureID.'">'.$temperature.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
@@ -129,7 +124,6 @@
                 $weather = $row['weather_label'];
                 $weatherID = $row['weather_id'];
                 echo '<option value="'.$weatherID.'">'.$weather.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
@@ -146,7 +140,6 @@
                 $lighting = $row['lighting_label'];
                 $lightingID = $row['lighting_id'];
                 echo '<option value="'.$lightingID.'">'.$lighting.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
@@ -163,11 +156,12 @@
                 $activity = $row['activity_type_label'];
                 $activityID = $row['activity_type_id'];
                 echo '<option value="'.$activityID.'">'.$activity.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
         <br/>
+
+
     Equipment: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
@@ -180,7 +174,6 @@
                 $equipment = $row['equipment_label'];
                 $equipmentID = $row['equipment_id'];
                 echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
-                echo '<br>';
             }
         ?>
         </select>
