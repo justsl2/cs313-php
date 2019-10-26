@@ -117,6 +117,23 @@
         ?>
         </select>
         <br/>
+    Weather Condition: 
+        <select required name="weatherID">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from weathers');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $weather = $row['weather_label'];
+                $weatherID = $row['weather_id'];
+                echo '<option value="'.$weatherID.'">'.$weather.'</option>';
+                echo '<br>';
+            }
+        ?>
+        </select>
+        <br/>
     Equipment: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>
