@@ -1,4 +1,4 @@
 function consequenceForm() {
-    var consequenceID = document.getElementsByName("consequenceID").value; 
+    var consequenceID = document.getElementById("consequenceID").value; 
     document.getElementById('consequenceFormPlace').value = consequenceID;
 }
