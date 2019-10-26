@@ -89,7 +89,6 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         $dateReported = new DateTime($row['date_reported']);
         $dateEntered = new DateTime($row['date_entered']); 
 
-        echo '<p>';
         echo '<b>Event ID:</b>  '. $row['event_id'].'<br>';
         echo '<b>Date Event Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
         echo '<b>Date Event Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
