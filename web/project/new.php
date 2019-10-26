@@ -24,6 +24,9 @@
     Date Event Occurred: 
     <input required type="date" name="dateOccurred"><br/>
     
+    Date Event Reported: 
+    <input required type="date" name="dateReported"><br/>
+    
     Short Description: 
     <input required type="textarea" rows="2" cols="100" name="shortDescription"><br/>
 
@@ -211,6 +214,13 @@
         ?>
         </select>
         <br/>
+    Within Reporting Boundaries?: 
+        <select required name="boundaryID">
+        <option value="1" selected>Yes</option>
+        <option value="0">No</option>
+        </select>
+        <br/>
+
     Consequence Type: 
         <select required name="consequenceID">
         <option value="" selected disabled hidden></option>

@@ -20,6 +20,7 @@ $db = get_db();
     <h2>Record Entered Successfully</h2>
 <?php
 $dateOccurred = $_POST['dateOccurred'];
+$dateReported = $_POST['dateReported'];
 $shortDescription = $_POST['shortDescription'];
 $longDescription = $_POST['longDescription'];
 $siteID = $_POST['siteID'];
@@ -35,20 +36,23 @@ $enteredID = $_POST['enteredID'];
 $reportedID = $_POST['reportedID'];
 $qaqcID = $_POST['qaqcID'];
 $equipmentID = $_POST['equipmentID'];
+$boundaryID = $_POST['boundaryID'];
 $consequenceID = $_POST['consequenceID'];
+
 
 //echo $departmentID . '<br>'; 
 
-$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, 
+$stmt = $db->prepare('INSERT INTO events (date_occurred, date_reported, description_short, description_long, site_id, department_id, 
                                           severity_actual_id, severity_probable_id, temperature, temperature_uom_id, 
                                           weather_id, lighting_id, activity_type_id, entered_by_id, reported_by_id, 
-                                          qa_qc_by_id, equipment_id, consequence_type_id) 
-                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, 
+                                          qa_qc_by_id, equipment_id, reporting_boundary, consequence_type_id) 
+                      VALUES (:dateOccurred, :dateReported, :shortDescription, :longDescription, :siteID, :departmentID, 
                               :severityID_Act, :severityID_Prob, :temperature, :tempUOMID, 
                               :weatherID, :lightingID, :activityID, :enteredID, :reportedID, 
-                              :qaqcID, :equipmentID, :consequenceID)');
+                              :qaqcID, :equipmentID, :boundaryID, :consequenceID)');
 
 $stmt->bindValue(':dateOccurred',$dateOccurred);
+$stmt->bindValue(':dateReported',$dateReported);
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':longDescription',$longDescription); 
 $stmt->bindValue(':siteID',$siteID); 
@@ -64,6 +68,7 @@ $stmt->bindValue(':enteredID',$enteredID);
 $stmt->bindValue(':reportedID',$reportedID);
 $stmt->bindValue(':qaqcID',$qaqcID);
 $stmt->bindValue(':equipmentID',$equipmentID); 
+$stmt->bindValue(':boundaryID',$boundaryID); 
 $stmt->bindValue(':consequenceID',$consequenceID); 
 
 $stmt->execute();
@@ -83,6 +88,8 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         echo '<p>';
         echo '<b>Event ID:</b>  '. $row['event_id'].'<br>';
         echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
+        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
+        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
         echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
         echo '<b>Detailed Description:</b>  ' . $row['description_long'].'<br>';
         //site
@@ -233,9 +240,6 @@ $eventID = $db->lastInsertId("events_event_id_seq");
             echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
         }
 
-
-        echo '<b>Date Reported:</b>  ' . $dateReported->format('M d, Y').'<br>';
-        echo '<b>Date Entered:</b>  ' . $dateEntered->format('M d, Y').'<br>';
         echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True) . '<br>';
         echo '<br>';
         echo '<br>';
