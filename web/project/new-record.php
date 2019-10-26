@@ -6,7 +6,7 @@ $shortDescription = $_POST['shortDescription'];
 $equipmentID = $_POST['equipmentID'];
 
 
-$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, equipment_id) VALUES (:dateOccurred, :shortDescription, :equipmentID)');
+$stmt = $db->prepare('INSERT INTO events (description_short, equipment_id) VALUES (:shortDescription, :equipmentID)');
 $stmt->bindValue(':dateOccurred',$dateOccurred); 
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':equipmentID',$equipmentID); 
