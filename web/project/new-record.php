@@ -255,14 +255,6 @@ $eventID = $db->lastInsertId("events_event_id_seq");
         }
 
 
-$injuryDescription = $_POST['injuryDescription'];
-$injstmt = $db->prepare('INSERT INTO injuries (event_id, injury_description) 
-                      VALUES ('.$eventID.', :injuryDescription)');
-$injstmt->bindValue(':injuryDescription',$injuryDescription);
-$injstmt->execute();
-
-$injuryID = $db->lastInsertId("injuries_injury_id_seq");
-
       
 
 ?>
