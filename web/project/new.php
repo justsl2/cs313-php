@@ -238,7 +238,8 @@
             }
         ?>
         </select>
-        <div id="consequenceFormPlace">Consequence Form:</div>
+        Consequence Form:
+        <input required type="textarea" id="consequenceFormPlace" name="shortDescription"><br/>
         <br/>
     
     <input type="submit" value="Submit">
