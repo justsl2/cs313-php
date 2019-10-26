@@ -22,7 +22,7 @@
     <form method="post" action="new-record.php">
    
     <h3>Event Details:</h3>
-    <p>
+
     <b>Date Event Occurred: </b> 
     <input required type="date" name="dateOccurred"><br/>
     
@@ -99,9 +99,9 @@
         <br/>
 
 
-    </p>
+    
     <h3>Organization Details:</h3>
-    <p>
+    
     <b>Site: </b> 
         <select required name="siteID">
         <option value="" selected disabled hidden></option>
@@ -134,10 +134,11 @@
         ?>
         </select>
         <br/>
-    </p>
+    
+
 
     <h3>Weather/Lighting Details:</h3>
-    <p>
+    
     <b>Temperature: </b> 
     <input required type="number" rows="4" cols="100" name="temperature"><br/>
     
@@ -189,11 +190,11 @@
         ?>
         </select>
         <br/>
-    </p>
+    
 
 
     <h3>Operation/Activity Type Details:</h3>
-    <p>
+    
     <b>Type of Operation At Time of Event: </b> 
         <select required name="operationID">
         <option value="" selected disabled hidden></option>
@@ -227,9 +228,9 @@
         </select>
         <br/>
 
-    </p>
+    
     <h3>Responsibility Details:</h3>
-    <p>
+    
         <!--Entered By Hidden, may enable login functionality, but defaulted to ID 1 for now-->
         <input type="hidden" name="enteredID" value="1">
     <b>Reported By: </b> 
@@ -264,9 +265,9 @@
         ?>
         </select>
         <br/>
-        </p>
+        
     <h3>Consequence Details:</h3>
-    <p>
+    
     <b>Consequence Type: </b> 
         <select required name="consequenceID">
         <option value="" selected disabled hidden></option>
@@ -287,7 +288,7 @@
         <input required type="textarea" rows="2" cols="100" name="injuryDescription"><br/>
         <br/>
     
-    </p>
+    
 
     <input type="submit" value="Submit">
     </form>
