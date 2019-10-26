@@ -30,12 +30,10 @@
     <input required type="date" name="dateReported" style="width:200px"><br/>
     
     <b>Short Description: </b> <br/>
-    <!--<input required type="textarea" rows="2" cols="100" name="shortDescription"><br/>-->
-    ​<textarea required name="shortDescription" rows="2" cols="100"></textarea><br/>
+    ​<textarea required name="shortDescription" rows="2" cols="70"></textarea><br/>
 
     <b>Detailed Description: </b> <br/>
-    <!--<input required type="textarea" rows="4" cols="100" name="longDescription"><br/>-->
-    <textarea required name="longDescription" rows="6" cols="100"></textarea><br/>
+    <textarea required name="longDescription" rows="6" cols="70"></textarea><br/>
 
 
     <b>Actual Severity of Event: </b> <br/>
@@ -55,7 +53,7 @@
         </select>
         <br/>
     <b>Probable Severity of Event: </b> <br/>
-        <select required name="severityID_Prob">
+        <select required name="severityID_Prob" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from severities');
@@ -72,7 +70,7 @@
         <br/>
 
     <b>Equipment Type: </b> <br/>
-        <select required name="equipmentID">
+        <select required name="equipmentID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from equipments');
@@ -88,7 +86,7 @@
         </select>
         <br/>
     <b>Within Reporting Boundary?: </b> <br/>
-        <select required name="boundaryID">
+        <select required name="boundaryID" style="width:200px">
         <option value="1" selected>Yes</option>
         <option value="0">No</option>
         </select>
@@ -99,7 +97,7 @@
     <h3>Organization Details:</h3>
     
     <b>Site: </b> <br/>
-        <select required name="siteID">
+        <select required name="siteID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from sites');
@@ -115,7 +113,7 @@
         </select>
         <br/>
     <b>Department: </b> <br/>
-        <select required name="departmentID">
+        <select required name="departmentID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from departments');
@@ -136,10 +134,10 @@
     <h3>Weather/Lighting Details:</h3>
     
     <b>Temperature: </b> <br/>
-    <input required type="number" rows="4" cols="100" name="temperature"><br/>
+    <input required type="number" rows="4" cols="100" name="temperature" style="width:200px"><br/>
     
     <b>Unit of Measure: </b> <br/>
-        <select required name="tempUOMID">
+        <select required name="tempUOMID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from temperature_uoms');
@@ -155,7 +153,7 @@
         </select>
         <br/>
     <b>Weather Conditions: </b> <br/>
-        <select required name="weatherID">
+        <select required name="weatherID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from weathers');
@@ -171,7 +169,7 @@
         </select>
         <br/>
     <b>Lighting Conditions: </b> <br/>
-        <select required name="lightingID">
+        <select required name="lightingID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from lightings');
@@ -192,7 +190,7 @@
     <h3>Operation/Activity Type Details:</h3>
     
     <b>Type of Operation At Time of Event: </b> <br/>
-        <select required name="operationID">
+        <select required name="operationID" style="width:300px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from operation_types');
@@ -208,7 +206,7 @@
         </select>
         <br/>
     <b>Type of Activity At Time of Event: </b> <br/>
-        <select required name="activityID">
+        <select required name="activityID" style="width:300px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from activity_types');
@@ -230,7 +228,7 @@
         <!--Entered By Hidden, may enable login functionality, but defaulted to ID 1 for now-->
         <input type="hidden" name="enteredID" value="1">
     <b>Reported By: </b> <br/>
-        <select required name="reportedID">
+        <select required name="reportedID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from users');
@@ -246,7 +244,7 @@
         </select>
         <br/>
     <b>QA/QC By: </b> <br/>
-        <select required name="qaqcID">
+        <select required name="qaqcID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from users');
@@ -265,7 +263,7 @@
     <h3>Consequence Details:</h3>
     
     <b>Consequence Type: </b> <br/>
-        <select required name="consequenceID">
+        <select required name="consequenceID" style="width:200px">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from consequence_types');
@@ -281,7 +279,7 @@
         </select>
         <br/>
     <b>Injury Description: </b> <br/>
-        <input required type="textarea" rows="2" cols="100" name="injuryDescription"><br/>
+        <textarea required name="injuryDescription" rows="2" cols="70"></textarea><br/>
         <br/>
     
     
