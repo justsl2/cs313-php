@@ -263,25 +263,14 @@ $eventID = $db->lastInsertId("events_event_id_seq");
 
     $injuryID = $db->lastInsertId("injuries_injury_id_seq");
 //Injuries
-        $sql = "select * from injuries LEFT join events on injuries.event_id = events.event_id WHERE events.event_id=:event_id";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        $sql = "select * from injuries join events on injuries.event_id = events.event_id WHERE events.event_id=".$EventID;
+        $injstmt = $db->prepare($sql);
+        $injstmt->execute();
+        $injuries = $injstmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($injuries as $injury)
         {
             echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
             echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
-            echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
-                //Medical Classifications
-                $sql = "select medical_classification_label from medical_classifications LEFT join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=". $injury['injury_id'];
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-                foreach ($medical_classifications as $medical_classification)
-                {
-                    echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
-                }
         }
 
 ?>
