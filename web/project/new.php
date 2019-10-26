@@ -24,15 +24,18 @@
     <h3>Event Details:</h3>
     Date Event Occurred: 
     <input required type="date" name="dateOccurred"><br/>
+    
 
     Date Event Reported: 
     <input required type="date" name="dateReported"><br/>
     
-    Short Description: 
-    <input required type="textarea" rows="2" cols="100" name="shortDescription"><br/>
+    Short Description: <br/>
+    <!--<input required type="textarea" rows="2" cols="100" name="shortDescription"><br/>-->
+    ​<textarea required name="shortDescription" rows="2" cols="100"></textarea><br/>
 
-    Detailed Description: 
-    <input required type="textarea" rows="4" cols="100" name="longDescription"><br/>
+    Detailed Description: <br/>
+    <!--<input required type="textarea" rows="4" cols="100" name="longDescription"><br/>-->
+    <textarea required name="longDescription" rows="6" cols="100"></textarea><br/>
 
     Site: 
         <select required name="siteID">
@@ -226,7 +229,7 @@
     
     <h3>Consequence Details:</h3>
     Consequence Type: 
-        <select required onchange="consequenceForm()" ID="consequenceID" name="consequenceID">
+        <select required name="consequenceID">
         <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from consequence_types');
@@ -241,8 +244,8 @@
         ?>
         </select>
         <br/>
-        Consequence Form:
-        <div id="consequenceFormPlace" name="consequenceFormPlace"></div><br/>
+    Injury Description: 
+        <input required type="textarea" rows="2" cols="100" name="injuryDescription"><br/>
         <br/>
     
     <input type="submit" value="Submit">
