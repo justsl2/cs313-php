@@ -9,7 +9,6 @@ echo $shortDescription . '<br>';
 echo $equipmentID . '<br>';
 
 $stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, equipment_id) VALUES (:dateOccurred, :shortDescription, :equipmentID)');
-//echo $stmt . '<br>';
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':equipmentID',$equipmentID); 
@@ -20,9 +19,11 @@ $stmt->execute();
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	{
+        $dateOccurred = new DateTime($row['date_occurred']);
+
         echo '<p>';
         echo 'Event ID = ' . $row['event_id'] . '<br>';
-        echo 'Date Event Occurred = ' . $row['date_occurred'] . '<br>';
+        echo 'Date Occurred = ' . $dateOccurred->format('M d, Y').'<br>';
         echo 'Short Description = ' . $row['description_short'] . '<br>';
         echo 'Equipment ID = '. $row['equipment_id'] . '<br>';
 		echo '</p>';
