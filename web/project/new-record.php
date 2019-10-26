@@ -272,6 +272,32 @@ $eventID = $db->lastInsertId("events_event_id_seq");
 
     $injuryID = $db->lastInsertId("injuries_injury_id_seq");
 
+    $stmt = $db->prepare('SELECT * FROM injuries WHERE injury_id=:injuryID');
+    $stmt->bindValue(':injuryID',$injuryID);
+    $stmt->execute();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+	{
+        $injuryLostDaysStartDate  = new DateTime($row['injury_lost_days_start_date']);
+
+        echo '<p>';
+        echo '<b>Injury ID:</b>  '. $row['injury_id'].'<br>';        
+        echo '<b>Injury Description:</b>  ' . $row['injury_description'].'<br>';
+        //Medical Classifications
+        $sql = "select medical_classification_label from medical_classifications join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=". $injuryID;
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $medical_classifications = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($medical_classifications as $medical_classification)
+        {
+            echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
+        }
+
+
+
+
+        echo '<b>Date Lost Days Began:</b>  ' . $injuryLostDaysStartDate->format('M d, Y').'<br>';
+    }   
+
 ?>
  </body>
 </html>
