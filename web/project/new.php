@@ -63,6 +63,23 @@
         ?>
         </select>
         <br/>
+    Actual Severity of Event: 
+        <select required name="severityID_Act">
+        <option value="" selected disabled hidden></option>
+        <?php
+            $stmt = $db->prepare('select * from severities');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row)
+            {
+                $severity = $row['severity_label'];
+                $severityID = $row['severity_id'];
+                echo '<option value="'.$severityID.'">'.$severity.'</option>';
+                echo '<br>';
+            }
+        ?>
+        </select>
+        <br/>
     Equipment: 
         <select required name="equipmentID">
         <option value="" selected disabled hidden></option>

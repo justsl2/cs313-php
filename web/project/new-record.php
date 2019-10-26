@@ -24,17 +24,19 @@ $shortDescription = $_POST['shortDescription'];
 $longDescription = $_POST['longDescription'];
 $siteID = $_POST['siteID'];
 $departmentID = $_POST['departmentID'];
+$severityID_Act = $_POST['severityID_Act'];
 $equipmentID = $_POST['equipmentID'];
 
 echo $departmentID . '<br>'; 
 
-$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, equipment_id) 
-                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :equipmentID)');
+$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, site_id, department_id, severity_actual_id, equipment_id) 
+                      VALUES (:dateOccurred, :shortDescription, :longDescription, :siteID, :departmentID, :severityID_Act, :equipmentID)');
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':shortDescription',$shortDescription); 
 $stmt->bindValue(':longDescription',$longDescription); 
 $stmt->bindValue(':siteID',$siteID); 
 $stmt->bindValue(':departmentID',$departmentID); 
+$stmt->bindValue(':severityID_Act',$severityID_Act);
 $stmt->bindValue(':equipmentID',$equipmentID); 
 
 $stmt->execute();
