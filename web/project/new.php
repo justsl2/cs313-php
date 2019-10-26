@@ -222,7 +222,9 @@
         </select>
         <br/>
         <br/>
+
     
+    <h3>Consequence Details:</h3>
     Consequence Type: 
         <select required onchange="consequenceForm()" ID="consequenceID" name="consequenceID">
         <option value="" selected disabled hidden></option>
