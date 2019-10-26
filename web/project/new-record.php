@@ -3,15 +3,17 @@ require "dbConnect.php";
 $db = get_db();
 $dateOccurred = $_POST['dateOccurred'];
 $shortDescription = $_POST['shortDescription'];
+$longDescription = $_POST['longDescription'];
 $equipmentID = $_POST['equipmentID'];
 echo $dateOccurred . '<br>';
 echo $shortDescription . '<br>';
 echo $equipmentID . '<br>';
 
-$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, equipment_id) 
-                      VALUES (:dateOccurred, :shortDescription, :equipmentID)');
+$stmt = $db->prepare('INSERT INTO events (date_occurred, description_short, description_long, equipment_id) 
+                      VALUES (:dateOccurred, :shortDescription, :longDescription, :equipmentID)');
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':shortDescription',$shortDescription); 
+$stmt->bindValue(':longDescription',$longDescription); 
 $stmt->bindValue(':equipmentID',$equipmentID); 
 
 $stmt->execute();

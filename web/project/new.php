@@ -23,6 +23,8 @@
     <br/>
     Short Description: <input type="text" name="shortDescription">
     <br/>
+    Detailed Description: <input type="text" name="longDescription">
+    <br/>
     Equipment: 
         <br/>
         <select required name="equipmentID">
