@@ -336,7 +336,8 @@ echo '<h3>Injury Details:</h3>';
         echo '<b>Date Lost Days Began:</b>  ' . $injuryLostDaysStartDate->format('M d, Y').'<br>';
     } 
 ?>
-
-<button onclick="goBack()" class="button">Edit</button>
+<form method="post" action="delete-record.php">
+    <input type="submit" value="Delete Record" class="button">
+</form>
  </body>
 </html>
