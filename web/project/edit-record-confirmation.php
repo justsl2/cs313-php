@@ -54,7 +54,7 @@ $stmt->execute();
 
 ?>
 <?php
-include "event-details.php";
+require "event-details.php";
 ?>
 </body>
 </html>
