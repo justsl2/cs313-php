@@ -29,7 +29,7 @@ $db = get_db();
     <form method="post" action="edit-record-confirmation.php">
    
    <h3>Event Details:</h3>
-   <b>Event ID: <?phpecho $EditEventID ?>.'<br>';</b> <br/>
+   <b>Event ID: <?php echo $EventID ?></b> <br/>
 
    <b>Date Event Occurred: </b> <br/>
    <input required type="date" name="dateOccurred" style="width:200px"><br/>    
