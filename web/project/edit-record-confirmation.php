@@ -49,9 +49,9 @@ $consequenceID = $_POST['consequenceID'];
 echo $severityID_Prob.'<br>';
 echo $EventID.'<br>';
 $sql = "UPDATE public.events SET severity_probable_id=".$severityID_Prob." WHERE event_id=". $EventID;
-echo $sql;
-$stmt = $db->prepare($sql);
 
+$stmt = $db->prepare($sql);
+echo $sql;
 $stmt->bindValue(':dateOccurred',$dateOccurred);
 $stmt->bindValue(':dateReported',$dateReported);
 $stmt->bindValue(':shortDescription',$shortDescription); 
@@ -74,9 +74,12 @@ $stmt->bindValue(':boundaryID',$boundaryID);
 $stmt->bindValue(':consequenceID',$consequenceID); 
 
 $stmt->execute();
+echo $sql;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo $sql;
 foreach ($rows as $row)
         {
+            echo $sql;
             echo  $row['severity_probable_id'];
         }
 ?>
