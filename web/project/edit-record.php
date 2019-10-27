@@ -19,14 +19,27 @@ $db = get_db();
         <a class="active" href="search.php">Search</a>
     </div>
     <h2>Record Edit</h2>
+
     <?php
         $EditEventID = $_POST['EditEventID'];
         $EditInjuryID = $_POST['EditInjuryID'];
         echo $EditEventID.'<br>';
-        echo $EditInjuryID.'<br>';
-
-
-    
+        echo $EditInjuryID.'<br>';    
     ?>
+    <form method="post" action="edit-record-confirmation.php">
+   
+   <h3>Event Details:</h3>
+
+   <b>Date Event Occurred: </b> <br/>
+   <input required type="date" name="dateOccurred" style="width:200px"><br/>    
+
+   <b>Date Event Reported: </b> <br/>
+   <input required type="date" name="dateReported" style="width:200px"><br/>
+   
+   <b>Short Description: </b> <br/>
+   ​<textarea required name="shortDescription" rows="1" cols="70"></textarea><br/>
+
+   <b>Detailed Description: </b> <br/>
+   <textarea required name="longDescription" rows="2" cols="70"></textarea><br/>
 </body>
 </html>

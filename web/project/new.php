@@ -20,7 +20,12 @@
     </div>
     <h2>New Event Record</h2>
     <form method="post" action="new-record.php">
-   
+    <?php
+        $EditEventID = $_POST['EditEventID'];
+        $EditInjuryID = $_POST['EditInjuryID'];
+        echo $EditEventID.'<br>';
+        echo $EditInjuryID.'<br>';    
+    ?>
     <h3>Event Details:</h3>
 
     <b>Date Event Occurred: </b> <br/>
