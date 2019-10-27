@@ -20,6 +20,7 @@ $db = get_db();
     </div>
     <h2>Record Entered Successfully</h2>
     <h3>Event Details:</h3>
+    <form method="post" action="delete-record.php">
 <?php
 $dateOccurred = $_POST['dateOccurred'];
 $dateReported = $_POST['dateReported'];
@@ -336,7 +337,7 @@ echo '<h3>Injury Details:</h3>';
         echo '<b>Date Lost Days Began:</b>  ' . $injuryLostDaysStartDate->format('M d, Y').'<br>';
     } 
 ?>
-<form method="post" action="delete-record.php">
+
     <input type="submit" value="Delete Record" class="button">
 </form>
  </body>
