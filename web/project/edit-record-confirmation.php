@@ -53,6 +53,6 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 
 ?>
-<?php include 'index.php';?>
+
 </body>
 </html>

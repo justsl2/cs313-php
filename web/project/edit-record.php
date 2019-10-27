@@ -84,6 +84,30 @@ $db = get_db();
                     }
         echo '</select>';
         echo '<br>';
+
+        echo '<b>Equipment Type: </b> <br/>';
+        echo '<select required name="equipmentID" style="width:200px">';
+
+                    $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['equipment_id']);
+                    $stmt->execute();
+                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($rows as $row)
+                    {
+                        $equipment = $sev['equipment_label'];
+                        $equipmentID = $sev['equipment_id'];
+                        echo '<option value="'.$equipmentID.'" selected>'.$equipment.'</option>';
+                    }
+                    $stmt = $db->prepare('select * from equipments');
+                    $stmt->execute();
+                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($rows as $row)
+                    {
+                        $equipment = $sev['equipment_label'];
+                        $equipmentID = $sev['equipment_id'];
+                        echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
+                    }
+        echo '</select>';
+        echo '<br>';
         echo '<input type="hidden" name="EventID" value='.$row['event_id'].'>';
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
