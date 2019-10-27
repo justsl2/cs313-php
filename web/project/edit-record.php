@@ -38,7 +38,7 @@ $db = get_db();
         echo '<b>Detailed Description: </b> <br/><textarea required name="longDescription" rows="2" cols="70">'.$row['description_long'].'</textarea><br>';
         echo '<b>Actual Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Act" style="width:200px">';
-        echo '      <option value="'.$row['severity_actual_id'].'" selected disabled hidden></option>';
+        echo '      <option value="'.$row['severity_actual_id'].'" selected></option>';
         echo '       </select>';
         echo '<br>';
         }
