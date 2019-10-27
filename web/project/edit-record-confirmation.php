@@ -52,27 +52,6 @@ $sql = "UPDATE public.events SET severity_probable_id=".$severityID_Prob." WHERE
 
 $stmt = $db->prepare($sql);
 echo $sql;
-$stmt->bindValue(':dateOccurred',$dateOccurred);
-$stmt->bindValue(':dateReported',$dateReported);
-$stmt->bindValue(':shortDescription',$shortDescription); 
-$stmt->bindValue(':longDescription',$longDescription); 
-$stmt->bindValue(':siteID',$siteID); 
-$stmt->bindValue(':departmentID',$departmentID); 
-$stmt->bindValue(':severityID_Act',$severityID_Act);
-$stmt->bindValue(':severityID_Prob',$severityID_Prob);
-$stmt->bindValue(':temperature',$temperature);
-$stmt->bindValue(':tempUOMID',$tempUOMID);
-$stmt->bindValue(':weatherID',$weatherID);
-$stmt->bindValue(':lightingID',$lightingID);
-$stmt->bindValue(':operationID',$operationID);
-$stmt->bindValue(':activityID',$activityID);
-$stmt->bindValue(':enteredID',$enteredID);
-$stmt->bindValue(':reportedID',$reportedID);
-$stmt->bindValue(':qaqcID',$qaqcID);
-$stmt->bindValue(':equipmentID',$equipmentID); 
-$stmt->bindValue(':boundaryID',$boundaryID); 
-$stmt->bindValue(':consequenceID',$consequenceID); 
-
 $stmt->execute();
 echo $sql;
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
