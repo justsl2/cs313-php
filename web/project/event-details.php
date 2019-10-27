@@ -33,6 +33,7 @@
         $dateReported = new DateTime($row['date_reported']);
         $dateEntered = new DateTime($row['date_entered']); 
         $eventID = $row['event_id'];
+        
 
         echo '<p>';
         echo '<b>Event ID:</b>  '. $row['event_id'].'<br>';
@@ -215,6 +216,7 @@
         $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($injuries as $injury)
         {
+            $injuryID = $row['injury_id'];
             echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
             echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
             echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
