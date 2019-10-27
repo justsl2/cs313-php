@@ -109,6 +109,13 @@ $db = get_db();
                     }
         echo '</select>';
         echo '<br>';
+
+        echo '<b>Within Reporting Boundary?: </b> <br/>';
+        echo '<select required name="boundaryID" style="width:200px">';
+        echo '<option value="1" selected>Yes</option>';
+        echo '<option value="0">No</option>';                    }
+        echo '</select>';
+        echo '<br>';
         
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
