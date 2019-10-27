@@ -32,6 +32,7 @@
         $dateOccurred = new DateTime($row['date_occurred']);
         $dateReported = new DateTime($row['date_reported']);
         $dateEntered = new DateTime($row['date_entered']); 
+        $eventID = $row['event_id'];
 
         echo '<p>';
         echo '<b>Event ID:</b>  '. $row['event_id'].'<br>';
@@ -283,5 +284,10 @@
     }
 
 ?>
+<form method="post" action="delete-record.php">
+    <input type="hidden" name="DeleteEventID" value=<?php echo $eventID; ?>>
+    <input type="hidden" name="DeleteInjuryID" value=<?php echo $injuryID; ?>>
+    <input type="submit" value="Delete Record" class="button">
+</form>
  </body>
 </html>
