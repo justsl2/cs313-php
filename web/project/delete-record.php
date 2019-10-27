@@ -18,12 +18,12 @@ $db = get_db();
         <a class="active" href="new.php">Create New Event</a>
         <a class="active" href="search.php">Search</a>
     </div>
-    <h2>Record Deleted Successfully</h2>
+    <h2>Record Deletion Confirmation</h2>
     <?php
         $DeleteEventID = $_POST['DeleteEventID'];
         $DeleteInjuryID = $_POST['DeleteInjuryID'];
-        echo $DeleteEventID.'<br>';
-        echo $DeleteInjuryID.'<br>';
+        echo 'Event Record '.$DeleteEventID.' deleted successfully.<br>';
+
         $sql = "DELETE FROM injuries WHERE injury_id=".$DeleteInjuryID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
