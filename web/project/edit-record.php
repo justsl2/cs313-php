@@ -48,7 +48,7 @@ $db = get_db();
                         $severityID = $row['severity_id'];                        
                         echo '<option value="'.$severityID.'">'.$severity.'</option>';
                     }
-                    echo '<option value="'.$row['actual_severity_id'].'" selected></option>'; 
+                    echo '<option value="'.$row['severity_actual_id'].'" selected></option>'; 
         
         echo '       </select>';
         echo '<br>';
