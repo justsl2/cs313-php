@@ -282,7 +282,7 @@ echo '<h3>Injury Details:</h3>';
 	{
         $injuryLostDaysStartDate  = new DateTime($row['injury_lost_days_start_date']);
 
-        echo '<b>Injury ID:</b>  '. $row['injury_id'].'<br>';        
+        //echo '<b>Injury ID:</b>  '. $row['injury_id'].'<br>';        
         echo '<b>Injury Description:</b>  ' . $row['injury_description'].'<br>';
         //Medical Classifications
         $sql = "select medical_classification_label from medical_classifications join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=". $injuryID;
