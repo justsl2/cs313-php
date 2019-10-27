@@ -267,8 +267,8 @@
     }
 
 ?>
-<form method="get" action="edit-record.php?event_id=">
-    <input type="hidden" name="EventID" value=<?php echo $eventID; ?>> 
+<form method="post" action="edit-record.php">
+    <input type="hidden" name="EventID" value=<?php echo $eventID; ?>>
     <input type="submit" value="Edit Record" class="button">
 </form>
 <form method="post" action="delete-record.php" width="100px">
