@@ -36,9 +36,19 @@ $db = get_db();
         echo '<b>Date Event Reported: </b> <br/><input required type="date" name="dateReported" style="width:200px" value='.$row['date_reported'].'><br>';
         echo '<b>Short Description: </b> <br/><textarea required name="shortDescription" rows="1" cols="70">'.$row['description_short'].'</textarea><br>';
         echo '<b>Detailed Description: </b> <br/><textarea required name="longDescription" rows="2" cols="70">'.$row['description_long'].'</textarea><br>';
+
         echo '<b>Actual Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Act" style="width:200px">';
         echo '      <option value="'.$row['severity_actual_id'].'" selected>'.$row['severity_actual_id'].'</option>';
+                    $stmt = $db->prepare('select * from severities');
+                    $stmt->execute();
+                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($rows as $row)
+                    {
+                        $severity = $row['severity_label'];
+                        $severityID = $row['severity_id'];
+                        echo '<option value="'.$severityID.'">'.$severity.'</option>';
+                    }
         echo '       </select>';
         echo '<br>';
         }
