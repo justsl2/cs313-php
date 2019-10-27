@@ -47,10 +47,10 @@ $consequenceID = $_POST['consequenceID'];
 
 
 $sql = "UPDATE public.events SET 
-        date_occurred=".$dateOccurred.",
-        date_reported=".$dateReported.",
-        description_short=".$shortDescription.",
-        description_long=".$longDescription.",
+        date_occurred='".$dateOccurred."',
+        date_reported='".$dateReported."',
+        description_short='".$shortDescription."',
+        description_long='".$longDescription."',
         severity_actual_id=".$severityID_Act.",
         severity_probable_id=".$severityID_Prob.
         " WHERE event_id=". $EventID;
