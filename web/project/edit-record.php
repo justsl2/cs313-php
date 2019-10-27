@@ -33,6 +33,8 @@ $db = get_db();
         echo "<form name='update' action='edit-record-confirmation.php' method='POST' >";
         echo '<b>Event ID: </b> <br/>'.$row['event_id'].'<br>';
         echo '<b>Date Event Occurred: </b> <br/><input required type="date" name="dateOccurred" style="width:200px" value='.$row['date_occurred'].'><br>';
+        echo '<b>Date Event Reported: </b> <br/><input required type="date" name="dateReported" style="width:200px" value='.$row['date_reported'].'><br>';
+        echo '<b>Short Description: </b> <br/><textarea required name="shortDescription" rows="1" cols="70" value='.$row['description_short'].'></textarea><br>';
         echo 'Detailed Description: '.$row['description_long'].'<br>';
         }
 
