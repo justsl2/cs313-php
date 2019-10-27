@@ -40,7 +40,6 @@ $db = get_db();
 
         echo '<b>Actual Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Act" style="width:200px">';
-
                     $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -64,7 +63,6 @@ $db = get_db();
 
         echo '<b>Probable Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Prob" style="width:200px">';
-
                     $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_probable_id']);
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -88,7 +86,6 @@ $db = get_db();
 
         echo '<b>Equipment Type: </b> <br/>';
         echo '<select required name="equipmentID" style="width:200px">';
-
                     $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['equipment_id']);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -119,7 +116,6 @@ $db = get_db();
 
         echo '<b>Site: </b> <br/>';
         echo '<select required name="siteID" style="width:200px">';
-
                     $stmt = $db->prepare('select * from sites WHERE site_id='.$row['site_id']);
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
