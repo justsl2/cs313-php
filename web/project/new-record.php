@@ -333,8 +333,9 @@ echo '<h3>Injury Details:</h3>';
         echo '<b>Number of Lost Days:</b>  ' . $row['injury_lost_days'].'<br>';
         //Date Lost Days Began
         echo '<b>Date Lost Days Began:</b>  ' . $injuryLostDaysStartDate->format('M d, Y').'<br>';
-    }   
-
+    } 
 ?>
+
+<button onclick="goBack()" class="button">Edit</button>
  </body>
 </html>
