@@ -21,12 +21,12 @@ $db = get_db();
     <h2>Record Edit</h2>
 
     <?php
-        $EventID = $_POST['EventID'];
-        echo $EventID.'<br>';
-        $sql = "SELECT * FROM events WHERE event_id=". $EventID;
+        $sql = "select * from events WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
+        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         foreach ($rows as $row)
         {  
         echo "<form name='update' action='edit-record-confirmation.php' method='POST' >";
