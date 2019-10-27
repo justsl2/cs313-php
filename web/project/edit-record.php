@@ -82,6 +82,9 @@ $db = get_db();
                     }
         echo '</select>';
         echo '<br>';
+        echo '<input type="hidden" name="EventID" value=<?php echo $eventID; ?>>'
+        echo '<input type="submit" value="Submit Update" class="button">';
+        echo '</form>';
         }
 
     ?>
