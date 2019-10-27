@@ -48,8 +48,8 @@ $consequenceID = $_POST['consequenceID'];
 
 echo $severityID_Prob.'<br>';
 echo $EventID.'<br>';
-$sql = "UPDATE events SET severity_probable_id='.$severityID_Prob. ' WHERE event_id=".$EventID);
-echo $sql
+$sql = "UPDATE events SET severity_probable_id=".$severityID_Prob." WHERE event_id=". $EventID;
+echo $sql;
 $stmt = $db->prepare($sql);
 
 $stmt->bindValue(':dateOccurred',$dateOccurred);
