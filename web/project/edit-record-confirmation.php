@@ -51,7 +51,7 @@ $sql = "UPDATE public.events SET severity_probable_id=".$severityID_Prob." WHERE
 $stmt = $db->prepare($sql);
 
 $stmt->execute();
-include 'event-details.php';
+include "event-details.php";
 ?>
 </body>
 </html>
