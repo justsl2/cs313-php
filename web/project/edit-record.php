@@ -22,7 +22,6 @@ $db = get_db();
 
     <?php
         $EventID = $_POST['EventID'];
-        $InjuryID = $_POST['InjuryID'];
         echo $EventID.'<br>';
         $sql = "SELECT * FROM events WHERE event_id=". $EventID;
         $stmt = $db->prepare($sql);
