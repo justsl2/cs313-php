@@ -56,10 +56,9 @@ $sql = "UPDATE public.events SET
         reporting_boundary='".$boundaryID."',
         equipment_id=".$equipmentID.
         " WHERE event_id=". $EventID;
-echo $sql;
 $stmt = $db->prepare($sql);
 $stmt->execute();
-echo $sql;
+echo 'Event ID: '.$EventID.' edited successfully';
 
 ?>
 
