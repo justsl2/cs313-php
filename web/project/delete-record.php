@@ -20,9 +20,10 @@ $db = get_db();
     </div>
     <h2>Record Deleted Successfully</h2>
     <?php
-
-    echo $eventID;
-    echo $injuryID;
+$DeleteEventID = $_POST['DeleteEventID'];
+$DeleteInjuryID = $_POST['DeleteInjuryID'];
+    echo $DeleteEventID;
+    echo $DeleteInjuryID;
     
     ?>
 </body>
