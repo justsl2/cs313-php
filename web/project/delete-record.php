@@ -27,7 +27,7 @@ $db = get_db();
         $sql = "DELETE FROM injuries WHERE injury_id=".$DeleteInjuryID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        $sql = "DELETE FROM events WHERE injury_id=".$DeleteEventID;
+        $sql = "DELETE FROM events WHERE event_id=".$DeleteEventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
     
