@@ -26,22 +26,13 @@ $db = get_db();
         $sql = "SELECT * FROM events WHERE event_id=". $EventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
+        $row = pg_fetch_assoc($stmt);
+        echo $row['event_id'].'<br>';
+        echo $row['description_short'].'<br>';
+        echo $row['description_long'].'<br>';
+
     ?>
-    <form method="post" action="edit-record-confirmation.php">
-   
-   <h3>Event Details:</h3>
-   <b>Event ID: <?php echo $EventID ?></b> <br/>
 
-   <b>Date Event Occurred: </b> <br/>
-   <input required type="date" name="dateOccurred" style="width:200px"><br/>    
 
-   <b>Date Event Reported: </b> <br/>
-   <input required type="date" name="dateReported" style="width:200px"><br/>
-   
-   <b>Short Description: </b> <br/>
-   ​<textarea required name="shortDescription" rows="1" cols="70"></textarea><br/>
-
-   <b>Detailed Description: </b> <br/>
-   <textarea required name="longDescription" rows="2" cols="70"></textarea><br/>
 </body>
 </html>
