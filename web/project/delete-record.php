@@ -22,8 +22,8 @@ $db = get_db();
     <?php
 $DeleteEventID = $_POST['DeleteEventID'];
 $DeleteInjuryID = $_POST['DeleteInjuryID'];
-    echo $DeleteEventID;
-    echo $DeleteInjuryID;
+    echo $DeleteEventID.'<br>';
+    echo $DeleteInjuryID.'<br>';
     
     ?>
 </body>
