@@ -344,5 +344,10 @@ echo '<h3>Injury Details:</h3>';
     <input type="hidden" name="DeleteInjuryID" value=<?php echo $injuryID; ?>>
     <input type="submit" value="Delete Record" class="button">
 </form>
+<form method="post" action="edit-record.php">
+    <input type="hidden" name="EditEventID" value=<?php echo $eventID; ?>>
+    <input type="hidden" name="EditInjuryID" value=<?php echo $injuryID; ?>>    
+    <input type="submit" value="Edit Record" class="button">
+</form>
  </body>
 </html>
