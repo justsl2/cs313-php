@@ -54,11 +54,11 @@ $sql = "UPDATE public.events SET
         severity_actual_id=".$severityID_Act.",
         severity_probable_id=".$severityID_Prob.
         " WHERE event_id=". $EventID;
-
+echo $sql;
 $stmt = $db->prepare($sql);
 
 $stmt->execute();
-echo $sql;
+
 ?>
 
 </body>
