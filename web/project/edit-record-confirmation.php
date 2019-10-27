@@ -54,7 +54,6 @@ $sql = "UPDATE public.events SET
         severity_actual_id=".$severityID_Act.",
         severity_probable_id=".$severityID_Prob.",
         reporting_boundary='".$boundaryID."',
-        site_id=".$siteID.",
         equipment_id=".$equipmentID.
         " WHERE event_id=". $EventID;
 echo $sql;

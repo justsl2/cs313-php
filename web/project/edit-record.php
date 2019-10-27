@@ -114,29 +114,7 @@ $db = get_db();
         echo '</select>';
         echo '<br>';
 
-        echo '<b>Site: </b> <br/>';
-        echo '<select required name="siteID" style="width:200px">';
-                    $stmt = $db->prepare('select * from sites WHERE site_id='.$row['site_id']);
-                    $stmt->execute();
-                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($rows as $row)
-                    {
-                        $site = $row['site_label'];
-                        $siteID = $row['site_id'];
-                        echo '<option value="'.$siteID.'" selected>'.$site.'</option>';
-                    }
-                    $stmt = $db->prepare('select * from sites');
-                    $stmt->execute();
-                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($rows as $row)
-                    {
-                        $site = $row['site_label'];
-                        $siteID = $row['site_id'];
-                        echo '<option value="'.$siteID.'">'.$site.'</option>';
-                    }
-        echo '</select>';
-        echo '<br>';
-        
+       
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
         }
