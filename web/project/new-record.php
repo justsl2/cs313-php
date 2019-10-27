@@ -8,6 +8,7 @@ $db = get_db();
     <head>
         <title>Incident Management System</title>
         <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <script type="text/javascript" src="scripts.js"></script> 
     </head>
 
     <body>
