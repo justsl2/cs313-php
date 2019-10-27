@@ -339,7 +339,7 @@ echo '<h3>Injury Details:</h3>';
 
     
 ?>
-<form method="post" action="edit-record.php" width="100px">
+<form method="post" action="edit-record.php">
     <input type="hidden" name="EditEventID" value=<?php echo $eventID; ?>>
     <input type="hidden" name="EditInjuryID" value=<?php echo $injuryID; ?>>    
     <input type="submit" value="Edit Record" class="button">
