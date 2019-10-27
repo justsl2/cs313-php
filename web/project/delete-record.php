@@ -20,10 +20,16 @@ $db = get_db();
     </div>
     <h2>Record Deleted Successfully</h2>
     <?php
-$DeleteEventID = $_POST['DeleteEventID'];
-$DeleteInjuryID = $_POST['DeleteInjuryID'];
-    echo $DeleteEventID.'<br>';
-    echo $DeleteInjuryID.'<br>';
+        $DeleteEventID = $_POST['DeleteEventID'];
+        $DeleteInjuryID = $_POST['DeleteInjuryID'];
+        echo $DeleteEventID.'<br>';
+        echo $DeleteInjuryID.'<br>';
+        $sql = "DELETE FROM injuries WHERE injury_id=".$DeleteInjuryID;
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $sql = "DELETE FROM events WHERE injury_id=".$DeleteEventID;
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
     
     ?>
 </body>
