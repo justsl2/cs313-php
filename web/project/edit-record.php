@@ -93,8 +93,8 @@ $db = get_db();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($rows as $row)
                     {
-                        $equipment = $sev['equipment_label'];
-                        $equipmentID = $sev['equipment_id'];
+                        $equipment = $row['equipment_label'];
+                        $equipmentID = $row['equipment_id'];
                         echo '<option value="'.$equipmentID.'" selected>'.$equipment.'</option>';
                     }
                     $stmt = $db->prepare('select * from equipments');
@@ -102,8 +102,8 @@ $db = get_db();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($rows as $row)
                     {
-                        $equipment = $sev['equipment_label'];
-                        $equipmentID = $sev['equipment_id'];
+                        $equipment = $row['equipment_label'];
+                        $equipmentID = $row['equipment_id'];
                         echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
                     }
         echo '</select>';
