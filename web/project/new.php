@@ -59,7 +59,7 @@
         <br/>
     <b>Probable Severity of Event: </b> <br/>
         <select required name="severityID_Prob" style="width:200px">
-        
+        <option value="" selected disabled hidden></option>
         <?php
             $stmt = $db->prepare('select * from severities');
             $stmt->execute();
@@ -71,7 +71,6 @@
                 echo '<option value="'.$severityID.'">'.$severity.'</option>';
             }
         ?>
-        <option value="" selected disabled hidden></option>
         </select>
         <br/>
 

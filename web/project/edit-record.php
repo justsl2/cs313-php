@@ -48,7 +48,16 @@ $db = get_db();
                         $severityID = $sev['severity_id'];                        
                         echo '<option value="'.$severityID.'">'.$severity.'</option>';
                     }
-                    echo '<option value="'.$row['severity_actual_id'].'" selected></option>'; 
+                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
+                    $stmt->execute();
+                    $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($sevs as $sev)
+                    {
+                        $severity = $sev['severity_label'];
+                        $severityID = $sev['severity_id'];
+                        echo '<option value="'.$severityID.'" selected>'.$severity.'</option>';
+                    }
+                     
         
         echo '       </select>';
         echo '<br>';
