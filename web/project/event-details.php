@@ -85,16 +85,6 @@
             echo '<b>Probable Severity:</b>  ' . $probableSeverity['severity_label'] .'<br>';
         }
 
-        //event status
-        $sql = "select status_label from statuses join events on statuses.status_id = events.event_status_id WHERE event_id=:event_id";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);    
-        foreach ($statuses as $status)
-        {
-            echo '<b>Event Status:</b>  ' . $status['status_label'] .'<br>';
-        }
         //Temperature
         echo '<b>Temperature:</b>  ' . $row['temperature'].'<br>';
 
