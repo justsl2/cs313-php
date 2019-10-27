@@ -30,9 +30,10 @@ $db = get_db();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rows as $row)
         {  
-        echo $row['event_id'].'<br>';
-        echo $row['description_short'].'<br>';
-        echo $row['description_long'].'<br>';
+        echo "<form name='update' action='edit-record-confirmation.php' method='POST' >";
+        echo 'Event ID: '.$row['event_id'].'<br>';
+        echo '<input required type="date" name="dateOccurred" style="width:200px" value='.$row['date_occurred'].'><br>';
+        echo 'Detailed Description: '.$row['description_long'].'<br>';
         }
 
     ?>
