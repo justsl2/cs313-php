@@ -18,8 +18,9 @@
         <a class="active" href="new.php">Create New Event</a>
         <a class="active" href="search.php">Search</a>
     </div>
-    <h2>Event Details</h2>
+    <h2>Full Event Information</h2>
     <a href="search.php" class="button">Back</a>
+    <h3>Event Details:</h3>
 <?php
     $sql = "select * from events WHERE event_id=:event_id";
     $stmt = $db->prepare($sql);
@@ -76,6 +77,8 @@
         //Reporting Boundary
         echo '<b>Within Reporting Boundary?:</b>  ' . var_export($row['reporting_boundary'], True) . '<br>';
         echo '<br>';
+        //Organizational Details
+        echo '<h3>Organization Details:</h3>'; 
         //site
         $sql = "select site_label from sites join events on sites.site_id = events.site_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
@@ -97,6 +100,8 @@
             echo '<b>Department:</b>  ' . $department['department_label'] .'<br>';
         }
         echo '<br>';
+        //Weather/Lighting Details
+        echo '<h3>Weather/Lighting Details:</h3>'; 
         //Temperature
         echo '<b>Temperature:</b>  ' . $row['temperature'].'<br>';
         //Temperature UOM
@@ -130,6 +135,8 @@
             echo '<b>Lighting:</b>  ' . $lighting['lighting_label'] .'<br>';
         }
         echo '<br>';
+        //Operation/Activity Type Details
+        echo '<h3>Operation/Activity Type Details:</h3>'; 
         //Operation Type
         $sql = "select operation_type_label from operation_types join events on operation_types.operation_type_id = events.operation_type_id WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
@@ -151,6 +158,8 @@
             echo '<b>Type of Activity At Time of Event:</b>  ' . $activityType['activity_type_label'] .'<br>';
         }
         echo '<br>';
+        //Responsibility Details
+        echo '<h3>Responsibility Details:</h3>'; 
         //Entered By
         $sql = "select user_name, user_name_first, user_name_last from users join events on users.user_id = events.entered_by_id  WHERE event_id=:event_id";
         $stmt = $db->prepare($sql);
@@ -183,6 +192,8 @@
         }
               
         echo '<br>';
+        //Injury Details
+        echo '<h3>Injury Details:</h3>';
         //Injuries
         $sql = "select * from injuries join events on injuries.event_id = events.event_id WHERE events.event_id=:event_id";
         $stmt = $db->prepare($sql);
