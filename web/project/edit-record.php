@@ -22,7 +22,7 @@ $db = get_db();
 
     <?php
         $EventID = $_POST['EventID'];
-        echo $EventID.'<br>';
+        //echo $EventID.'<br>';
         $sql = "SELECT * FROM events WHERE event_id=". $EventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
@@ -31,7 +31,7 @@ $db = get_db();
         foreach ($rows as $row)
         {  
         echo "<form name='update' action='edit-record-confirmation.php' method='POST' >";
-        echo 'Event ID: '.$row['event_id'].'<br>';
+        echo '<b>Event ID: </b> <br/>'.$row['event_id'].'<br>';
         echo '<b>Date Event Occurred: </b> <br/><input required type="date" name="dateOccurred" style="width:200px" value='.$row['date_occurred'].'><br>';
         echo 'Detailed Description: '.$row['description_long'].'<br>';
         }
