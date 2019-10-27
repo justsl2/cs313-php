@@ -286,12 +286,12 @@
     }
 
 ?>
-<form method="post" action="edit-record.php">
+<form method="post" action="edit-record.php" width="100px">
     <input type="hidden" name="EditEventID" value=<?php echo $eventID; ?>>
     <input type="hidden" name="EditInjuryID" value=<?php echo $injuryID; ?>>    
     <input type="submit" value="Edit Record" class="button">
 </form>
-<form method="post" action="delete-record.php">
+<form method="post" action="delete-record.php" width="100px">
     <input type="hidden" name="DeleteEventID" value=<?php echo $eventID; ?>>
     <input type="hidden" name="DeleteInjuryID" value=<?php echo $injuryID; ?>>
     <input type="submit" value="Delete Record" class="button">
