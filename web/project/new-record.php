@@ -340,6 +340,6 @@ echo '<h3>Injury Details:</h3>';
     var eventID = "<?php echo $eventID; ?>";
     var injuryID = "<?php echo $injuryID; ?>";
 </script>
-<button onclick="deleteRecord()" class="button">Delete Record</button>
+<button onclick="deleteRecord(injuryID)" class="button">Delete Record</button>
  </body>
 </html>
