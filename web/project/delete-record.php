@@ -20,18 +20,18 @@ $db = get_db();
     </div>
     <h2>Record Deletion Confirmation</h2>
     <?php
-        $DeleteEventID = $_POST['DeleteEventID'];
-        $DeleteInjuryID = $_POST['DeleteInjuryID'];
-        //echo $DeleteEventID.'<br>';
-        //echo $DeleteInjuryID.'<br>';
+        $EventID = $_POST['EventID'];
+        $InjuryID = $_POST['InjuryID'];
+        //echo $EventID.'<br>';
+        //echo $InjuryID.'<br>';
 
-        $sql = "DELETE FROM injuries WHERE injury_id=".$DeleteInjuryID;
+        $sql = "DELETE FROM injuries WHERE injury_id=".$InjuryID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        $sql = "DELETE FROM events WHERE event_id=".$DeleteEventID;
+        $sql = "DELETE FROM events WHERE event_id=".$EventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        echo 'Event Record '.$DeleteEventID.' deleted successfully.<br>';
+        echo 'Event Record '.$EventID.' deleted successfully.<br>';
     
     ?>
 </body>
