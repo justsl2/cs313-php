@@ -26,7 +26,7 @@ $db = get_db();
         $sql = "SELECT * FROM events WHERE event_id=". $EventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        $row = pg_fetch_assoc($stmt);
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo $row['event_id'].'<br>';
         echo $row['description_short'].'<br>';
         echo $row['description_long'].'<br>';
