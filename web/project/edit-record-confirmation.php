@@ -51,14 +51,14 @@ echo $EventID.'<br>';
 $sql = "UPDATE public.events SET severity_probable_id=".$severityID_Prob." WHERE event_id=". $EventID;
 
 $stmt = $db->prepare($sql);
-echo $sql;
+
 $stmt->execute();
-echo $sql;
+
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-echo $sql;
+
 foreach ($rows as $row)
         {
-            echo $sql;
+           
             echo  $row['severity_probable_id'];
         }
 ?>
