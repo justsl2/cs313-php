@@ -1,3 +1,4 @@
 function deleteRecord() {
-    alert(my_variable_name);
+    alert(eventID);
+    alert(injuryID);
   }

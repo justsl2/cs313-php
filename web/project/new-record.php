@@ -337,7 +337,8 @@ echo '<h3>Injury Details:</h3>';
     } 
 ?>
 <script>
-    var my_variable_name = "<?php echo $injuryID; ?>";
+    var eventID = "<?php echo $eventID; ?>";
+    var injuryID = "<?php echo $injuryID; ?>";
 </script>
 <button onclick="deleteRecord()" class="button">Delete Record</button>
  </body>
