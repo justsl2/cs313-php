@@ -249,6 +249,7 @@ echo '<h3>Injury Details:</h3>';
     $workRelated = $_POST['workRelated'];
     $medClassID = $_POST['medClassID'];
     $injuryDescription = $_POST['injuryDescription'];
+    $injuryDescription = htmlspecialchars($injuryDescription);
     $injuryNatureID = $_POST['injuryNatureID'];
     $injuryPrimaryBodyPartID = $_POST['injuryPrimaryBodyPartID'];
     $injuryLostDays = $_POST['injuryLostDays'];
