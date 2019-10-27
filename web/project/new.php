@@ -30,10 +30,10 @@
     <input required type="date" name="dateReported" style="width:200px"><br/>
     
     <b>Short Description: </b> <br/>
-    ​<textarea required name="shortDescription" rows="2" cols="70"></textarea><br/>
+    ​<textarea required name="shortDescription" rows="1" cols="70"></textarea><br/>
 
     <b>Detailed Description: </b> <br/>
-    <textarea required name="longDescription" rows="6" cols="70"></textarea><br/>
+    <textarea required name="longDescription" rows="2" cols="70"></textarea><br/>
 
 
     <b>Actual Severity of Event: </b> <br/>

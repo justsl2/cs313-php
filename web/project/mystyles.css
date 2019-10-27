@@ -11,13 +11,15 @@ h2 {
 }
 
 h3 {
-  font-size: 125%;
+  font-size: 110%;
   color:#009dd9;
   font-family: "Georgia";
   padding:0px;
   margin-bottom: 2px;
 }
-
+b {
+  font-size: 90%;
+}
 .topnav {
     background: #009dd9;
     overflow: hidden;
