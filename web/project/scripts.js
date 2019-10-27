@@ -1,3 +1,3 @@
-function deleteRecord() {
-    alert("test")
+function deleteRecord($injuryID) {
+    alert($injuryID)
   }

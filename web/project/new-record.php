@@ -336,6 +336,6 @@ echo '<h3>Injury Details:</h3>';
         echo '<b>Date Lost Days Began:</b>  ' . $injuryLostDaysStartDate->format('M d, Y').'<br>';
     } 
 ?>
-<button onclick="deleteRecord()" class="button">Delete Record</button>
+<button onclick="deleteRecord($injuryID)" class="button">Delete Record</button>
  </body>
 </html>
