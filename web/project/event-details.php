@@ -216,7 +216,7 @@
         $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($injuries as $injury)
         {
-            $injuryID = $row['injury_id'];
+            $injuryID = $injury['injury_id'];
             echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
             echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
             echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
