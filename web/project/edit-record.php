@@ -27,10 +27,13 @@ $db = get_db();
         $sql = "SELECT * FROM events WHERE event_id=". $EventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($rows as $row)
+        {  
         echo $row['event_id'].'<br>';
         echo $row['description_short'].'<br>';
         echo $row['description_long'].'<br>';
+        }
 
     ?>
 
