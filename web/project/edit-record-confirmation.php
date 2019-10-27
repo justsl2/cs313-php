@@ -53,8 +53,6 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 
 ?>
-<?php
-require "event-details.php";
-?>
+<?php include 'index.php';?>
 </body>
 </html>
