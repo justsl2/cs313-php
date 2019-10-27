@@ -73,7 +73,11 @@ $stmt->bindValue(':boundaryID',$boundaryID);
 $stmt->bindValue(':consequenceID',$consequenceID); 
 
 $stmt->execute();
-
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach ($rows as $row)
+        {
+            echo  $row['severity_probable_id'];
+        }
 ?>
 </body>
 </html>
