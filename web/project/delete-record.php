@@ -22,7 +22,7 @@ $db = get_db();
     <?php
         $DeleteEventID = $_POST['DeleteEventID'];
         $DeleteInjuryID = $_POST['DeleteInjuryID'];
-        echo 'Event Record '.$DeleteEventID.' deleted successfully.<br>';
+        
 
         $sql = "DELETE FROM injuries WHERE injury_id=".$DeleteInjuryID;
         $stmt = $db->prepare($sql);
@@ -30,6 +30,7 @@ $db = get_db();
         $sql = "DELETE FROM events WHERE event_id=".$DeleteEventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
+        echo 'Event Record '.$DeleteEventID.' deleted successfully.<br>';
     
     ?>
 </body>
