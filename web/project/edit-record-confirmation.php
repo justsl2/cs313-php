@@ -46,8 +46,7 @@ $boundaryID = $_POST['boundaryID'];
 $consequenceID = $_POST['consequenceID'];
 
 
-$sql = "UPDATE public.events 
-        SET severity_probable_id=".$severityID_Prob." WHERE event_id=". $EventID;
+$sql = "UPDATE public.events SET severity_probable_id=".$severityID_Prob." WHERE event_id=".$EventID;
 echo $sql;
 $stmt = $db->prepare($sql);
 
