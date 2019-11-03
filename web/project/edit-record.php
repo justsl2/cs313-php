@@ -63,7 +63,6 @@ $db = get_db();
 
         echo '<b>Probable Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Prob" style="width:200px">';
-        echo '<option value="">Select Client</option>';
                     $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_probable_id']);
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
