@@ -101,7 +101,6 @@ $injsql = "UPDATE public.injuries SET
             injured_ill_personnel_type_id=".$personnelTypeID.",
             injury_nature_id=".$injuryNatureID.",
             injury_primary_body_part_id=".$injuryPrimaryBodyPartID.",
-            injury_lost_days=".$injuryLostDays.",
             company_name_id=".$companyNameID.
             " WHERE injury_id=". $injuryID;
     $injstmt = $db->prepare($injsql);
