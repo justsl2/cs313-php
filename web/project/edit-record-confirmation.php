@@ -95,8 +95,7 @@ echo 'injuryLostDaysStartDate:  '.$injuryLostDaysStartDate.'<br/>';
 
 
 $injsql = "UPDATE public.injuries SET 
-            event_id=".$EventID.",
-            injury_description='".$injuryDescription.
+            company_name_id=".$companyNameID.
             " WHERE injury_id=". $injuryID;
     $injstmt = $db->prepare($injsql);
     $injstmt->execute();
