@@ -35,14 +35,23 @@
 
         foreach ($rows as $row)
         {
-            
             $dateOccurred = new DateTime($row['date_occurred']);
+            $reportingBoundary = $row['reporting_boundary'];
+            if ($reportingBoundary == 1)
+            {
+                $reportingBoundary = "Yes";
+            }
+            else
+            {
+                $reportingBoundary = "No";
+            }
+            echo $reportingBoundary;
             echo '<p>';
             echo '<b>EventID:</b>  ';
             echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
             echo '<b>Date Occurred:</b>  ' . $dateOccurred->format('M d, Y').'<br>';
             echo '<b>Short Description:</b>  ' . $row['description_short'].'<br>';
-            echo '<b>Within Reporting Boundaries?:</b>  ' . var_export($row['reporting_boundary'], True);'<br>';
+            echo '<b>Within Reporting Boundaries?:</b>  ' . $reportingBoundary;'<br>';
             echo '</p>';
         }
     }

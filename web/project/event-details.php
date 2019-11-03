@@ -85,7 +85,7 @@
             echo '<b>Equipment Type:</b>  ' . $equipment_label['equipment_label'] .'<br>';
         }
         //Reporting Boundary
-        echo '<b>Within Reporting Boundary?:</b>  ' . var_export($row['reporting_boundary'], True) . '<br>';
+        echo '<b>Within Reporting Boundary?:</b>  ' . $reportingBoundary . '<br>';
         echo '<br>';
         //Organizational Details
         echo '<h3>Organization Details:</h3>'; 
