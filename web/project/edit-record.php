@@ -71,7 +71,7 @@ $db = get_db();
             $item = $rw['severity_label'];
             $itemID = $rw['severity_id'];
             ?>
-            <option value="<?php echo $itemID; ?>"<?php if($row['severity_probable_id']==$itemID) echo 'selected="selected"'; ?>><?php echo $itemID; ?></option>
+            <option value="<?php echo $itemID; ?>"<?php if($row['severity_probable_id']==$itemID) echo 'selected="selected"'; ?>><?php $item ?><?php echo $itemID; ?></option>
             <?php 
         }
         echo '</select>';
