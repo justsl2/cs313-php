@@ -120,15 +120,15 @@ $db = get_db();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
                     {
-                        $result = $subrow['severity_id'];                        
+                        $result = $subrow['equipment_id'];                        
                     }
                     $stmt = $db->prepare('select * from equipments');
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
                     {                        
-                        $item = $subrow['severity_label'];
-                        $itemID = $subrow['severity_id'];
+                        $item = $subrow['equipment_label'];
+                        $itemID = $subrow['equipment_id'];
                         if ($itemID == $result)
                         {
                             echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
