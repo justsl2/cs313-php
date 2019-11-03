@@ -59,6 +59,9 @@ $db = get_db();
                     //     $itemID = $sev['severity_id'];
                     //     echo '<option value="'.$itemID.'">'.$item.'</option>';
                     // }
+                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
+                    $result = $stmt->execute();
+
                     $stmt = $db->prepare('select * from severities');
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -67,7 +70,7 @@ $db = get_db();
 
                         $item = $sev['severity_label'];
                         $itemID = $sev['severity_id'];
-                        if ($itemID == 3)
+                        if ($itemID == $result)
                         {
                             echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
                         }
