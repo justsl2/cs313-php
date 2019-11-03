@@ -64,28 +64,27 @@ $db = get_db();
 
                     $query = 'SELECT * FROM severities WHERE severity_id='.$row['severity_actual_id'];
                     $statement = $db->prepare($query);
-                    $statement->bindValue(':username', $username);
                     $result = $statement->execute();
                     echo $result;
 
-                    $stmt = $db->prepare('select * from severities');
-                    $stmt->execute();
-                    $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($sevs as $sev)
-                    {
+                    // $stmt = $db->prepare('select * from severities');
+                    // $stmt->execute();
+                    // $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    // foreach ($sevs as $sev)
+                    // {
 
-                        $item = $sev['severity_label'];
-                        $itemID = $sev['severity_id'];
-                        if ($itemID == $result)
-                        {
-                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
-                        }
-                        else
-                        {
-                            echo '<option value="'.$itemID.'">'.$item.'</option>';
-                        }
+                    //     $item = $sev['severity_label'];
+                    //     $itemID = $sev['severity_id'];
+                    //     if ($itemID == $result)
+                    //     {
+                    //         echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                    //     }
+                    //     else
+                    //     {
+                    //         echo '<option value="'.$itemID.'">'.$item.'</option>';
+                    //     }
 
-                    }
+                    // }
         echo '</select>';
         echo '<br>';
 
