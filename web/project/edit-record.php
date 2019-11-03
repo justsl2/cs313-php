@@ -432,8 +432,37 @@ $db = get_db();
         $injuryID = $injury['injury_id'];
         echo '<b>Injury Description: </b> <br/><textarea required name="injuryDescription" rows="2" cols="70">'.$injury['injury_description'].'</textarea><br>';  
         
+        echo '<b>Medical Classification: </b> <br/>';
+        echo '<SELECT required name="medClassID" style="width:200px">';
+                    $sql = "SELECT * from medical_classifications join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=". $injuryID;
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['medical_classification_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM medical_classifications');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['medical_classification_label'];
+                        $itemID = $subrow['medical_classification_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
         echo '<b>Work Related?: </b> <br/>';
-        echo '<SELECT required name="workID" style="width:200px">';
+        echo '<SELECT required name="workRelated" style="width:200px">';
                 $stmt = $db->prepare("SELECT * FROM injuries WHERE injury_id=".$injuryID);
                 $stmt->execute();
                 $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -454,7 +483,7 @@ $db = get_db();
                     else
                     {
                         $item = "No";
-        }
+                    }   
                     $itemID = $subrow['work_related'];
                     if ($itemID !=1){$itemID=0;}
                     if ($itemID == $result)
@@ -466,7 +495,6 @@ $db = get_db();
                         echo '<option value="'.$itemID.'">'.$item.'</option>';
                     }
                 } 
-
         echo '</SELECT>';
         echo '<br>';
 
