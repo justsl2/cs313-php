@@ -614,8 +614,8 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
-        echo '<b>Number of Lost Days (Restricted Duty/DAFW Cases Only): </b> <br/><input required type="number" name="injuryLostDays" style="width:200px" value='.$injury['injury_lost_days'].'><br>';
-        echo '<b>Lost Days Start Date: </b> <br/><input required type="date" name="injuryLostDaysStartDate" style="width:200px" value='.$injury['injury_lost_days_start_date'].'><br>';
+        echo '<b>Number of Lost Days (Restricted Duty/DAFW Cases Only): </b> <br/><input type="number" name="injuryLostDays" style="width:200px" value='.$injury['injury_lost_days'].'><br>';
+        echo '<b>Lost Days Start Date: </b> <br/><input type="date" name="injuryLostDaysStartDate" style="width:200px" value='.$injury['injury_lost_days_start_date'].'><br>';
         }
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';

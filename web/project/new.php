@@ -351,9 +351,9 @@
         </select>
         <br/>
     <b>Number of Lost Days (Restricted Duty/DAFW Cases Only): </b> <br/>
-    <input required type="number" name="injuryLostDays" style="width:200px"><br/>
+    <input type="number" name="injuryLostDays" style="width:200px"><br/>
     <b>Date Lost Days Began: (Restricted Duty/DAFW Cases Only)</b> <br/>
-    <input required type="date" name="injuryLostDaysStartDate" style="width:200px"><br/>   
+    <input type="date" name="injuryLostDaysStartDate" style="width:200px"><br/>   
     
     
 
