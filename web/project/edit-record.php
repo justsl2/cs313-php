@@ -393,6 +393,36 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
+        echo '<b>QA/QC By: </b> <br/>';
+        echo '<SELECT required name="qaqcID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM users WHERE user_id='.$row['qa_qc_by_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['user_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM users');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['user_name_last'].', '. $subrow['user_name_first'];
+                        $itemID = $subrow['user_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+        
+
 
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
