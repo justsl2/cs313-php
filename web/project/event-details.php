@@ -37,13 +37,13 @@
         $reportingBoundary = $row['reporting_boundary'];
         if ($reportingBoundary == 1)
         {
-            $reportingBoundary = "Yes"
+            $reportingBoundary = "Yes";
         }
         else
         {
-            $reportingBoundary = "No"
+            $reportingBoundary = "No";
         }
-        echo $reportingBoundary
+        echo $reportingBoundary;
     
 
         echo '<p>';
