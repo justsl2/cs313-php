@@ -34,6 +34,16 @@
         $dateReported = new DateTime($row['date_reported']);
         $dateEntered = new DateTime($row['date_entered']); 
         $eventID = $row['event_id'];
+        $reportingBoundary = $row['reporting_boundary'];
+        if ($reportingBoundary == 1)
+        {
+            $reportingBoundary = "Yes"
+        }
+        else
+        {
+            $reportingBoundary = "No"
+        }
+        echo $reportingBoundary
     
 
         echo '<p>';
