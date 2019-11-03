@@ -32,7 +32,7 @@ $db = get_db();
         {  
         $temperature = $row['temperature'];
         echo '<form method="post" action="edit-record-confirmation.php">';
-    echo '<h3>Event Details:</h3>';
+        echo '<h3>Event Details:</h3>';
         echo '<b>Event ID: </b> <br/>'.$row['event_id'].'<br>';
         echo '<input type="hidden" name="EventID" value='.$row['event_id'].'>';
         echo '<b>Date Event Occurred: </b> <br/><input required type="date" name="dateOccurred" style="width:200px" value='.$row['date_occurred'].'><br>';
@@ -423,6 +423,7 @@ $db = get_db();
         echo '<br>';
 
     echo '<h3>Injury Details:</h3>';
+                    
         $sql = "select * from injuries join events on injuries.event_id = events.event_id WHERE events.event_id=".$EventID;
         $stmt = $db->prepare($sql);
         $stmt->execute();
@@ -430,6 +431,8 @@ $db = get_db();
         foreach ($injuries as $injury)
         {
         $injuryID = $injury['injury_id'];
+        echo '<b>Injury ID: </b> <br/>'.$injury['injury_id'].'<br>';
+        echo '<input type="hidden" name="injuryID" value='.$injury['injury_id'].'>';
         echo '<b>Injury Description: </b> <br/><textarea required name="injuryDescription" rows="2" cols="70">'.$injury['injury_description'].'</textarea><br>';  
         
         echo '<b>Medical Classification: </b> <br/>';

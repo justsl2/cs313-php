@@ -68,6 +68,33 @@ $sql = "UPDATE public.events SET
         " WHERE event_id=". $EventID;
 $stmt = $db->prepare($sql);
 $stmt->execute();
+
+$injuryID = $_POST['injuryID'];
+$injuryDescription = $_POST['injuryDescription'];
+$injuryDescription = htmlspecialchars($injuryDescription);
+$medClassID = $_POST['medClassID'];
+$workRelated = $_POST['workRelated'];
+$personnelTypeID = $_POST['personnelTypeID'];
+$injuryNatureID = $_POST['injuryNatureID'];
+$injuryPrimaryBodyPartID = $_POST['injuryPrimaryBodyPartID'];
+$companyNameID = $_POST['companyNameID'];
+$injuryLostDays = $_POST['injuryLostDays'];
+$injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
+    $sql = "UPDATE public.injuries SET 
+            injury_description='".$injuryDescription."',
+            medical_classification_id=".$medClassID.",
+            work_related='".$workRelated."',
+            personnel_type_id=".$personnelTypeID.",
+            injury_nature_id=".$injuryNatureID.",
+            injury_primary_body_part_id=".$injuryPrimaryBodyPartID.",
+            company_name_id=".$companyNameID.",
+            injury_lost_days='".$injuryLostDays."',
+            injury_lost_days_start_date='".$injuryLostDaysStartDate.
+            " WHERE injury_id=". $injuryID;
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+
+
 echo 'Event ID: '.$EventID.' edited successfully';
 
 ?>
