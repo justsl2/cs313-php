@@ -20,17 +20,7 @@
     </div>
     <h2>Full Event Information</h2>
     <a href="search.php" class="button">Back</a>
-    <form method="post" action="edit-record.php">
-        <input type="hidden" name="EventID" value=<?php echo $eventID; ?>>
-        <input type="submit" value="Edit Record" class="button">
-    </form>
-    <form method="post" action="delete-record.php" width="100px">
-        <input type="hidden" name="EventID" value=<?php echo $eventID; ?>>
-        <input type="hidden" name="InjuryID" value=<?php echo $injuryID; ?>>
-        <input type="submit" value="Delete Record" class="button">
-    </form>
     <h3>Event Details:</h3>
-
 <?php
     $sql = "select * from events WHERE event_id=:event_id";
     $stmt = $db->prepare($sql);
@@ -290,6 +280,14 @@
     }
 
 ?>
-
+<form method="post" action="edit-record.php">
+    <input type="hidden" name="EventID" value=<?php echo $eventID; ?>>
+    <input type="submit" value="Edit Record" class="button">
+</form>
+<form method="post" action="delete-record.php" width="100px">
+    <input type="hidden" name="EventID" value=<?php echo $eventID; ?>>
+    <input type="hidden" name="InjuryID" value=<?php echo $injuryID; ?>>
+    <input type="submit" value="Delete Record" class="button">
+</form>
  </body>
 </html>
