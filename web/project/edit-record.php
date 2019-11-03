@@ -59,8 +59,10 @@ $db = get_db();
                     //     $itemID = $sev['severity_id'];
                     //     echo '<option value="'.$itemID.'">'.$item.'</option>';
                     // }
-                    $result = mysql_query("SELECT * FROM severities WHERE severity_id!=".$severity_actual_id);
-                    while ($row = mysql_fetch_array($result))
+                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
+                    $stmt->execute();
+                    $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($sevs as $sev)
                     {
                         if ($_GET['to'] == $row['severity_id'])
                         {
