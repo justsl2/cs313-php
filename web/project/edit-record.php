@@ -39,15 +39,15 @@ $db = get_db();
         echo '<b>Detailed Description: </b> <br/><textarea required name="longDescription" rows="2" cols="70">'.$row['description_long'].'</textarea><br>';
 
         echo '<b>Actual Severity of Event: </b> <br/>';
-        echo '<select required name="severityID_Act" style="width:200px">';                    
-                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
+        echo '<SELECT required name="severityID_Act" style="width:200px">';                    
+                    $stmt = $db->prepare('SELECT * FROM severities WHERE severity_id='.$row['severity_actual_id']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
                     {
                         $result = $subrow['severity_id'];                        
                     }
-                    $stmt = $db->prepare('select * from severities');
+                    $stmt = $db->prepare('SELECT * FROM severities');
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
@@ -56,26 +56,26 @@ $db = get_db();
                         $itemID = $subrow['severity_id'];
                         if ($itemID == $result)
                         {
-                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
                         }
                         else
                         {
                             echo '<option value="'.$itemID.'">'.$item.'</option>';
                         }
                     }
-        echo '</select>';
+        echo '</SELECT>';
         echo '<br>';
 
         echo '<b>Probable Severity of Event: </b> <br/>';
-        echo '<select required name="severityID_Prob" style="width:200px">';
-                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_probable_id']);
+        echo '<SELECT required name="severityID_Prob" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM severities WHERE severity_id='.$row['severity_probable_id']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
                     {
                         $result = $subrow['severity_id'];                        
                     }
-                    $stmt = $db->prepare('select * from severities');
+                    $stmt = $db->prepare('SELECT * FROM severities');
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
@@ -84,26 +84,26 @@ $db = get_db();
                         $itemID = $subrow['severity_id'];
                         if ($itemID == $result)
                         {
-                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
                         }
                         else
                         {
                             echo '<option value="'.$itemID.'">'.$item.'</option>';
                         }
                     }
-        echo '</select>';
+        echo '</SELECT>';
         echo '<br>';
 
         echo '<b>Equipment Type: </b> <br/>';
-        echo '<select required name="equipmentID" style="width:200px">';
-                    $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['equipment_id']);
+        echo '<SELECT required name="equipmentID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM equipments WHERE equipment_id='.$row['equipment_id']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
                     {
                         $result = $subrow['equipment_id'];                        
                     }
-                    $stmt = $db->prepare('select * from equipments');
+                    $stmt = $db->prepare('SELECT * FROM equipments');
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
@@ -112,26 +112,26 @@ $db = get_db();
                         $itemID = $subrow['equipment_id'];
                         if ($itemID == $result)
                         {
-                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
                         }
                         else
                         {
                             echo '<option value="'.$itemID.'">'.$item.'</option>';
                         }
                     }
-        echo '</select>';
+        echo '</SELECT>';
         echo '<br>';
 
         echo '<b>Within Reporting Boundary?: </b> <br/>';
-        echo '<select required name="boundaryID" style="width:200px">';
-                $stmt = $db->prepare('select * from events WHERE event_id='.$row['event_id']);
+        echo '<SELECT required name="boundaryID" style="width:200px">';
+                $stmt = $db->prepare('SELECT * FROM events WHERE event_id='.$row['event_id']);
                 $stmt->execute();
                 $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($subrows as $subrow)
                 {
                     $result = $subrow['reporting_boundary'];                        
                 }
-                $stmt = $db->prepare('select distinct reporting_boundary from events');
+                $stmt = $db->prepare('SELECT distinct reporting_boundary FROM events');
                 $stmt->execute();
                 $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($subrows as $subrow)
@@ -148,7 +148,7 @@ $db = get_db();
                     $itemID = $subrow['reporting_boundary'];
                     if ($itemID == $result)
                     {
-                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                        echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
                     }
                     else
                     {
@@ -156,19 +156,19 @@ $db = get_db();
                     }
                 } 
 
-        echo '</select>';
+        echo '</SELECT>';
         echo '<br>';
 
         echo '<b>Site: </b> <br/>';
-        echo '<select required name="equipmentID" style="width:200px">';
-                    $stmt = $db->prepare('select * from sites WHERE site_id='.$row['site_id']);
+        echo '<SELECT required name="siteID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM sites WHERE site_id='.$row['site_id']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
                     {
                         $result = $subrow['site_id'];                        
                     }
-                    $stmt = $db->prepare('select * from sites');
+                    $stmt = $db->prepare('SELECT * FROM sites');
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
@@ -177,14 +177,42 @@ $db = get_db();
                         $itemID = $subrow['site_id'];
                         if ($itemID == $result)
                         {
-                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
                         }
                         else
                         {
                             echo '<option value="'.$itemID.'">'.$item.'</option>';
                         }
                     }
-        echo '</select>';
+        echo '</SELECT>';
+        echo '<br>';
+
+        echo '<b>Department: </b> <br/>';
+        echo '<SELECT required name="departmentID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM departments WHERE department_id='.$row['department_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['department_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM departments');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['department_label'];
+                        $itemID = $subrow['department_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
         echo '<br>';
        
         echo '<input type="submit" value="Submit Update" class="button">';
