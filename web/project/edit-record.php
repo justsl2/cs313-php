@@ -96,7 +96,7 @@ $db = get_db();
 
         echo '<b>Equipment Type: </b> <br/>';
         echo '<select required name="equipmentID" style="width:200px">';
-                    $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['reporting_bounda']);
+                    $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['equipment_id']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
