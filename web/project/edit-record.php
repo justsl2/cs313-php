@@ -69,13 +69,13 @@ $db = get_db();
                         $itemID = $sev['severity_id'];
                         if ($itemID == 3)
                         {
-                            $selected = "selected";
+                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
                         }
                         else
                         {
-                        $selected = '';
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
                         }
-                        echo('<option value="'.$itemID.' '.$selected.'">'.$item.'</option>');
+
                     }
         echo '</select>';
         echo '<br>';
