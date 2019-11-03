@@ -159,6 +159,33 @@ $db = get_db();
         echo '</select>';
         echo '<br>';
 
+        echo '<b>Site: </b> <br/>';
+        echo '<select required name="equipmentID" style="width:200px">';
+                    $stmt = $db->prepare('select * from sites WHERE site_id='.$row['site_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['site_id'];                        
+                    }
+                    $stmt = $db->prepare('select * from sites');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['site_label'];
+                        $itemID = $subrow['site_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</select>';
+        echo '<br>';
        
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
