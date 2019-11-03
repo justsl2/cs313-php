@@ -66,10 +66,8 @@ $db = get_db();
         $s="SELECT * FROM severities WHERE severity_id=".$row['severity_probable_id'];
         $q=mysql_query($s) or die($s);
         while($rw=mysql_fetch_array($q))
-        { 
-            ?>
-            <option value="<?php echo $rw['severity_id']; ?>"<?php if($row['severity_probable_id']==$rw['severity_id']) echo 'selected="selected"'; ?>><?php echo $rw['severity_id']; ?></option>
-            <?php 
+        {             
+            <option value="<?php echo $rw['severity_id']; ?>"<?php if($row['severity_probable_id']==$rw['severity_id']) echo 'selected="selected"'; ?>><?php echo $rw['severity_id']; ?></option>            
         }
         /*
                     $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_probable_id']);
