@@ -211,6 +211,15 @@
         foreach ($injuries as $injury)
         {
             $injuryID = $injury['injury_id'];
+            $workRelated = $injury['work_related'];
+            if ($workRelated == 1)
+            {
+                $workRelated = "Yes";
+            }
+            else
+            {
+                $workRelated = "No";
+            }
             //echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
             echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
             
@@ -224,7 +233,7 @@
                 echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
             }
             //Work Related
-            echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';  
+            echo '<b>Work Related?:</b>  ' . $workRelated . '<br>';  
             //Personnel Type
             $sql = "select personnel_type_label from personnel_types join injuries on personnel_types.personnel_type_id = injuries.injured_ill_personnel_type_id   WHERE injuries.injury_id=". $injury['injury_id'];
             $stmt = $db->prepare($sql);
