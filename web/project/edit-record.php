@@ -131,8 +131,8 @@ $db = get_db();
                 $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($subrows as $subrow)
                 {                        
-                    $item = $subrow['equipment_label'];
-                    $itemID = $subrow['equipment_id'];
+                    $item = $subrow['reporting_boundary'];
+                    $itemID = $subrow['reporting_boundary'];
                     if ($itemID == 1)
                     {
                         echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
