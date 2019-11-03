@@ -80,7 +80,7 @@ $injuryPrimaryBodyPartID = $_POST['injuryPrimaryBodyPartID'];
 $companyNameID = $_POST['companyNameID'];
 $injuryLostDays = $_POST['injuryLostDays'];
 $injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
-echo 'Event ID: '.$EventID.' edited successfully';
+
 
 $sql = "UPDATE public.injuries SET 
             injury_description='".$injuryDescription."',
@@ -96,7 +96,7 @@ $sql = "UPDATE public.injuries SET
     $stmt = $db->prepare($sql);
     $stmt->execute();
 
-
+    echo 'Event ID: '.$EventID.' edited successfully';
 
 
 ?>
