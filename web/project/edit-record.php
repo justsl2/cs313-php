@@ -62,30 +62,30 @@ $db = get_db();
                     
 
 
-                    $query = "SELECT severity_id FROM severities WHERE severity_id=".$row['severity_actual_id'];
+                    $query = "SELECT severity_id FROM severities WHERE severity_id=".$severity_actual_id;
                     $statement = $db->prepare($query);
                     $statement->execute();
-                    $result = $statement->query();
+                    $result = $statement->fetch();
                     echo '<option value="'.$result.'">'.$result.'</option>';
 
-                    $stmt = $db->prepare('select * from severities');
-                    $stmt->execute();
-                    $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($sevs as $sev)
-                    {
+                    // $stmt = $db->prepare('select * from severities');
+                    // $stmt->execute();
+                    // $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    // foreach ($sevs as $sev)
+                    // {
                         
-                        $item = $sev['severity_label'];
-                        $itemID = $sev['severity_id'];
-                        if ($itemID == 2)
-                        {
-                            echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
-                        }
-                        else
-                        {
-                            echo '<option value="'.$itemID.'">'.$item.'</option>';
-                        }
+                    //     $item = $sev['severity_label'];
+                    //     $itemID = $sev['severity_id'];
+                    //     if ($itemID == 2)
+                    //     {
+                    //         echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                    //     }
+                    //     else
+                    //     {
+                    //         echo '<option value="'.$itemID.'">'.$item.'</option>';
+                    //     }
 
-                    }
+                    // }
         echo '</select>';
         echo '<br>';
 
