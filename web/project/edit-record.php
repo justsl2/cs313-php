@@ -59,7 +59,7 @@ $db = get_db();
                     //     $itemID = $sev['severity_id'];
                     //     echo '<option value="'.$itemID.'">'.$item.'</option>';
                     // }
-                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
+                    $stmt = $db->prepare('select * from severities WHERE severity_id!='.$row['severity_actual_id']);
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
