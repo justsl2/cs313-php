@@ -59,7 +59,7 @@ $db = get_db();
                     //     $itemID = $sev['severity_id'];
                     //     echo '<option value="'.$itemID.'">'.$item.'</option>';
                     // }
-                    $result = mysql_query("SELECT * FROM severities WHERE `severity_id`!='".$severity_actual_id."'");
+                    $result = mysql_query("SELECT * FROM severities WHERE severity_id!=".$severity_actual_id);
                     while ($row = mysql_fetch_array($result))
                     {
                         if ($_GET['to'] == $row['severity_id'])
