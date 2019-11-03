@@ -124,9 +124,14 @@ $db = get_db();
 
         echo '<b>Within Reporting Boundary?: </b> <br/>';
         echo '<select required name="boundaryID" style="width:200px">';
-      
-        
-                $stmt = $db->prepare('select reporting_boundary from events WHERE event_id='.$row['event_id']);
+                $stmt = $db->prepare('select * from events WHERE event_id='.$row['event_id']);
+                $stmt->execute();
+                $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($subrows as $subrow)
+                {
+                    $result = $subrow['reporting_boundary'];                        
+                }
+                $stmt = $db->prepare('select distinct reporting_boundary from events');
                 $stmt->execute();
                 $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($subrows as $subrow)
@@ -135,13 +140,30 @@ $db = get_db();
                     $itemID = $subrow['reporting_boundary'];
                     if ($itemID == 1)
                     {
-                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                        echo '<option value="'.$itemID.'" selected>Yes</option>';
                     }
                     else
                     {
-                        echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        echo '<option value="'.$itemID.'">No</option>';
                     }
                 }
+        
+                // $stmt = $db->prepare('select reporting_boundary from events WHERE event_id='.$row['event_id']);
+                // $stmt->execute();
+                // $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                // foreach ($subrows as $subrow)
+                // {                        
+                //     $item = $subrow['reporting_boundary'];
+                //     $itemID = $subrow['reporting_boundary'];
+                //     if ($itemID == 1)
+                //     {
+                //         echo '<option value="'.$itemID.'" selected>Yes</option>';
+                //     }
+                //     else
+                //     {
+                //         echo '<option value="'.$itemID.'">No</option>';
+                //     }
+                // }
         echo '</select>';
         echo '<br>';
 
