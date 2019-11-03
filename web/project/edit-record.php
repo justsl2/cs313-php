@@ -96,26 +96,7 @@ $db = get_db();
 
         echo '<b>Equipment Type: </b> <br/>';
         echo '<select required name="equipmentID" style="width:200px">';
-                    // $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['equipment_id']);
-                    // $stmt->execute();
-                    // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    // foreach ($rows as $row)
-                    // {
-                    //     $item = $row['equipment_label'];
-                    //     $itemID = $row['equipment_id'];
-                    //     echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
-                    // }
-                    // $stmt = $db->prepare('select * from equipments');
-                    // $stmt->execute();
-                    // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    // foreach ($rows as $row)
-                    // {
-                    //     $item = $row['equipment_label'];
-                    //     $itemID = $row['equipment_id'];
-                    //     echo '<option value="'.$itemID.'">'.$item.'</option>';
-                    // }
-
-                    $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['equipment_id']);
+                    $stmt = $db->prepare('select * from equipments WHERE equipment_id='.$row['reporting_bounda']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($subrows as $subrow)
@@ -143,8 +124,24 @@ $db = get_db();
 
         echo '<b>Within Reporting Boundary?: </b> <br/>';
         echo '<select required name="boundaryID" style="width:200px">';
-        echo '<option value="1" selected>Yes</option>';
-        echo '<option value="0">No</option>';                  
+      
+        
+                $stmt = $db->prepare('select reporting_boundary from events WHERE event_id='.$row['event_id']);
+                $stmt->execute();
+                $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($subrows as $subrow)
+                {                        
+                    $item = $subrow['equipment_label'];
+                    $itemID = $subrow['equipment_id'];
+                    if ($itemID == 1)
+                    {
+                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                    }
+                    else
+                    {
+                        echo '<option value="'.$itemID.'">'.$item.'</option>';
+                    }
+                }
         echo '</select>';
         echo '<br>';
 
