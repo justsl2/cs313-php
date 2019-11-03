@@ -215,6 +215,65 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
        
+        echo '<b>Temperature: </b> <br/><input required type="number" name="temperature" style="width:200px" value='.$row['tempurature'].'><br>';
+
+        echo '<b>Unit of Measure: </b> <br/>';
+        echo '<SELECT required name="tempUOMID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM temperature_uoms WHERE temperature_uom_id='.$row['temperature_uom_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['temperature_uom_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM temperature_uoms');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['temperature_uom_label'];
+                        $itemID = $subrow['temperature_uom_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+        echo '<b>Weather Conditions: </b> <br/>';
+        echo '<SELECT required name="weatherID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM weathers WHERE weather_id='.$row['weather_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['weather_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM weathers');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['weather_label'];
+                        $itemID = $subrow['weather_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
         }
