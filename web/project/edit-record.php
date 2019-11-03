@@ -30,6 +30,7 @@ $db = get_db();
         
         foreach ($rows as $row)
         {  
+        $severity_actual_id = $row['severity_actual_id']
         echo '<form method="post" action="edit-record-confirmation.php">';
         echo '<b>Event ID: </b> <br/>'.$row['event_id'].'<br>';
         echo '<input type="hidden" name="EventID" value='.$row['event_id'].'>';
@@ -40,23 +41,36 @@ $db = get_db();
 
         echo '<b>Actual Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Act" style="width:200px">';
-                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
-                    $stmt->execute();
-                    $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($sevs as $sev)
+                    // $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
+                    // $stmt->execute();
+                    // $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    // foreach ($sevs as $sev)
+                    // {
+                    //     $item = $sev['severity_label'];
+                    //     $itemID = $sev['severity_id'];
+                    //     echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
+                    // }
+                    // $stmt = $db->prepare('select * from severities');
+                    // $stmt->execute();
+                    // $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    // foreach ($sevs as $sev)
+                    // {
+                    //     $item = $sev['severity_label'];
+                    //     $itemID = $sev['severity_id'];
+                    //     echo '<option value="'.$itemID.'">'.$item.'</option>';
+                    // }
+                    $result = mysql_query("SELECT * FROM severities WHERE `severity_id`!='".$severity_actual_id."'");
+                    while ($row = mysql_fetch_array($result))
                     {
-                        $item = $sev['severity_label'];
-                        $itemID = $sev['severity_id'];
-                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
-                    }
-                    $stmt = $db->prepare('select * from severities');
-                    $stmt->execute();
-                    $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($sevs as $sev)
-                    {
-                        $item = $sev['severity_label'];
-                        $itemID = $sev['severity_id'];
-                        echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        if ($_GET['to'] == $row['severity_id'])
+                        {
+                            $selected = 'selected="selected"';
+                        }
+                        else
+                        {
+                        $selected = '';
+                        }
+                        echo('<option value="'.$row['severity_id'].' '.$selected.'">'.$row['severity_label'].'</option>');
                     }
         echo '</select>';
         echo '<br>';
