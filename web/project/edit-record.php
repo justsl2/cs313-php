@@ -498,6 +498,93 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
+        echo '<b>Personnel Type: </b> <br/>';
+        echo '<SELECT required name="personnelTypeID" style="width:200px">';
+                    $sql = "SELECT * from personnel_types join injuries on personnel_types.personnel_type_id = injuries.injured_ill_personnel_type_id   WHERE injuries.injury_id=". $injuryID;
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['personnel_type_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM personnel_types');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['personnel_type_label'];
+                        $itemID = $subrow['personnel_type_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+        echo '<b>Nature of Injury: </b> <br/>';
+        echo '<SELECT required name="injuryNatureID" style="width:200px">';
+                    $sql = "SELECT * from injury_natures join injuries on injury_natures.injury_nature_id = injuries.injury_nature_id WHERE injuries.injury_id=". $injuryID;
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['injury_nature_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM injury_natures');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['injury_nature_label'];
+                        $itemID = $subrow['injury_nature_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+        echo '<b>Primary Body Part Injured: </b> <br/>';
+        echo '<SELECT required name="injuryPrimaryBodyPartID" style="width:200px">';
+                    $sql = "SELECT * from injury_primary_body_parts join injuries on injury_primary_body_parts.injury_primary_body_part_id = injuries.injury_primary_body_part_id WHERE injuries.injury_id=". $injuryID;
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['injury_primary_body_part_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM injury_primary_body_parts');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['injury_primary_body_part_label'];
+                        $itemID = $subrow['injury_primary_body_part_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
         }
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
