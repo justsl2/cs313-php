@@ -95,6 +95,7 @@ echo 'injuryLostDaysStartDate:  '.$injuryLostDaysStartDate.'<br/>';
 
 
 $injsql = "UPDATE public.injuries SET 
+            injury_lost_days=".$injuryLostDays.",
             injury_lost_days_start_date='".$injuryLostDaysStartDate."',
             company_name_id=".$companyNameID.
             " WHERE injury_id=". $injuryID;
