@@ -82,6 +82,7 @@ $injuryLostDays = $_POST['injuryLostDays'];
 $injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
 
 echo 'injuryID:  '.$injuryID.'<br/>';
+echo 'EventID:  '.$EventID.'<br/>';
 echo 'injuryDescription:  '.$injuryDescription.'<br/>';
 echo 'medClassID:  '.$medClassID.'<br/>';
 echo 'workRelated:  '.$workRelated.'<br/>';
