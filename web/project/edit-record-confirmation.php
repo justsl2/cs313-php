@@ -81,6 +81,16 @@ $companyNameID = $_POST['companyNameID'];
 $injuryLostDays = $_POST['injuryLostDays'];
 $injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
 
+echo 'injuryID:  '.$injuryID.'<br/>';
+echo 'injuryDescription:  '.$injuryDescription.'<br/>';
+echo 'medClassID:  '.$medClassID.'<br/>';
+echo 'workRelated:  '.$workRelated.'<br/>';
+echo 'personnelTypeID:  '.$personnelTypeID.'<br/>';
+echo 'injuryNatureID:  '.$injuryNatureID.'<br/>';
+echo 'injuryPrimaryBodyPartID:  '.$injuryPrimaryBodyPartID.'<br/>';
+echo 'companyNameID:  '.$companyNameID.'<br/>';
+echo 'injuryLostDays:  '.$injuryLostDays.'<br/>';
+echo 'injuryLostDaysStartDate:  '.$injuryLostDaysStartDate.'<br/>';
 
 
 $injsql = "UPDATE public.injuries SET 
@@ -96,16 +106,7 @@ $injsql = "UPDATE public.injuries SET
             " WHERE injury_id=". $injuryID;
     $injstmt = $db->prepare($injsql);
     $injstmt->execute();
-    echo 'injuryID:  '.$injuryID.'<br/>';
-    echo 'injuryDescription:  '.$injuryDescription.'<br/>';
-    echo 'medClassID:  '.$medClassID.'<br/>';
-    echo 'workRelated:  '.$workRelated.'<br/>';
-    echo 'personnelTypeID:  '.$personnelTypeID.'<br/>';
-    echo 'injuryNatureID:  '.$injuryNatureID.'<br/>';
-    echo 'injuryPrimaryBodyPartID:  '.$injuryPrimaryBodyPartID.'<br/>';
-    echo 'companyNameID:  '.$companyNameID.'<br/>';
-    echo 'injuryLostDays:  '.$injuryLostDays.'<br/>';
-    echo 'injuryLostDaysStartDate:  '.$injuryLostDaysStartDate.'<br/>';
+
     echo 'Event ID: '.$EventID.' edited successfully';
 
 
