@@ -148,6 +148,7 @@ $db = get_db();
                         $item = "No";
         }
                     $itemID = $subrow['reporting_boundary'];
+                    if ($itemID !=1){$itemID=0;}
                     if ($itemID == $result)
                     {
                         echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
