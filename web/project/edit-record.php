@@ -65,14 +65,14 @@ $db = get_db();
                     $query = 'SELECT severity_id FROM severities WHERE severity_id='.$row['severity_actual_id'];
                     $statement = $db->prepare($query);
                     $result = $statement->execute();
-                    
+                    echo '<option value="'.$result.'">'.$result.'</option>';
 
                     $stmt = $db->prepare('select * from severities');
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
                     {
-                        echo '<option value="'.$result.'">'.$result.'</option>';
+                        
                         $item = $sev['severity_label'];
                         $itemID = $sev['severity_id'];
                         if ($itemID == 2)
