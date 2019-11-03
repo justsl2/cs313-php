@@ -585,6 +585,37 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
+        echo '<b>Company Name of Injured Party: </b> <br/>';
+        echo '<SELECT required name="companyNameID" style="width:200px">';
+                    $sql = "SELECT * from company_names join injuries on company_names.company_name_id = injuries.company_name_id WHERE injuries.injury_id=". $injuryID;
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['company_name_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM company_names');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['company_name_label'];
+                        $itemID = $subrow['company_name_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+        echo '<b>Number of Lost Days (Restricted Duty/DAFW Cases Only): </b> <br/><input required type="number" name="injuryLostDays" style="width:200px" value='.$injury['injury_lost_days'].'><br>';
+        echo '<b>Lost Days Start Date: </b> <br/><input required type="date" name="injuryLostDaysStartDate" style="width:200px" value='.$injury['injury_lost_days_start_date'].'><br>';
         }
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';

@@ -133,7 +133,7 @@
     <h3>Weather/Lighting Details:</h3>
     
     <b>Temperature: </b> <br/>
-    <input required type="number" rows="4" cols="100" name="temperature" style="width:200px"><br/>
+    <input required type="number" name="temperature" style="width:200px"><br/>
     
     <b>Unit of Measure: </b> <br/>
         <select required name="tempUOMID" style="width:200px">
@@ -351,7 +351,7 @@
         </select>
         <br/>
     <b>Number of Lost Days (Restricted Duty/DAFW Cases Only): </b> <br/>
-    <input required type="number" rows="4" cols="100" name="injuryLostDays" style="width:200px"><br/>
+    <input required type="number" name="injuryLostDays" style="width:200px"><br/>
     <b>Date Lost Days Began: (Restricted Duty/DAFW Cases Only)</b> <br/>
     <input required type="date" name="injuryLostDaysStartDate" style="width:200px"><br/>   
     
