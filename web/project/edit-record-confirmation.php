@@ -80,8 +80,8 @@ $injuryPrimaryBodyPartID = $_POST['injuryPrimaryBodyPartID'];
 $companyNameID = $_POST['companyNameID'];
 $injuryLostDays = $_POST['injuryLostDays'];
 $injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
-if ($injuryLostDays == null){$injuryLostDays=0;}
-if ($injuryLostDaysStartDate == null){$injuryLostDaysStartDate="1/1/1900";}
+// if ($injuryLostDays == null){$injuryLostDays=0;}
+// if ($injuryLostDaysStartDate == null){$injuryLostDaysStartDate="1/1/1900";}
 
 echo 'injuryID:  '.$injuryID.'<br/>';
 echo 'EventID:  '.$EventID.'<br/>';
