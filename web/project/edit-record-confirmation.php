@@ -88,10 +88,10 @@ $sql = "UPDATE public.injuries SET
             work_related='".$workRelated."',
             personnel_type_id=".$personnelTypeID.",
             injury_nature_id=".$injuryNatureID.",
-            injury_primary_body_part_id=".$injuryPrimaryBodyPartID.",
-            company_name_id=".$companyNameID.",
+            injury_primary_body_part_id=".$injuryPrimaryBodyPartID.",            
             injury_lost_days='".$injuryLostDays."',
-            injury_lost_days_start_date='".$injuryLostDaysStartDate.
+            injury_lost_days_start_date='".$injuryLostDaysStartDate."',
+            company_name_id=".$companyNameID.
             " WHERE injury_id=". $injuryID;
     $stmt = $db->prepare($sql);
     $stmt->execute();
