@@ -421,6 +421,7 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
+    echo '<h3>Injury Details:</h3>';
         
 
 
