@@ -62,7 +62,7 @@ $db = get_db();
                     
 
 
-                    $query = 'SELECT * FROM severities WHERE severity_id='.$row['severity_actual_id'];
+                    $query = 'SELECT severity_id FROM severities WHERE severity_id='.$row['severity_actual_id'];
                     $statement = $db->prepare($query);
                     $result = $statement->execute();
                     
