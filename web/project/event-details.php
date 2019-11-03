@@ -213,7 +213,7 @@
             $injuryID = $injury['injury_id'];
             //echo '<b>Injury ID:</b>  ' . $injury['injury_id'] .'<br>';
             echo '<b>Injury Description:</b>  ' . $injury['injury_description'] .'<br>';
-            echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';
+            
             //Medical Classifications
             $sql = "select medical_classification_label from medical_classifications join injuries on medical_classifications.medical_classification_id = injuries.medical_classification_id WHERE injuries.injury_id=". $injury['injury_id'];
             $stmt = $db->prepare($sql);
@@ -224,7 +224,7 @@
                 echo '<b>Medical Classification:</b>  ' . $medical_classification['medical_classification_label'] .'<br>';
             }
             //Work Related
-             echo '<b>Work Related?:</b>  ' . var_export($row['work_related'], True) . '<br>';        
+            echo '<b>Work Related?:</b>  ' . var_export($injury['work_related'], True) . '<br>';  
             //Personnel Type
             $sql = "select personnel_type_label from personnel_types join injuries on personnel_types.personnel_type_id = injuries.injured_ill_personnel_type_id   WHERE injuries.injury_id=". $injury['injury_id'];
             $stmt = $db->prepare($sql);
