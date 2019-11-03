@@ -67,7 +67,7 @@ $db = get_db();
 
                         $item = $sev['severity_label'];
                         $itemID = $sev['severity_id'];
-                        if (2 == $row['severity_id'])
+                        if ($itemID == 3)
                         {
                             $selected = 'selected="selected"';
                         }
