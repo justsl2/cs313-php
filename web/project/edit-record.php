@@ -303,7 +303,7 @@ $db = get_db();
         echo '<br>';
 
         echo '<b>Type of Operation At Time of Event: </b> <br/>';
-        echo '<SELECT required name="operationID" style="width:200px">';
+        echo '<SELECT required name="operationID" style="width:300px">';
                     $stmt = $db->prepare('SELECT * FROM operation_types WHERE operation_type_id='.$row['operation_type_id']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -332,7 +332,7 @@ $db = get_db();
 
         
         echo '<b>Type of Activity At Time of Event: </b> <br/>';
-        echo '<SELECT required name="activityID" style="width:200px">';
+        echo '<SELECT required name="activityID" style="width:300px">';
                     $stmt = $db->prepare('SELECT * FROM activity_types WHERE activity_type_id='.$row['activity_type_id']);
                     $stmt->execute();
                     $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
