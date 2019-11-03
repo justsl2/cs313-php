@@ -59,8 +59,13 @@ $db = get_db();
                     //     $itemID = $sev['severity_id'];
                     //     echo '<option value="'.$itemID.'">'.$item.'</option>';
                     // }
-                    $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
-                    $result = $stmt->execute();
+                    
+
+
+                    $query = 'SELECT * FROM severities WHERE severity_id='.$row['severity_actual_id'];
+                    $statement = $db->prepare($query);
+                    $statement->bindValue(':username', $username);
+                    $result = $statement->execute();
                     echo $result;
 
                     $stmt = $db->prepare('select * from severities');
