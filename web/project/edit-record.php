@@ -61,6 +61,7 @@ $db = get_db();
                     // }
                     $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_actual_id']);
                     $result = $stmt->execute();
+                    echo $result;
 
                     $stmt = $db->prepare('select * from severities');
                     $stmt->execute();
