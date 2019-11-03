@@ -45,18 +45,18 @@ $db = get_db();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
                     {
-                        $severity = $sev['severity_label'];
-                        $severityID = $sev['severity_id'];
-                        echo '<option value="'.$severityID.'" selected>'.$severity.'</option>';
+                        $item = $sev['severity_label'];
+                        $itemID = $sev['severity_id'];
+                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
                     }
                     $stmt = $db->prepare('select * from severities');
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
                     {
-                        $severity = $sev['severity_label'];
-                        $severityID = $sev['severity_id'];
-                        echo '<option value="'.$severityID.'">'.$severity.'</option>';
+                        $item = $sev['severity_label'];
+                        $itemID = $sev['severity_id'];
+                        echo '<option value="'.$itemID.'">'.$item.'</option>';
                     }
         echo '</select>';
         echo '<br>';
@@ -64,35 +64,23 @@ $db = get_db();
         echo '<b>Probable Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Prob" style="width:200px">';
         echo '<option value="">Select Client</option>';
-        /*($s="SELECT * FROM severities WHERE severity_id=".$row['severity_probable_id'];
-        $q=mysql_query($s) or die($s);
-        while($rw=mysql_fetch_array($q))
-        { 
-            $item = $rw['severity_label'];
-            $itemID = $rw['severity_id'];
-            ?>
-            <option value="<?php echo $itemID; ?>"<?php if($row['severity_probable_id']==$itemID) echo 'selected="selected"'; ?>><?php $item ?><?php echo $itemID; ?></option>
-            <?php 
-        }
-        echo '</select>';*/
-        
                     $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_probable_id']);
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
                     {
-                        $severity = $sev['severity_label'];
-                        $severityID = $sev['severity_id'];
-                        echo '<option value="'.$severityID.'" selected>'.$severity.'</option>';
+                        $item = $sev['severity_label'];
+                        $itemID = $sev['severity_id'];
+                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
                     }
                     $stmt = $db->prepare('select * from severities');
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
                     {
-                        $severity = $sev['severity_label'];
-                        $severityID = $sev['severity_id'];
-                        echo '<option value="'.$severityID.'">'.$severity.'</option>';
+                        $item = $sev['severity_label'];
+                        $itemID = $sev['severity_id'];
+                        echo '<option value="'.$itemID.'" >'.$item.'</option>';
                            
                     }
         echo '</select>';
