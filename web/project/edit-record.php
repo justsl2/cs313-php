@@ -32,6 +32,7 @@ $db = get_db();
         {  
         $temperature = $row['temperature'];
         echo '<form method="post" action="edit-record-confirmation.php">';
+    echo '<h3>Event Details:</h3>';
         echo '<b>Event ID: </b> <br/>'.$row['event_id'].'<br>';
         echo '<input type="hidden" name="EventID" value='.$row['event_id'].'>';
         echo '<b>Date Event Occurred: </b> <br/><input required type="date" name="dateOccurred" style="width:200px" value='.$row['date_occurred'].'><br>';
@@ -160,6 +161,7 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
+    echo '<h3>Organization Details:</h3>';
         echo '<b>Site: </b> <br/>';
         echo '<SELECT required name="siteID" style="width:200px">';
                     $stmt = $db->prepare('SELECT * FROM sites WHERE site_id='.$row['site_id']);
@@ -216,6 +218,8 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
        
+
+    echo '<h3>Weather/Lighting Details:</h3>';
         echo '<b>Temperature: </b> <br/><input required type="number" name="temperature" style="width:200px" value='.$temperature.'><br>';
 
         echo '<b>Unit of Measure: </b> <br/>';
@@ -302,6 +306,7 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
+    echo '<h3>Operation/Activity Type Details:</h3>';
         echo '<b>Type of Operation At Time of Event: </b> <br/>';
         echo '<SELECT required name="operationID" style="width:300px">';
                     $stmt = $db->prepare('SELECT * FROM operation_types WHERE operation_type_id='.$row['operation_type_id']);
@@ -359,7 +364,7 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
         
-        echo '<h3>Responsibility Details:</h3>';
+    echo '<h3>Responsibility Details:</h3>';
         echo '<b>Reported By: </b> <br/>';
         echo '<SELECT required name="reportedID" style="width:200px">';
                     $stmt = $db->prepare('SELECT * FROM users WHERE user_id='.$row['reported_by_id']);
