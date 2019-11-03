@@ -108,6 +108,8 @@ $injsql = "UPDATE public.injuries SET
             company_name_id=".$companyNameID.
             " WHERE injury_id=". $injuryID;
     $injstmt = $db->prepare($injsql);
+    $injstmt->bindValue(':injuryLostDays',$injuryLostDays);
+    $injstmt->bindValue(':injuryLostDaysStartDate',$injuryLostDaysStartDate);
     $injstmt->execute();
 
     echo 'Event ID: '.$EventID.' edited successfully';
