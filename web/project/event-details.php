@@ -43,8 +43,6 @@
         {
             $reportingBoundary = "No";
         }
-        echo $reportingBoundary;
-    
 
         echo '<p>';
         echo '<b>Event ID:</b>  '. $row['event_id'].'<br>';

@@ -45,7 +45,7 @@
             {
                 $reportingBoundary = "No";
             }
-            echo $reportingBoundary;
+            
             echo '<p>';
             echo '<b>EventID:</b>  ';
             echo '<a href="event-details.php?event_id=' . $row['event_id'] . '">'. $row['event_id'].'</a><br>';
