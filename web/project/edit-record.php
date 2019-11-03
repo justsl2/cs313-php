@@ -274,6 +274,120 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
 
+        echo '<b>Lighting Conditions: </b> <br/>';
+        echo '<SELECT required name="lightingID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM lightings WHERE lighting_id='.$row['lighting_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['lighting_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM lightings');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['lighting_label'];
+                        $itemID = $subrow['lighting_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+        echo '<b>Type of Operation At Time of Event: </b> <br/>';
+        echo '<SELECT required name="operationID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM operation_types WHERE operation_type_id='.$row['operation_type_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['operation_type_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM operation_types');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['operation_type_label'];
+                        $itemID = $subrow['operation_type_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
+        
+        echo '<b>Type of Activity At Time of Event: </b> <br/>';
+        echo '<SELECT required name="activityID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM activity_types WHERE activity_type_id='.$row['activity_type_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['activity_type_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM activity_types');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['activity_type_label'];
+                        $itemID = $subrow['activity_type_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+        
+        echo '<h3>Responsibility Details:</h3>';
+        echo '<b>Reported By: </b> <br/>';
+        echo '<SELECT required name="reportedID" style="width:200px">';
+                    $stmt = $db->prepare('SELECT * FROM users WHERE user_id='.$row['reported_by_id']);
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {
+                        $result = $subrow['user_id'];                        
+                    }
+                    $stmt = $db->prepare('SELECT * FROM users');
+                    $stmt->execute();
+                    $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($subrows as $subrow)
+                    {                        
+                        $item = $subrow['user_name_last'].', '. $subrow['user_name_first'];
+                        $itemID = $subrow['user_id'];
+                        if ($itemID == $result)
+                        {
+                            echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                        }
+                        else
+                        {
+                            echo '<option value="'.$itemID.'">'.$item.'</option>';
+                        }
+                    }
+        echo '</SELECT>';
+        echo '<br>';
+
 
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
