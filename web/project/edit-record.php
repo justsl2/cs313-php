@@ -136,7 +136,7 @@ $db = get_db();
                 $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($subrows as $subrow)
                 {                        
-                    $item = $row['reporting_boundary'];
+                    $item = $subrow['reporting_boundary'];
                     if ($item == 1)
                     {
                         $item = "Yes";
