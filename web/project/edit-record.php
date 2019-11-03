@@ -92,18 +92,18 @@ $db = get_db();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($rows as $row)
                     {
-                        $equipment = $row['equipment_label'];
-                        $equipmentID = $row['equipment_id'];
-                        echo '<option value="'.$equipmentID.'" selected>'.$equipment.'</option>';
+                        $item = $row['equipment_label'];
+                        $itemID = $row['equipment_id'];
+                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
                     }
                     $stmt = $db->prepare('select * from equipments');
                     $stmt->execute();
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($rows as $row)
                     {
-                        $equipment = $row['equipment_label'];
-                        $equipmentID = $row['equipment_id'];
-                        echo '<option value="'.$equipmentID.'">'.$equipment.'</option>';
+                        $item = $row['equipment_label'];
+                        $itemID = $row['equipment_id'];
+                        echo '<option value="'.$itemID.'">'.$item.'</option>';
                     }
         echo '</select>';
         echo '<br>';
