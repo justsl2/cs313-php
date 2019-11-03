@@ -31,7 +31,6 @@ $db = get_db();
         foreach ($rows as $row)
         {  
         $temperature = $row['temperature'];
-        echo $temperature;
         echo '<form method="post" action="edit-record-confirmation.php">';
         echo '<b>Event ID: </b> <br/>'.$row['event_id'].'<br>';
         echo '<input type="hidden" name="EventID" value='.$row['event_id'].'>';
@@ -217,7 +216,7 @@ $db = get_db();
         echo '</SELECT>';
         echo '<br>';
        
-        echo '<b>Temperature: </b> <br/><input required type="number" name="temperature" style="width:200px" value='.$row['tempurature'].'><br>';
+        echo '<b>Temperature: </b> <br/><input required type="number" name="temperature" style="width:200px" value='.$temperature.'><br>';
 
         echo '<b>Unit of Measure: </b> <br/>';
         echo '<SELECT required name="tempUOMID" style="width:200px">';
