@@ -455,6 +455,7 @@ $db = get_db();
                         $item = "No";
         }
                     $itemID = $subrow['work_related'];
+                    if ($itemID !=1){$itemID=0;}
                     if ($itemID == $result)
                     {
                         echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
