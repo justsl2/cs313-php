@@ -63,6 +63,15 @@ $db = get_db();
 
         echo '<b>Probable Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Prob" style="width:200px">';
+        $s="SELECT * FROM severities WHERE severity_id=".$row['severity_probable_id'];
+        $q=mysql_query($s) or die($s);
+        while($rw=mysql_fetch_array($q))
+        { 
+            ?>
+            <option value="<?php echo $rw['severity_id']; ?>"<?php if($row['severity_probable_id']==$rw['severity_id']) echo 'selected="selected"'; ?>><?php echo $rw['severity_id']; ?></option>
+            <?php 
+        }
+        /*
                     $stmt = $db->prepare('select * from severities WHERE severity_id='.$row['severity_probable_id']);
                     $stmt->execute();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +89,8 @@ $db = get_db();
                         $severity = $sev['severity_label'];
                         $severityID = $sev['severity_id'];
                         echo '<option value="'.$severityID.'">'.$severity.'</option>';
-                    }
+                           
+                    }*/
         echo '</select>';
         echo '<br>';
 
