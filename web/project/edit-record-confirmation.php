@@ -80,6 +80,16 @@ $injuryPrimaryBodyPartID = $_POST['injuryPrimaryBodyPartID'];
 $companyNameID = $_POST['companyNameID'];
 $injuryLostDays = $_POST['injuryLostDays'];
 $injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
+echo 'injuryID:  '.$injuryID;
+echo 'injuryDescription:  '.$injuryDescription;
+echo 'medClassID:  '.$medClassID;
+echo 'workRelated:  '.$workRelated;
+echo 'personnelTypeID:  '.$personnelTypeID;
+echo 'injuryNatureID:  '.$injuryNatureID;
+echo 'injuryPrimaryBodyPartID:  '.$injuryPrimaryBodyPartID;
+echo 'companyNameID:  '.$companyNameID;
+echo 'injuryLostDays:  '.$injuryLostDays;
+echo 'injuryLostDaysStartDate:  '.$injuryLostDaysStartDate;
 
 
 $sql = "UPDATE public.injuries SET 
