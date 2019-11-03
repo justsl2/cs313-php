@@ -136,34 +136,26 @@ $db = get_db();
                 $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($subrows as $subrow)
                 {                        
-                    $item = $subrow['reporting_boundary'];
-                    $itemID = $subrow['reporting_boundary'];
-                    if ($itemID == 1)
+                    $item = $row['reporting_boundary'];
+                    if ($item == 1)
                     {
-                        echo '<option value="1" selected>Yes</option>';
+                        $item = "Yes";
                     }
                     else
                     {
-                        echo '<option value="0">No</option>';
+                        $item = "No";
+        }
+                    $itemID = $subrow['reporting_boundary'];
+                    if ($itemID == $result)
+                    {
+                        echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
                     }
-                }
-        
-                // $stmt = $db->prepare('select reporting_boundary from events WHERE event_id='.$row['event_id']);
-                // $stmt->execute();
-                // $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                // foreach ($subrows as $subrow)
-                // {                        
-                //     $item = $subrow['reporting_boundary'];
-                //     $itemID = $subrow['reporting_boundary'];
-                //     if ($itemID == 1)
-                //     {
-                //         echo '<option value="'.$itemID.'" selected>Yes</option>';
-                //     }
-                //     else
-                //     {
-                //         echo '<option value="'.$itemID.'">No</option>';
-                //     }
-                // }
+                    else
+                    {
+                        echo '<option value="'.$itemID.'">'.$item.'</option>';
+                    }
+                } 
+
         echo '</select>';
         echo '<br>';
 
