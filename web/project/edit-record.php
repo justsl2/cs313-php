@@ -75,7 +75,7 @@ $db = get_db();
                         
                         $item = $sev['severity_label'];
                         $itemID = $sev['severity_id'];
-                        if ($itemID == 2)
+                        if ($itemID == $result)
                         {
                             echo '<option value="'.$itemID.'" selected>'.$item.'</option>';
                         }
