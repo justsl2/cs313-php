@@ -63,7 +63,7 @@ $db = get_db();
 
         echo '<b>Probable Severity of Event: </b> <br/>';
         echo '<select required name="severityID_Prob" style="width:200px">';
-        echo '<option value="">';
+        echo '<option value="">Select Client</option>';
         $s="SELECT * FROM severities WHERE severity_id=".$row['severity_probable_id'];
         $q=mysql_query($s) or die($s);
         while($rw=mysql_fetch_array($q))
