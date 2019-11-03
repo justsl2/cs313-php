@@ -203,9 +203,8 @@
         //Injury Details
         echo '<h3>Injury Details:</h3>';
         //Injuries
-        $sql = "select * from injuries join events on injuries.event_id = events.event_id WHERE events.event_id=:event_id";
+        $sql = "select * from injuries join events on injuries.event_id = events.event_id WHERE events.event_id=".$EventID;
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':event_id', $_GET['event_id'], PDO::PARAM_INT);
         $stmt->execute();
         $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($injuries as $injury)

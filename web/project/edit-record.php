@@ -428,8 +428,45 @@ $db = get_db();
         $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
         foreach ($injuries as $injury)
         {
+        $injuryID = $injury['injury_id'];
         echo '<b>Injury Description: </b> <br/><textarea required name="injuryDescription" rows="2" cols="70">'.$injury['injury_description'].'</textarea><br>';  
+        
+        echo '<b>Work Related?: </b> <br/>';
+        echo '<SELECT required name="workID" style="width:200px">';
+                $stmt = $db->prepare("SELECT * FROM injuries WHERE injury_id=".$injuryID);
+                $stmt->execute();
+                $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($subrows as $subrow)
+                {
+                    $result = $subrow['work_related'];                        
+                }
+                $stmt = $db->prepare('SELECT distinct work_related FROM injuries');
+                $stmt->execute();
+                $subrows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($subrows as $subrow)
+                {                        
+                    $item = $subrow['work_related'];
+                    if ($item == 1)
+                    {
+                        $item = "Yes";
+                    }
+                    else
+                    {
+                        $item = "No";
+        }
+                    $itemID = $subrow['work_related'];
+                    if ($itemID == $result)
+                    {
+                        echo '<option value="'.$itemID.'" SELECTed>'.$item.'</option>';
+                    }
+                    else
+                    {
+                        echo '<option value="'.$itemID.'">'.$item.'</option>';
+                    }
+                } 
 
+        echo '</SELECT>';
+        echo '<br>';
 
         }
         echo '<input type="submit" value="Submit Update" class="button">';
