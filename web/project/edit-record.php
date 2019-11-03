@@ -30,7 +30,7 @@ $db = get_db();
         
         foreach ($rows as $row)
         {  
-        $temperature = $row['temperatur'];
+        $temperature = $row['temperature'];
         echo $temperature;
         echo '<form method="post" action="edit-record-confirmation.php">';
         echo '<b>Event ID: </b> <br/>'.$row['event_id'].'<br>';
