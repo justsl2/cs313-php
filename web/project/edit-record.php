@@ -64,6 +64,8 @@ $db = get_db();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
                     {
+                        $item = $sev['severity_label'];
+                        $itemID = $sev['severity_id'];
                         if ($_GET['to'] == $row['severity_id'])
                         {
                             $selected = 'selected="selected"';
@@ -72,7 +74,7 @@ $db = get_db();
                         {
                         $selected = '';
                         }
-                        echo('<option value="'.$row['severity_id'].' '.$selected.'">'.$row['severity_label'].'</option>');
+                        echo('<option value="'.$itemID.' '.$selected.'">'.$item.'</option>');
                     }
         echo '</select>';
         echo '<br>';
