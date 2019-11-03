@@ -72,7 +72,7 @@ $db = get_db();
                     $sevs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($sevs as $sev)
                     {
-                        // echo '<option value="'.$result.'">'.$result.'</option>';
+                        echo '<option value="'.$result.'">'.$result.'</option>';
                         $item = $sev['severity_label'];
                         $itemID = $sev['severity_id'];
                         if ($itemID == $result)
