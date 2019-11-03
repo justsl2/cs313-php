@@ -83,17 +83,17 @@ $injuryLostDaysStartDate = $_POST['injuryLostDaysStartDate'];
 if ($injuryLostDays == null){$injuryLostDays=0;}
 if ($injuryLostDaysStartDate == null){$injuryLostDaysStartDate="1/1/1900";}
 
-echo 'injuryID:  '.$injuryID.'<br/>';
-echo 'EventID:  '.$EventID.'<br/>';
-echo 'injuryDescription:  '.$injuryDescription.'<br/>';
-echo 'medClassID:  '.$medClassID.'<br/>';
-echo 'workRelated:  '.$workRelated.'<br/>';
-echo 'personnelTypeID:  '.$personnelTypeID.'<br/>';
-echo 'injuryNatureID:  '.$injuryNatureID.'<br/>';
-echo 'injuryPrimaryBodyPartID:  '.$injuryPrimaryBodyPartID.'<br/>';
-echo 'companyNameID:  '.$companyNameID.'<br/>';
-echo 'injuryLostDays:  '.$injuryLostDays.'<br/>';
-echo 'injuryLostDaysStartDate:  '.$injuryLostDaysStartDate.'<br/>';
+// echo 'injuryID:  '.$injuryID.'<br/>';
+// echo 'EventID:  '.$EventID.'<br/>';
+// echo 'injuryDescription:  '.$injuryDescription.'<br/>';
+// echo 'medClassID:  '.$medClassID.'<br/>';
+// echo 'workRelated:  '.$workRelated.'<br/>';
+// echo 'personnelTypeID:  '.$personnelTypeID.'<br/>';
+// echo 'injuryNatureID:  '.$injuryNatureID.'<br/>';
+// echo 'injuryPrimaryBodyPartID:  '.$injuryPrimaryBodyPartID.'<br/>';
+// echo 'companyNameID:  '.$companyNameID.'<br/>';
+// echo 'injuryLostDays:  '.$injuryLostDays.'<br/>';
+// echo 'injuryLostDaysStartDate:  '.$injuryLostDaysStartDate.'<br/>';
 
 
 $injsql = "UPDATE public.injuries SET 
