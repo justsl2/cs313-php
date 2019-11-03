@@ -140,11 +140,11 @@ $db = get_db();
                     $itemID = $subrow['reporting_boundary'];
                     if ($itemID == 1)
                     {
-                        echo '<option value="'.$itemID.'" selected>Yes</option>';
+                        echo '<option value="1" selected>Yes</option>';
                     }
                     else
                     {
-                        echo '<option value="'.$itemID.'">No</option>';
+                        echo '<option value="0">No</option>';
                     }
                 }
         
