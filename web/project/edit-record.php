@@ -422,9 +422,16 @@ $db = get_db();
         echo '<br>';
 
     echo '<h3>Injury Details:</h3>';
-        
+        $sql = "select * from injuries join events on injuries.event_id = events.event_id WHERE events.event_id=".$EventID;
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $injuries = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+        foreach ($injuries as $injury)
+        {
+        echo '<b>Injury Description: </b> <br/><textarea required name="injuryDescription" rows="2" cols="70">'.$injury['injury_description'].'</textarea><br>';  
 
 
+        }
         echo '<input type="submit" value="Submit Update" class="button">';
         echo '</form>';
         }
