@@ -18,6 +18,6 @@
         <a class="active" href="search.php">Search</a>
     </div>
     <h2>Home</h2>
-    Coming Soon
+    Welcome to the Incident Management System.  Please use the menu at the top to navigate.
     </body>
 </html>
