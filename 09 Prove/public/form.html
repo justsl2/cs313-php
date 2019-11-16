@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Postage Form</title>
+</head>
+<body>
+	<h1>PostageForm</h1>
+	<form action="/calculateprice" method="get">
+		<input type="text" name="weight" >
+		<select name="mail_type">
+			<option value='stamped'>Letters (stamped)</option>
+			<option value='metered'>Letters (metered)</option>
+			<option value='envelopes'>Large Envelopes (flats)</option>
+			<option value='package'>First-Class Package Service-Retail</option>
+		</select>
+
+
+		<br><br>
+		<input type="submit" value="Get Price">
+
+	</form>
+</body>
+</html>
