@@ -19,7 +19,9 @@
     </div>
     <h2>Search</h2>
     <form>
-        Event ID: <input type="number" name="eventID" value=1001 >
+        Search by Event ID: <input type="number" name="eventID" value=1001 >
+        OR
+        Search by Date Range: <input type="date" name="startDate"><input type="date" name="endDate">
         <input type="submit" value="Search Event ID" class="button">
     </form>
     
